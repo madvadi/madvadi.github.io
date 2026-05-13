@@ -12,6 +12,7 @@ For the pressure there are a
 The results are:
 
 ![Results](plots/DataVnV.png)
+
 *Figure 1: Ux data over 20 iterations.*
 
 For the sake of verification, 4 probes where placed at locations along the vertical line in the centre of the cavity (x = 0.5 m) to measure the change in velocity and pressure.
@@ -34,3 +35,5 @@ The data in Figure 2 and 3 shows that the Velocities and Pressure converage in a
 ![Pressure Residuals](plots/Residual_of_Pressure.png)
 
 *Figure 5: Pressure residual over 20 iterations.*
+
+Convergance Mesh... to be continue
