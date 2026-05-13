@@ -19,18 +19,18 @@ Probe 1: y = 0.0 (m), Probe 2: y = 0.25 (m), Probe 3: y = 0.5 (m), Probe 4: y = 
 
 The data in Figure 2 and 3 shows that the Velocities and Pressure converage in a value. The residuals for both velocity and pressure also drop down several orders of magnitude, supporting the case that the simulation has convergence as can be seen in Figures 4 and 5.
 
-![Velocity X Results][plots/Velocity_Probes.png]
+![Velocity X Results](plots/Velocity_Probes.png)
 
 *Figure 2: Velocity X Probes data at 4 probes over 20 iterations.*
 
-![Pressure Results][plots/Pressure_Probes.png]
+![Pressure Results](plots/Pressure_Probes.png)
 
 *Figure 3: Pressure Probes data at 4 probes over 20 iterations.*
 
-![Velocity X Residuals][plots/residuals_for_u.png]
+![Velocity X Residuals](plots/residuals_for_u.png)
 
 *Figure 4: Velocity X residual over 20 iterations.*
 
-![Pressure Residuals][plots/Residual_of_Pressure.png]
+![Pressure Residuals](plots/Residual_of_Pressure.png)
 
 *Figure 5: Pressure residual over 20 iterations.*
