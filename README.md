@@ -8,4 +8,5 @@ To verfificate and validate my own CFD skills in setting up, running, and post-p
 The model is a 2D square cavity, of unit dimensions (1m x 1m), with a Newtonian fluid having a lid being.
 The goal is to see the velocity porfile is at half way along the unit cavity with a Reynolds number of 100 with a grid size, 128 x 128,  and vadliate the results agaist my source.
 The results are: 
-
+![Results](plots/DataVnV.png)
+*Figure 1: Pressure stabilization over 20 iterations.*
