@@ -48,6 +48,11 @@ The data in Figure 3 and 4 shows that the Velocities and Pressure converage in a
 
 *Figure 7: Convergance Mesh comparing 129 x129, 258 x 258, and 516 x 516 grid sizes.*
 
+Mesh Resolution,Total Cells,"Max Ux​ (at x=0.5,y=0.5)",% Change from Previous
+129 x 129,"16,641",-0.2105,—
+258 x 258,"66,564",-0.2108,0.14%
+516 x 516,"266,256",-0.2109,0.04%
+
 In Figure 7,shows that the results from all levels of refinement do not change significantly at all.
 
 Conclusion 
