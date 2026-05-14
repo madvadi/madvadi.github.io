@@ -45,3 +45,10 @@ The data in Figure 3 and 4 shows that the Velocities and Pressure converage in a
 *Figure 6: Pressure residual over 20 iterations.*
 
 Convergance Mesh... to be continue
+
+
+In Figure 7, we can see that are results at each leve of refinement, do not change more than 0.001%.
+
+Conclusion 
+
+From the results, we can see that the results from the Lid-Cavity simulation have been verificated and validated agaist Ghia et al. 1982 paper for a Reynolds number of 100.
