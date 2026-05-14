@@ -44,7 +44,7 @@ The data in Figure 3 and 4 shows that the Velocities and Pressure converage in a
 
 *Figure 6: Pressure residual over 20 iterations.*
 
-![Convergance Mesh](plots/MeshConv.png)
+![Convergance Mesh](plots/ConvMesh.png)
 
 *Figure 7: Convergance Mesh comparing 129 x129, 258 x 258, and 516 x 516 grid sizes.*
 
