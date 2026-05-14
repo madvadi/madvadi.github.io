@@ -44,10 +44,11 @@ The data in Figure 3 and 4 shows that the Velocities and Pressure converage in a
 
 *Figure 6: Pressure residual over 20 iterations.*
 
-Convergance Mesh... to be continue
+![Pressure Residuals](plots/MeshConv.png)
 
+*Figure 7: Convergance Mesh comparing 129 x129, 258 x 258, and 516 x 516 grid sizes.*
 
-In Figure 7, we can see that are results at each leve of refinement, do not change more than 0.001%.
+In Figure 7,shows that the results from all levels of refinement do not change significantly at all.
 
 Conclusion 
 
