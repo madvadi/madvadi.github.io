@@ -52,9 +52,9 @@ In Figure 7,shows that the results from all levels of refinement do not change s
 
 | Mesh Resolution | Total Cells | Max $U_x$ | % Change |
 | :--- | :--- | :--- | :--- |
-| 129 x 129 | 16,641 | -0.216195 | — |
-| 258 x 258 | 66,564 | -0.217195 | 0.463% |
-| 516 x 516 | 266,256 | -0.215817 | 0.175% |
+| 129 x 129 | 16,641 | -0.216 | — |
+| 258 x 258 | 66,564 | -0.217 | 0.463% |
+| 516 x 516 | 266,256 | -0.216 | 0.175% |
 
 *Table 1, Convergance Mesh error when refined results are compared with the 129 x 129 mesh results.*
 
