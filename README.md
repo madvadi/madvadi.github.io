@@ -15,7 +15,7 @@ The results compared with the vadlidation data in Ghia et al,1982 are presented 
 
 ![Results](plots/DataVnV.png)
 
-*Figure 1: Comparison of normalized horizontal velocity ($U_x$) along the vertical centerline ($x=0.5$) against Ghia et al. (1982) benchmark data.*
+*Figure 1: Comparison of normalized horizontal velocity (Ux) along the vertical centerline (x=0.5) against Ghia et al. (1982) benchmark data.*
 
 For the sake of verification, 4 probes where placed at locations along the vertical line in the centre of the cavity (x = 0.5 m) to measure the change in velocity and pressure.
 Probe 1: y = 0.0 (m), Probe 2: y = 0.25 (m), Probe 3: y = 0.5 (m), Probe 4: y = 0.75 (m).
