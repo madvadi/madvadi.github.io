@@ -67,7 +67,9 @@ Subsonic Turbulent Boundary Layer over a Flate Plate with a Compressible Pressur
 If I wish study a simulation that has transonic flow, i.e. going from subsonic to supersonic as in CD nozzle, and it is important that the boundary layer features are captured at each stage of the flow. In order to better understand turbulent models, and where to use them, I produced 2 zero pressure gradient flate plate simulations in compressible, subsonic, turbulent flow using the k-omega SST and Spalart-Allmaras.
 Nasa Turbulent Modelling Resource provides a validation case for my simulation to be compared agaist, which can be found at https://tmbwg.github.io/turbmodels/flatplate_val.html.
 
-The baseline mesh that is used is a 120 by 40 grid size with the boundary conditions, as seen in Figure 8.
+The baseline mesh that is used is a 175 by 90 grid size with the boundary conditions, as seen in Figure 8.
 
+![Flate Plate Mesh](plots/Mesh_N_BC.png)
+*Figure 8: Mesh with 175 x 90 and the boundary conditions.*
 
 For these turbulents models, it is important that the mesh near the wall is under y+ = 1 in order to use the wall enhanced functions. Using the calcualted value of y coordiante for y+ = 1, I used a simple gradient ratio for bunching up the nodes along the y axises untitle they are within the boundary layer.
