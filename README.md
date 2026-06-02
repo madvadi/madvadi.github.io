@@ -64,7 +64,7 @@ From the results, we can see that the results from the Lid-Cavity simulation hav
 
 Subsonic Turbulent Boundary Layer over a Flate Plate with a Compressible Pressure Solver
 
-If I wish study a simulation that has transonic flow, i.e. going from subsonic to supersonic as in CD nozzle, and it is important that the boundary layer features are captured at each stage of the flow. In order to better understand turbulent models, and where to use them, I produced 2 zero pressure gradient flate plate simulations in compressible, subsonic, turbulent flow using the k-omega SST and Spalart-Allmaras.
+I produced 2 zero pressure gradient flate plate simulations in compressible, subsonic, turbulent flow using the k-omega SST and Spalart-Allmaras.
 Nasa Turbulent Modelling Resource provides a validation case for my simulation to be compared agaist, which can be found at https://tmbwg.github.io/turbmodels/flatplate_val.html.
 
 The baseline mesh that is used is a 175 by 90 grid size with the boundary conditions, as seen in Figure 8.
