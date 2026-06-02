@@ -69,7 +69,7 @@ Nasa Turbulent Modelling Resource provides a validation case for my simulation t
 
 The baseline mesh that is used is a 175 by 90 grid size with the boundary conditions, as seen in Figure 8.
 
-![Flate Plate Mesh](plots/Mesh_N_BC.png)
+![Flate Plate Mesh](plots/Mesh_N_BCs.png)
 *Figure 8: Mesh with 175 x 90 and the boundary conditions.*
 
 For these turbulents models, it is important that the mesh near the wall is under y+ = 1 in order to use the wall enhanced functions. Using the calcualted value of y coordiante for y+ = 1, I used a simple gradient ratio for bunching up the nodes along the y axises untitle they are within the boundary layer.
