@@ -74,4 +74,6 @@ The baseline mesh that is used is a 175 by 90 grid size with the boundary condit
 
 For these turbulents models, it is important that the mesh near the wall is under y+ = 1 in order to resolve the visous sub-layer. Using the calcualted value of y coordiante for y+ = 1, I used a simple gradient ratio for bunching up the nodes along the y axis.
 
-For the Spalart-Allmaras model, I used set the inlet for nuTilda = 3*nu, nuTilda = 4.7e-05 meters^2 per seconds and nut = 0.
+For the Spalart-Allmaras model, I used set the inlet for nuTilda = 3*nu, nuTilda = 4.7e-05 meters^2 per seconds and nut = 0. The GCI error from all 3 meshes is calculated to be 1.7%.
+
+For the k-$\Omega$ SST model, .... The GCI error from all 3 meshes is calculated to be ...
