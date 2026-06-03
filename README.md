@@ -30,19 +30,19 @@ The data in Figure 3 and 4 shows that the Velocities and Pressure converage in a
 
 ![Velocity X Results](plots/Velocity_Probes.png)
 
-*Figure 3: Velocity X Probes data at 4 probes over 40000 iterations.*
+*Figure 3: Velocity X Probes data at 4 probes over 4000 iterations.*
 
 ![Pressure Results](plots/Pressure_Probes.png)
 
-*Figure 4: Pressure Probes data at 4 probes over 40000 iterations.*
+*Figure 4: Pressure Probes data at 4 probes over 4000 iterations.*
 
 ![Velocity X Residuals](plots/residuals_for_u.png)
 
-*Figure 5: Velocity X residual over 40000 iterations.*
+*Figure 5: Velocity X residual over 4000 iterations.*
 
 ![Pressure Residuals](plots/Residual_of_Pressure.png)
 
-*Figure 6: Pressure residual over 40000 iterations.*
+*Figure 6: Pressure residual over 4000 iterations.*
 
 ![Convergance Mesh](plots/ConvMesh.png)
 
