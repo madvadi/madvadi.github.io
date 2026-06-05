@@ -1,40 +1,40 @@
 # madvadi.github.io
 # Portfolio of Cenk Tekin CFD Projects
 
-Introduction: This is a presentation of a number of CFD projects, in which, I've be using to keep my skills up to date with advance in OpenFOAM 13 and CFD in general.
+Introduction: This is a presentation of a number of CFD projects that I have been using to keep my skills up to date with advancements in OpenFOAM 13 and CFD in general.
 
-## Lid-cavity Demostration
-To verfificate and validate my own CFD skills in setting up, running, and post-processing the results, I had a go at creating a simulation which I can easily validate agaist well estabished results from Ghia, Ghia, and Shin, 1982.
-The model is a 2D square cavity, of unit dimensions (1m x 1m), with a Newtonian fluid having a lid being.
-The goal is to see the velocity porfile is at half way along the unit cavity with a Reynolds number of 100 with a base line mesh of grid size, 129 x 129, and validate the results agaist my source.
-With setting the reference pressure to 0 at the bottom left concer of the domain, I've set the boundary conditions as:
+## Lid-cavity Demonstration
+To verify and validate my own CFD skills in setting up, running, and post-processing results, I had a go at creating a simulation that I can easily validate against well-established results from Ghia, Ghia, and Shin, 1982.
+The model is a 2D square cavity of unit dimensions (1m x 1m) containing a Newtonian fluid with a moving lid.
+The goal is to determine the velocity profile halfway along the unit cavity at a Reynolds number of 100 with a baseline grid size of 129 x 129, and validate the results against my source.
+By setting the reference pressure to 0 at the bottom-left corner of the domain, I configured the boundary conditions as:
 
 ![MeshAndBC](plots/MeshAndBC.png)
 
 *Figure 1: The baseline mesh with the boundary conditions highlighted.*
 
-With the initial field for pressure being set to a uniform 0, for velocity, a uniform 0 m/s in all direction, as seen in Figure 1.
+The initial field for pressure was set to a uniform 0, and the velocity was set to a uniform 0 m/s in all directions, as seen in Figure 1.
 
-The results compared with the vadlidation data in Ghia et al,1982 are presented in Figure 2:
+The results compared with the validation data in Ghia et al., 1982 are presented in Figure 2:
 
 ![Results](plots/DataVnV.png)
 
-*Figure 2: Comparison of normalized horizontal velocity (Ux) along the vertical centerline (x=0.5) against Ghia et al. (1982) benchmark data.*
+*Figure 2: Comparison of normalized horizontal velocity ($U_x$) along the vertical centerline (x=0.5) against Ghia et al. (1982) benchmark data.*
 
 ### Verification 
 
-For the sake of verification, 4 probes where placed at locations along the vertical line in the centre of the cavity (x = 0.5 m) to measure the change in velocity and pressure.
-Probe 1: y = 0.0 (m), Probe 2: y = 0.25 (m), Probe 3: y = 0.5 (m), Probe 4: y = 0.75 (m).
+For the purpose of verification, 4 probes were placed at locations along the vertical centerline of the cavity (x = 0.5 m) to measure changes in velocity and pressure.
+Probe 1: y = 0.0 m, Probe 2: y = 0.25 m, Probe 3: y = 0.5 m, Probe 4: y = 0.75 m.
 
-The data in Figure 3 and 4 shows that the Velocities and Pressure converage in a value. The residuals for both velocity and pressure also drop down several orders of magnitude, supporting the case that the simulation has convergence as can be seen in Figures 5 and 6.
+The data in Figures 3 and 4 show that the velocities and pressure converge to a steady value. The residuals for both velocity and pressure also drop down several orders of magnitude, supporting the case that the simulation has converged, as can be seen in Figures 5 and 6.
 
 ![Velocity X Results](plots/Velocity_Probes.png)
 
-*Figure 3: Velocity X Probes data at 4 probes over 4000 iterations.*
+*Figure 3: Velocity X data at 4 probe locations over 4000 iterations.*
 
 ![Pressure Results](plots/Pressure_Probes.png)
 
-*Figure 4: Pressure Probes data at 4 probes over 4000 iterations.*
+*Figure 4: Pressure data at 4 probe locations over 4000 iterations.*
 
 ![Velocity X Residuals](plots/residuals_for_u.png)
 
@@ -46,9 +46,9 @@ The data in Figure 3 and 4 shows that the Velocities and Pressure converage in a
 
 ![Convergance Mesh](plots/ConvMesh.png)
 
-*Figure 7: Convergance Mesh comparing 129 x129, 258 x 258, and 516 x 516 grid sizes.*
+*Figure 7: Grid convergence study comparing 129 x 129, 258 x 258, and 516 x 516 grid sizes.*
 
-In Figure 7, shows that the results from all levels of refinement do not change significantly at all and with the error tabled in Table 1.
+Figure 7 shows that the results from all levels of refinement do not change significantly. The resulting errors are compiled in Table 1.
 
 | Mesh Resolution | Total Cells | Max $U_x$ | % Change |
 | :--- | :--- | :--- | :--- |
@@ -56,28 +56,28 @@ In Figure 7, shows that the results from all levels of refinement do not change 
 | 258 x 258 | 66,564 | -0.217 | 0.463% |
 | 516 x 516 | 266,256 | -0.216 | 0.175% |
 
-*Table 1, Convergance Mesh error when refined results are compared with the 129 x 129 mesh results.*
+*Table 1: Grid convergence error when refined results are compared against the baseline 129 x 129 mesh results.*
 
 ### Conclusion 
 
-From the results, we can see that the results from the Lid-Cavity simulation have been verificated and validated agaist Ghia et al. 1982 paper for a Reynolds number of 100.
+From the results, we can see that the findings from the Lid-Cavity simulation have been verified and validated against the Ghia et al. 1982 paper for a Reynolds number of 100.
 
-## Subsonic Turbulent Boundary Layer over a Flate Plate with a Compressible Pressure Solver
+## Subsonic Turbulent Boundary Layer over a Flat Plate with a Compressible Pressure Solver
 
-In CD nozzle, a high temperature and pressure subsonic flow is converted to supersonic before being exhusted from the engine. A high-fidenlity simulation must remain stable across 2 flow regimes, i.e. subsonic and supersonic, while capaturing what is happening at the wall of the nozzle, e.g. wall temperature. Uisng a Density-based solver in the subsonic section of the CD nozzle is hard to keep stable, and therefore, use of a pressure based solver to produce a internal internal field for that section of the nozzle is used.  I produced 2 unit cases using a zero pressure gradient flate plate simulations in compressible, subsonic, turbulent flow using the k-omega SST and Spalart-Allmaras.
-Nasa Turbulent Modelling Resource provides a validation case for my simulation to be compared against, which can be found at https://tmbwg.github.io/turbmodels/flatplate_val.html.
+In a CD nozzle, a high-temperature and high-pressure subsonic flow is converted to supersonic flow before being exhausted from the engine. A high-fidelity simulation must remain stable across two flow regimes (i.e., subsonic and supersonic) while capturing the physics acting on the nozzle wall, such as wall temperature. Using a density-based solver in the subsonic section of a CD nozzle makes it difficult to maintain stability; therefore, a pressure-based solver is used to produce an internal field for that specific section of the nozzle. I produced 2 unit cases using zero-pressure-gradient flat plate simulations in a compressible, subsonic, turbulent flow using the $k$-$\omega$ SST and Spalart-Allmaras models.
+The NASA Turbulent Modeling Resource provides a validation case for my simulation to be compared against, which can be found at https://tmbwg.github.io/turbmodels/flatplate_val.html.
 
-The baseline mesh that is used is a 175 by 90 grid size with the boundary conditions, as seen in Figure 8.
+The baseline mesh used features a 175 by 90 grid size with the boundary conditions shown in Figure 8.
 
 ![Flate Plate Mesh](plots/Mesh_N_BCs.png)
-*Figure 8: Mesh with 175 x 90 and the boundary conditions.*
+*Figure 8: Mesh with a 175 x 90 resolution and its corresponding boundary conditions.*
 
-For these turbulents models, it is important that the mesh near the wall is under y+ = 1 in order to resolve the visous sub-layer. Using the calcualted value of y coordiante for y+ = 1, I used a simple gradient ratio for bunching up the nodes along the y axis.
+For these turbulence models, it is crucial that the mesh spacing near the wall remains under $y^+ = 1$ in order to fully resolve the viscous sub-layer. Using the calculated $y$-coordinate value for $y^+ = 1$, I applied a simple expansion ratio to cluster the nodes closely along the y-axis.
 
 
 ### Case using Spalart-Allmaras
 
-For the Spalart-Allmaras model, I used set the inlet for $$\tilde{\nu} = \nu*3 = 4.7e-05 \frac{m^2}{s}$$ and let $$\nu_t = 0 \frac{m^2}{s}$$ at the inlet, so it can be calculated. 
+For the Spalart-Allmaras model, I set the inlet value to $\tilde{\nu} = \nu \times 3 = 4.7\times10^{-5} \frac{m^2}{s}$ and defined $\nu_t = 0 \frac{m^2}{s}$ at the inlet so that it could be calculated dynamically. 
 
 ### Verification
 
@@ -170,15 +170,17 @@ For the Spalart-Allmaras model, I used set the inlet for $$\tilde{\nu} = \nu*3 =
 
 *Figure 26: Development of the momentum thickness Reynolds number ($Re_\theta$) along the streamwise direction ($X$) for the SA model.*
 
-The GCI error from all 3 meshes is calculated to be 1.7%.
+The GCI error across all 3 meshes is calculated to be 1.7%.
+
 ### Validation
 Validation
+
 ### Conclusion
 Conclusion
 
-### Case using K $$\omega$$ SST
+### Case using $k$-$\omega$ SST
 
-For the k-$$\omega$$ SST case, following initial conditions where set, using $$k = \frac{3}{2} (UI)^2$$, where I is the turbulent intensity, set to I = 0.039, and $$\epsilon= C_{\mu}^(3/4) \frac{k^(3/2)}{L}$$, L ~ 0.07$$\delta$$, where $$\delta$$ is the boundary layer thickness, which is estimated to be 0.029 meters using reference (,), $$\nu_{T} = C_{\nu}\frac{k^2}{\epsilon}=2894.3$$.
+For the $k$-$\omega$ SST case, the following initial conditions were set using $k = \frac{3}{2} (U I)^2$, where $I$ is the turbulence intensity set to $I = 0.039$, and $\epsilon = C_{\mu}^{3/4} \frac{k^{3/2}}{L}$. Here, $L \sim 0.07\delta$, where $\delta$ is the boundary layer thickness estimated to be 0.029 meters using reference [X, X], resulting in $\nu_{T} = C_{\nu}\frac{k^2}{\epsilon}=2894.3$.
 
 ### Verification
 ![k-omega SST Coarse Velocity Residuals](plots/k_omegaSST/coarse/ResidualsOfVelocity.png)
@@ -271,5 +273,6 @@ For the k-$$\omega$$ SST case, following initial conditions where set, using $$k
 
 ### Validation
 Validation
+
 ### Conclusion
 Conclusion
