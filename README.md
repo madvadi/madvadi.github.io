@@ -118,12 +118,12 @@ For the Spalart-Allmaras model, I used set the inlet for nuTilda = 3*nu, nuTilda
 *Figure 16: *
 
 
-![SA Medium Pressure Probability](plots/SA/medium/ProbPressure.png)
+![SA Medium Pressure Probability](plots/SA/medium/ProbePressure.png)
 
 *Figure 17: *
 
 
-![SA Medium Temperature Probability](plots/SA/medium/ProbTemperature.png)
+![SA Medium Temperature Probability](plots/SA/medium/ProbeTemperature.png)
 
 *Figure 18: *
 
