@@ -172,7 +172,7 @@ Verification for case using Spalart-Allmaras.
 
 The GCI error from all 3 meshes is calculated to be 1.7%.
 
-For the k-$\omega$ SST case, following initial conditions where set, using $$k = \frac{3}{2} (UI)^2$$, where I is the turbulent intensity, set to I = 0.039, and $$\epsilon= C_{\mu}^(3/4) \frac{k^(3/2)}{L}$$, L ~ 0.07$$\delta$$, where $$\delta$$ is the boundary layer thickness, which is estimated to be 0.029 meters using reference (,), $$\nu_{T} = C_{\nu}\frac{k^2}{\epsilon}=2894.3$$.
+For the k-$$\omega$$ SST case, following initial conditions where set, using $$k = \frac{3}{2} (UI)^2$$, where I is the turbulent intensity, set to I = 0.039, and $$\epsilon= C_{\mu}^(3/4) \frac{k^(3/2)}{L}$$, L ~ 0.07$$\delta$$, where $$\delta$$ is the boundary layer thickness, which is estimated to be 0.029 meters using reference (,), $$\nu_{T} = C_{\nu}\frac{k^2}{\epsilon}=2894.3$$.
 
 
 ![k-omega SST Coarse Velocity Residuals](plots/k_omegaSST/coarse/ResidualsOfVelocity.png)
