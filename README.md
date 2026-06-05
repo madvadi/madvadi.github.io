@@ -76,93 +76,119 @@ For these turbulents models, it is important that the mesh near the wall is unde
 
 For the Spalart-Allmaras model, I used set the inlet for nuTilda = 3*nu, nuTilda = 4.7e-05 meters^2 per seconds and nut = 0. The GCI error from all 3 meshes is calculated to be 1.7%.
 
+
 ![SA Coarse Velocity Residuals](plots/SA/coarse/ResidualsOfVelocity.png)
 *Figure 9: *
+
 
 ![SA Coarse Pressure Residuals](plots/SA/coarse/ResidualsOfPressure.png)
 *Figure 10: *
 
+
 ![SA Coarse Velocity Probability](plots/SA/coarse/ProbVelocity.png)
 *Figure 11: *
+
 
 ![SA Coarse Pressure Probability](plots/SA/coarse/ProbPressure.png)
 *Figure 12: *
 
+
 ![SA Coarse Temperature Probability](plots/SA/coarse/ProbTemperature.png)
 *Figure 13: *
+
 
 #### Medium Mesh
 ![SA Medium Velocity Residuals](plots/SA/medium/ResidualsOfVelocity.png)
 *Figure 14: *
 
+
 ![SA Medium Pressure Residuals](plots/SA/medium/ResidualsOfPressure.png)
 *Figure 15: *
+
 
 ![SA Medium Velocity Probability](plots/SA/medium/ProbVelocity.png)
 *Figure 16: *
 
+
 ![SA Medium Pressure Probability](plots/SA/medium/ProbPressure.png)
 *Figure 17: *
 
+
 ![SA Medium Temperature Probability](plots/SA/medium/ProbTemperature.png)
 *Figure 18: *
+
 
 #### Fine Mesh
 ![SA Fine Velocity Residuals](plots/SA/fine/ResidualsOfVelocity.png)
 *Figure 19: *
 
+
 ![SA Fine Pressure Residuals](plots/SA/fine/ResidualsOfPressure.png)
 *Figure 20: *
+
 
 ![SA Fine Velocity Probability](plots/SA/fine/ProbVelocity.png)
 *Figure 21: *
 
+
 ![SA Fine Pressure Probability](plots/SA/fine/ProbPressure.png)
 *Figure 22: *
 
+
 ![SA Fine Temperature Probability](plots/SA/fine/ProbTemperature.png)
 *Figure 23: *
+
 
 ### Boundary Layer & Aerodynamic Coefficients
 ![SA Skin Friction Coefficient](plots/SA/SkinCoefficient.png)
 *Figure 24: *
 
+
 ![SA Dimensionless Velocity Profile (u+ vs y+)](plots/SA/u+y+.png)
 *Figure 25: *
+
 
 ![SA Momentum Thickness Reynolds Number vs X](plots/SA/ReThetaVsX.png)
 *Figure 26: *
 
 
 
-
 ![SA Coarse Velocity Residuals](plots/k_omegaSST/coarse/ResidualsOfVelocity.png)
 *Figure 27: *
+
 
 ![SA Coarse Pressure Residuals](plots/k_omegaSST/coarse/ResidualsOfPressure.png)
 *Figure 28: *
 
+
 ![SA Coarse Velocity Probability](plots/k_omegaSST/coarse/ProbVelocity.png)
 *Figure 29: *
+
 
 ![SA Coarse Pressure Probability](plots/k_omegaSST/coarse/ProbPressure.png)
 *Figure 30: *
 
+
 ![SA Coarse Temperature Probability](plots/k_omegaSST/coarse/ProbTemperature.png)
 *Figure 31: *
+
 
 #### Medium Mesh
 ![SA Medium Velocity Residuals](plots/k_omegaSST/medium/ResidualsOfVelocity.png)
 *Figure 32: *
 
+
 ![SA Medium Pressure Residuals](plots/k_omegaSST/medium/ResidualsOfPressure.png)
 *Figure 33: *
+
 
 ![SA Medium Velocity Probability](plots/k_omegaSST/medium/ProbVelocity.png)
 *Figure 34: *
 
+
 ![SA Medium Pressure Probability](plots/k_omegaSST/medium/ProbPressure.png)
 *Figure 35: *
+
 
 ![SA Medium Temperature Probability](plots/k_omegaSST/medium/ProbTemperature.png)
 *Figure 36: *
@@ -171,26 +197,34 @@ For the Spalart-Allmaras model, I used set the inlet for nuTilda = 3*nu, nuTilda
 ![SA Fine Velocity Residuals](plots/k_omegaSST/fine/ResidualsOfVelocity.png)
 *Figure 37: *
 
+
 ![SA Fine Pressure Residuals](plots/k_omegaSST/fine/ResidualsOfPressure.png)
 *Figure 38: *
+
 
 ![SA Fine Velocity Probability](plots/k_omegaSST/fine/ProbVelocity.png)
 *Figure 39: *
 
+
 ![SA Fine Pressure Probability](plots/k_omegaSST/fine/ProbPressure.png)
 *Figure 40: *
 
+
 ![SA Fine Temperature Probability](plots/k_omegaSST/fine/ProbTemperature.png)
 *Figure 41: *
+
 
 ### Boundary Layer & Aerodynamic Coefficients
 ![SA Skin Friction Coefficient](plots/k_omegaSST/SkinCoefficient.png)
 *Figure 42: *
 
+
 ![SA Dimensionless Velocity Profile (u+ vs y+)](plots/k_omegaSST/u+y+.png)
 *Figure 43: *
 
+
 ![SA Momentum Thickness Reynolds Number vs X](plots/k_omegaSST/ReThetaVsX.png)
 *Figure 44: *
+
 
 For the k-$\Omega$ SST model, .... The GCI error from all 3 meshes is calculated to be ...
