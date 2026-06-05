@@ -79,7 +79,7 @@ For the Spalart-Allmaras model, I used set the inlet for nuTilda = 3*nu, nuTilda
 
 ![SA Coarse Velocity Residuals](plots/SA/coarse/ResidualsOfVelocity.png)
 
-*Figure 9: *
+*Figure 9:*
 
 
 ![SA Coarse Pressure Residuals](plots/SA/coarse/ResidualsOfPressure.png)
