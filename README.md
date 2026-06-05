@@ -113,7 +113,7 @@ For the Spalart-Allmaras model, I used set the inlet for nuTilda = 3*nu, nuTilda
 *Figure 15: *
 
 
-![SA Medium Velocity Probability](plots/SA/medium/ProbVelocity.png)
+![SA Medium Velocity Probability](plots/SA/medium/ProbeVelocity.png)
 
 *Figure 16: *
 
@@ -139,17 +139,17 @@ For the Spalart-Allmaras model, I used set the inlet for nuTilda = 3*nu, nuTilda
 *Figure 20: *
 
 
-![SA Fine Velocity Probability](plots/SA/fine/ProbVelocity.png)
+![SA Fine Velocity Probability](plots/SA/fine/ProbeVelocity.png)
 
 *Figure 21: *
 
 
-![SA Fine Pressure Probability](plots/SA/fine/ProbPressure.png)
+![SA Fine Pressure Probability](plots/SA/fine/ProbePressure.png)
 
 *Figure 22: *
 
 
-![SA Fine Temperature Probability](plots/SA/fine/ProbTemperature.png)
+![SA Fine Temperature Probability](plots/SA/fine/ProbeTemperature.png)
 
 *Figure 23: *
 
