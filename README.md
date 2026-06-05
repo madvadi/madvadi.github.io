@@ -76,7 +76,7 @@ For these turbulents models, it is important that the mesh near the wall is unde
 
 For the Spalart-Allmaras model, I used set the inlet for $$\tilde{\nu} = \nu*3 = 4.7e-05 \frac{m^2}{s}$$ and let $\nu_t$=0 at the inlet, so it can be calculated. 
 
-Verification for case using Spalart-Allmaras
+Verification for case using Spalart-Allmaras.
 
 ![SA Coarse Velocity Residuals](plots/SA/coarse/ResidualsOfVelocity.png)
 
@@ -172,7 +172,7 @@ Verification for case using Spalart-Allmaras
 
 The GCI error from all 3 meshes is calculated to be 1.7%.
 
-For the k-$\omega$ SST case, following initial conditions where set, using ...
+For the k-$\omega$ SST case, following initial conditions where set, using $$k = \frac{3}{2} (UI)^2$$, where I is the turbulent intensity, set to I = 0.039, and $$\epsilon= C_{\mu}^(3/4) \frac{k^(3/2)}{L}$$, L ~ 0.07$$\delta$$, where $$\delta$$ is the boundary layer thickness, which is estimated to be 0.029 meters using reference (,), $$\nu_{T} = C_{\nu}\frac{k^2}{\epsilon}=2894.3$$.
 
 
 ![k-omega SST Coarse Velocity Residuals](plots/k_omegaSST/coarse/ResidualsOfVelocity.png)
