@@ -74,7 +74,7 @@ The baseline mesh that is used is a 175 by 90 grid size with the boundary condit
 
 For these turbulents models, it is important that the mesh near the wall is under y+ = 1 in order to resolve the visous sub-layer. Using the calcualted value of y coordiante for y+ = 1, I used a simple gradient ratio for bunching up the nodes along the y axis.
 
-For the Spalart-Allmaras model, I used set the inlet for nuTilda = 3*nu, $$\tilde{\nu}$$ = 4.7e-05 meters^2 per seconds and let $\nu_t$=0 at the inlet, so it can be calculated. 
+For the Spalart-Allmaras model, I used set the inlet for $$\tilde{\nu} = \nu*3 = 4.7e-05 \frac{m^2}{s}$$ and let $\nu_t$=0 at the inlet, so it can be calculated. 
 
 Verification for case using Spalart-Allmaras
 
