@@ -1,9 +1,9 @@
 # madvadi.github.io
-Portfolio of Cenk Tekin CFD Projects
+# Portfolio of Cenk Tekin CFD Projects
 
-Introduction: This is a presentation of a number of CFD projects, in which, I've be using to keep my skills up to date with advance in OpenFOAM 13 and CFD in general.
+# Introduction: This is a presentation of a number of CFD projects, in which, I've be using to keep my skills up to date with advance in OpenFOAM 13 and CFD in general.
 
-1.) Lid-cavity Demostration
+## Lid-cavity Demostration
 To verfificate and validate my own CFD skills in setting up, running, and post-processing the results, I had a go at creating a simulation which I can easily validate agaist well estabished results from Ghia, Ghia, and Shin, 1982.
 The model is a 2D square cavity, of unit dimensions (1m x 1m), with a Newtonian fluid having a lid being.
 The goal is to see the velocity porfile is at half way along the unit cavity with a Reynolds number of 100 with a base line mesh of grid size, 129 x 129, and validate the results agaist my source.
@@ -21,7 +21,7 @@ The results compared with the vadlidation data in Ghia et al,1982 are presented 
 
 *Figure 2: Comparison of normalized horizontal velocity (Ux) along the vertical centerline (x=0.5) against Ghia et al. (1982) benchmark data.*
 
-Verification of Results
+### Verification 
 
 For the sake of verification, 4 probes where placed at locations along the vertical line in the centre of the cavity (x = 0.5 m) to measure the change in velocity and pressure.
 Probe 1: y = 0.0 (m), Probe 2: y = 0.25 (m), Probe 3: y = 0.5 (m), Probe 4: y = 0.75 (m).
@@ -58,11 +58,11 @@ In Figure 7, shows that the results from all levels of refinement do not change 
 
 *Table 1, Convergance Mesh error when refined results are compared with the 129 x 129 mesh results.*
 
-Conclusion 
+### Conclusion 
 
 From the results, we can see that the results from the Lid-Cavity simulation have been verificated and validated agaist Ghia et al. 1982 paper for a Reynolds number of 100.
 
-Subsonic Turbulent Boundary Layer over a Flate Plate with a Compressible Pressure Solver
+## Subsonic Turbulent Boundary Layer over a Flate Plate with a Compressible Pressure Solver
 
 In CD nozzle, a high temperature and pressure subsonic flow is converted to supersonic before being exhusted from the engine. A high-fidenlity simulation must remain stable across 2 flow regimes, i.e. subsonic and supersonic, while capaturing what is happening at the wall of the nozzle, e.g. wall temperature. Uisng a Density-based solver in the subsonic section of the CD nozzle is hard to keep stable, and therefore, use of a pressure based solver to produce a internal internal field for that section of the nozzle is used.  I produced 2 unit cases using a zero pressure gradient flate plate simulations in compressible, subsonic, turbulent flow using the k-omega SST and Spalart-Allmaras.
 Nasa Turbulent Modelling Resource provides a validation case for my simulation to be compared against, which can be found at https://tmbwg.github.io/turbmodels/flatplate_val.html.
