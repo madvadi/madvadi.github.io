@@ -64,7 +64,7 @@ From the results, we can see that the results from the Lid-Cavity simulation hav
 
 Subsonic Turbulent Boundary Layer over a Flate Plate with a Compressible Pressure Solver
 
-In CD nozzle, a high temperature and pressure subsonic flow is converted to supersonic before being exhusted from the engine. A high-fidenlity simulation must remain stable across 2 flow regimes, i.e. subsonic and supersonic, while capaturing what is happening at the wall of the nozzle, e.g. wall temperature. I produced 2 zero pressure gradient flate plate simulations in compressible, subsonic, turbulent flow using the k-omega SST and Spalart-Allmaras.
+In CD nozzle, a high temperature and pressure subsonic flow is converted to supersonic before being exhusted from the engine. A high-fidenlity simulation must remain stable across 2 flow regimes, i.e. subsonic and supersonic, while capaturing what is happening at the wall of the nozzle, e.g. wall temperature. Uisng a Density-based solver in the subsonic section of the CD nozzle is hard to keep stable, and therefore, use of a pressure based solver to produce a internal internal field for that section of the nozzle is used.  I produced 2 unit cases using a zero pressure gradient flate plate simulations in compressible, subsonic, turbulent flow using the k-omega SST and Spalart-Allmaras.
 Nasa Turbulent Modelling Resource provides a validation case for my simulation to be compared against, which can be found at https://tmbwg.github.io/turbmodels/flatplate_val.html.
 
 The baseline mesh that is used is a 175 by 90 grid size with the boundary conditions, as seen in Figure 8.
@@ -80,190 +80,187 @@ Verification for case using Spalart-Allmaras
 
 ![SA Coarse Velocity Residuals](plots/SA/coarse/ResidualsOfVelocity.png)
 
-*Figure 9:*
+*Figure 9: Convergence history of velocity residuals for the SA model on the coarse mesh.*
 
 
 ![SA Coarse Pressure Residuals](plots/SA/coarse/ResidualsOfPressure.png)
 
-*Figure 10: *
+*Figure 10: Convergence history of pressure residuals for the SA model on the coarse mesh.*
 
 
 ![SA Coarse Velocity Probability](plots/SA/coarse/ProbVelocity.png)
 
-*Figure 11: *
+*Figure 11: Velocity profiles extracted from the 4 probe locations across the control volume domain using the SA model on the coarse mesh.*
 
 
 ![SA Coarse Pressure Probability](plots/SA/coarse/ProbPressure.png)
 
-*Figure 12: *
+*Figure 12: Pressure distributions extracted from the 4 probe locations across the control volume domain using the SA model on the coarse mesh.*
 
 
 ![SA Coarse Temperature Probability](plots/SA/coarse/ProbTemperature.png)
 
-*Figure 13: *
+*Figure 13: Temperature profiles extracted from the 4 probe locations across the control volume domain using the SA model on the coarse mesh.*
 
 
 #### Medium Mesh
 ![SA Medium Velocity Residuals](plots/SA/medium/ResidualsOfVelocity.png)
 
-*Figure 14: *
+*Figure 14: Convergence history of velocity residuals for the SA model on the medium mesh.*
 
 
 ![SA Medium Pressure Residuals](plots/SA/medium/ResidualsOfPressure.png)
 
-*Figure 15: *
+*Figure 15: Convergence history of pressure residuals for the SA model on the medium mesh.*
 
 
 ![SA Medium Velocity Probability](plots/SA/medium/ProbeVelocity.png)
 
-*Figure 16: *
+*Figure 16: Velocity profiles extracted from the 4 probe locations across the control volume domain using the SA model on the medium mesh.*
 
 
 ![SA Medium Pressure Probability](plots/SA/medium/ProbePressure.png)
 
-*Figure 17: *
+*Figure 17: Pressure distributions extracted from the 4 probe locations across the control volume domain using the SA model on the medium mesh.*
 
 
 ![SA Medium Temperature Probability](plots/SA/medium/ProbeTemperature.png)
 
-*Figure 18: *
+*Figure 18: Temperature profiles extracted from the 4 probe locations across the control volume domain using the SA model on the medium mesh.*
 
 
 #### Fine Mesh
 ![SA Fine Velocity Residuals](plots/SA/fine/ResidualsOfVelocity.png)
 
-*Figure 19: *
+*Figure 19: Convergence history of velocity residuals for the SA model on the fine mesh.*
 
 
 ![SA Fine Pressure Residuals](plots/SA/fine/ResidualsOfPressure.png)
 
-*Figure 20: *
+*Figure 20: Convergence history of pressure residuals for the SA model on the fine mesh.*
 
 
 ![SA Fine Velocity Probability](plots/SA/fine/ProbeVelocity.png)
 
-*Figure 21: *
+*Figure 21: Velocity profiles extracted from the 4 probe locations across the control volume domain using the SA model on the fine mesh.*
 
 
 ![SA Fine Pressure Probability](plots/SA/fine/ProbePressure.png)
 
-*Figure 22: *
+*Figure 22: Pressure distributions extracted from the 4 probe locations across the control volume domain using the SA model on the fine mesh.*
 
 
 ![SA Fine Temperature Probability](plots/SA/fine/ProbeTemperature.png)
 
-*Figure 23: *
+*Figure 23: Temperature profiles extracted from the 4 probe locations across the control volume domain using the SA model on the fine mesh.*
 
 
 ### Boundary Layer & Aerodynamic Coefficients
 ![SA Skin Friction Coefficient](plots/SA/SkinCoefficient.png)
 
-*Figure 24: *
+*Figure 24: Local skin friction coefficient distribution along the surface calculated with the SA model.*
 
 
 ![SA Dimensionless Velocity Profile (u+ vs y+)](plots/SA/u+y+.png)
 
-*Figure 25: *
+*Figure 25: Dimensionless boundary layer velocity profile ($u^+$ vs $y^+$) plotted against the theoretical law of the wall using the SA model.*
 
 
 ![SA Momentum Thickness Reynolds Number vs X](plots/SA/ReThetaVsX.png)
 
-*Figure 26: *
+*Figure 26: Development of the momentum thickness Reynolds number ($Re_\theta$) along the streamwise direction ($X$) for the SA model.*
 
 The GCI error from all 3 meshes is calculated to be 1.7%.
 
 
 
-![SA Coarse Velocity Residuals](plots/k_omegaSST/coarse/ResidualsOfVelocity.png)
+![k-omega SST Coarse Velocity Residuals](plots/k_omegaSST/coarse/ResidualsOfVelocity.png)
 
-*Figure 27: *
-
-
-![SA Coarse Pressure Residuals](plots/k_omegaSST/coarse/ResidualsOfPressure.png)
-
-*Figure 28: *
+*Figure 27: Convergence history of velocity residuals for the k-omega SST model on the coarse mesh.*
 
 
-![SA Coarse Velocity Probability](plots/k_omegaSST/coarse/ProbVelocity.png)
+![k-omega SST Coarse Pressure Residuals](plots/k_omegaSST/coarse/ResidualsOfPressure.png)
 
-*Figure 29: *
-
-
-![SA Coarse Pressure Probability](plots/k_omegaSST/coarse/ProbPressure.png)
-
-*Figure 30: *
+*Figure 28: Convergence history of pressure residuals for the k-omega SST model on the coarse mesh.*
 
 
-![SA Coarse Temperature Probability](plots/k_omegaSST/coarse/ProbTemperature.png)
+![k-omega SST Coarse Velocity Probes](plots/k_omegaSST/coarse/ProbVelocity.png)
 
-*Figure 31: *
+*Figure 29: Velocity profiles extracted from the 4 probe locations across the control volume domain using the k-omega SST model on the coarse mesh.*
+
+
+![k-omega SST Coarse Pressure Probes](plots/k_omegaSST/coarse/ProbPressure.png)
+
+*Figure 30: Pressure distributions extracted from the 4 probe locations across the control volume domain using the k-omega SST model on the coarse mesh.*
+
+
+![k-omega SST Coarse Temperature Probes](plots/k_omegaSST/coarse/ProbTemperature.png)
+
+*Figure 31: Temperature profiles extracted from the 4 probe locations across the control volume domain using the k-omega SST model on the coarse mesh.*
 
 
 #### Medium Mesh
-![SA Medium Velocity Residuals](plots/k_omegaSST/medium/ResidualsOfVelocity.png)
+![k-omega SST Medium Velocity Residuals](plots/k_omegaSST/medium/ResidualsOfVelocity.png)
 
-*Figure 32: *
-
-
-![SA Medium Pressure Residuals](plots/k_omegaSST/medium/ResidualsOfPressure.png)
-
-*Figure 33: *
+*Figure 32: Convergence history of velocity residuals for the k-omega SST model on the medium mesh.*
 
 
-![SA Medium Velocity Probability](plots/k_omegaSST/medium/ProbVelocity.png)
+![k-omega SST Medium Pressure Residuals](plots/k_omegaSST/medium/ResidualsOfPressure.png)
 
-*Figure 34: *
-
-
-![SA Medium Pressure Probability](plots/k_omegaSST/medium/ProbPressure.png)
-
-*Figure 35: *
+*Figure 33: Convergence history of pressure residuals for the k-omega SST model on the medium mesh.*
 
 
-![SA Medium Temperature Probability](plots/k_omegaSST/medium/ProbTemperature.png)
+![k-omega SST Medium Velocity Probes](plots/k_omegaSST/medium/ProbVelocity.png)
 
-*Figure 36: *
+*Figure 34: Velocity profiles extracted from the 4 probe locations across the control volume domain using the k-omega SST model on the medium mesh.*
+
+
+![k-omega SST Medium Pressure Probes](plots/k_omegaSST/medium/ProbPressure.png)
+
+*Figure 35: Pressure distributions extracted from the 4 probe locations across the control volume domain using the k-omega SST model on the medium mesh.*
+
+
+![k-omega SST Medium Temperature Probes](plots/k_omegaSST/medium/ProbTemperature.png)
+
+*Figure 36: Temperature profiles extracted from the 4 probe locations across the control volume domain using the k-omega SST model on the medium mesh.*
 
 #### Fine Mesh
-![SA Fine Velocity Residuals](plots/k_omegaSST/fine/ResidualsOfVelocity.png)
+![k-omega SST Fine Velocity Residuals](plots/k_omegaSST/fine/ResidualsOfVelocity.png)
 
-*Figure 37: *
-
-
-![SA Fine Pressure Residuals](plots/k_omegaSST/fine/ResidualsOfPressure.png)
-
-*Figure 38: *
+*Figure 37: Convergence history of velocity residuals for the k-omega SST model on the fine mesh.*
 
 
-![SA Fine Velocity Probability](plots/k_omegaSST/fine/ProbVelocity.png)
+![k-omega SST Fine Pressure Residuals](plots/k_omegaSST/fine/ResidualsOfPressure.png)
 
-*Figure 39: *
-
-
-![SA Fine Pressure Probability](plots/k_omegaSST/fine/ProbPressure.png)
-
-*Figure 40: *
+*Figure 38: Convergence history of pressure residuals for the k-omega SST model on the fine mesh.*
 
 
-![SA Fine Temperature Probability](plots/k_omegaSST/fine/ProbTemperature.png)
+![k-omega SST Fine Velocity Probes](plots/k_omegaSST/fine/ProbVelocity.png)
 
-*Figure 41: *
+*Figure 39: Velocity profiles extracted from the 4 probe locations across the control volume domain using the k-omega SST model on the fine mesh.*
+
+
+![k-omega SST Fine Pressure Probes](plots/k_omegaSST/fine/ProbPressure.png)
+
+*Figure 40: Pressure distributions extracted from the 4 probe locations across the control volume domain using the k-omega SST model on the fine mesh.*
+
+
+![k-omega SST Fine Temperature Probes](plots/k_omegaSST/fine/ProbTemperature.png)
+
+*Figure 41: Temperature profiles extracted from the 4 probe locations across the control volume domain using the k-omega SST model on the fine mesh.*
 
 
 ### Boundary Layer & Aerodynamic Coefficients
-![SA Skin Friction Coefficient](plots/k_omegaSST/SkinCoefficient.png)
+![k-omega SST Skin Friction Coefficient](plots/k_omegaSST/SkinCoefficient.png)
 
-*Figure 42: *
-
-
-![SA Dimensionless Velocity Profile (u+ vs y+)](plots/k_omegaSST/u+y+.png)
-
-*Figure 43: *
+*Figure 42: Local skin friction coefficient distribution along the surface calculated with the k-omega SST model.*
 
 
-![SA Momentum Thickness Reynolds Number vs X](plots/k_omegaSST/ReThetaVsX.png)
+![k-omega SST Dimensionless Velocity Profile (u+ vs y+)](plots/k_omegaSST/u+y+.png)
 
-*Figure 44: *
+*Figure 43: Dimensionless boundary layer velocity profile ($u^+$ vs $y^+$) plotted against the theoretical law of the wall using the k-omega SST model.*
 
 
-For the k-$\Omega$ SST model, .... The GCI error from all 3 meshes is calculated to be ...
+![k-omega SST Momentum Thickness Reynolds Number vs X](plots/k_omegaSST/ReThetaVsX.png)
+
+*Figure 44: Development of the momentum thickness Reynolds number ($Re_\theta$) along the streamwise direction ($X$) for the k-omega SST model.*
