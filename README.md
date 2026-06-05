@@ -64,8 +64,8 @@ From the results, we can see that the results from the Lid-Cavity simulation hav
 
 Subsonic Turbulent Boundary Layer over a Flate Plate with a Compressible Pressure Solver
 
-I produced 2 zero pressure gradient flate plate simulations in compressible, subsonic, turbulent flow using the k-omega SST and Spalart-Allmaras.
-Nasa Turbulent Modelling Resource provides a validation case for my simulation to be compared agaist, which can be found at https://tmbwg.github.io/turbmodels/flatplate_val.html.
+In CD nozzle, a high temperature and pressure subsonic flow is converted to supersonic before being exhusted from the engine. A high-fidenlity simulation must remain stable across 2 flow regimes, i.e. subsonic and supersonic, while capaturing what is happening at the wall of the nozzle, e.g. wall temperature. I produced 2 zero pressure gradient flate plate simulations in compressible, subsonic, turbulent flow using the k-omega SST and Spalart-Allmaras.
+Nasa Turbulent Modelling Resource provides a validation case for my simulation to be compared against, which can be found at https://tmbwg.github.io/turbmodels/flatplate_val.html.
 
 The baseline mesh that is used is a 175 by 90 grid size with the boundary conditions, as seen in Figure 8.
 
@@ -74,8 +74,9 @@ The baseline mesh that is used is a 175 by 90 grid size with the boundary condit
 
 For these turbulents models, it is important that the mesh near the wall is under y+ = 1 in order to resolve the visous sub-layer. Using the calcualted value of y coordiante for y+ = 1, I used a simple gradient ratio for bunching up the nodes along the y axis.
 
-For the Spalart-Allmaras model, I used set the inlet for nuTilda = 3*nu, nuTilda = 4.7e-05 meters^2 per seconds and let nut=0 at the inlet and internalField, so it can be calculated. 
+For the Spalart-Allmaras model, I used set the inlet for nuTilda = 3*nu, $$\tilde{\nu}$$ = 4.7e-05 meters^2 per seconds and let $\nu_t$=0 at the inlet, so it can be calculated. 
 
+Verification for case using Spalart-Allmaras
 
 ![SA Coarse Velocity Residuals](plots/SA/coarse/ResidualsOfVelocity.png)
 
