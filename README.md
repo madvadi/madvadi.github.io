@@ -74,9 +74,12 @@ The baseline mesh that is used is a 175 by 90 grid size with the boundary condit
 
 For these turbulents models, it is important that the mesh near the wall is under y+ = 1 in order to resolve the visous sub-layer. Using the calcualted value of y coordiante for y+ = 1, I used a simple gradient ratio for bunching up the nodes along the y axis.
 
+
+### Case using Spalart-Allmaras
+
 For the Spalart-Allmaras model, I used set the inlet for $$\tilde{\nu} = \nu*3 = 4.7e-05 \frac{m^2}{s}$$ and let $\nu_t$=0 at the inlet, so it can be calculated. 
 
-Verification for case using Spalart-Allmaras.
+### Verification
 
 ![SA Coarse Velocity Residuals](plots/SA/coarse/ResidualsOfVelocity.png)
 
@@ -103,7 +106,6 @@ Verification for case using Spalart-Allmaras.
 *Figure 13: Temperature profiles extracted from the 4 probe locations across the control volume domain using the SA model on the coarse mesh.*
 
 
-#### Medium Mesh
 ![SA Medium Velocity Residuals](plots/SA/medium/ResidualsOfVelocity.png)
 
 *Figure 14: Convergence history of velocity residuals for the SA model on the medium mesh.*
@@ -129,7 +131,6 @@ Verification for case using Spalart-Allmaras.
 *Figure 18: Temperature profiles extracted from the 4 probe locations across the control volume domain using the SA model on the medium mesh.*
 
 
-#### Fine Mesh
 ![SA Fine Velocity Residuals](plots/SA/fine/ResidualsOfVelocity.png)
 
 *Figure 19: Convergence history of velocity residuals for the SA model on the fine mesh.*
@@ -155,7 +156,6 @@ Verification for case using Spalart-Allmaras.
 *Figure 23: Temperature profiles extracted from the 4 probe locations across the control volume domain using the SA model on the fine mesh.*
 
 
-### Boundary Layer & Aerodynamic Coefficients
 ![SA Skin Friction Coefficient](plots/SA/SkinCoefficient.png)
 
 *Figure 24: Local skin friction coefficient distribution along the surface calculated with the SA model.*
@@ -171,10 +171,16 @@ Verification for case using Spalart-Allmaras.
 *Figure 26: Development of the momentum thickness Reynolds number ($Re_\theta$) along the streamwise direction ($X$) for the SA model.*
 
 The GCI error from all 3 meshes is calculated to be 1.7%.
+### Validation
+Validation
+### Conclusion
+Conclusion
+
+### Case using K $$\omega$$ SST
 
 For the k-$$\omega$$ SST case, following initial conditions where set, using $$k = \frac{3}{2} (UI)^2$$, where I is the turbulent intensity, set to I = 0.039, and $$\epsilon= C_{\mu}^(3/4) \frac{k^(3/2)}{L}$$, L ~ 0.07$$\delta$$, where $$\delta$$ is the boundary layer thickness, which is estimated to be 0.029 meters using reference (,), $$\nu_{T} = C_{\nu}\frac{k^2}{\epsilon}=2894.3$$.
 
-
+### Verification
 ![k-omega SST Coarse Velocity Residuals](plots/k_omegaSST/coarse/ResidualsOfVelocity.png)
 
 *Figure 27: Convergence history of velocity residuals for the k-omega SST model on the coarse mesh.*
@@ -200,7 +206,6 @@ For the k-$$\omega$$ SST case, following initial conditions where set, using $$k
 *Figure 31: Temperature profiles extracted from the 4 probe locations across the control volume domain using the k-omega SST model on the coarse mesh.*
 
 
-#### Medium Mesh
 ![k-omega SST Medium Velocity Residuals](plots/k_omegaSST/medium/ResidualsOfVelocity.png)
 
 *Figure 32: Convergence history of velocity residuals for the k-omega SST model on the medium mesh.*
@@ -225,7 +230,6 @@ For the k-$$\omega$$ SST case, following initial conditions where set, using $$k
 
 *Figure 36: Temperature profiles extracted from the 4 probe locations across the control volume domain using the k-omega SST model on the medium mesh.*
 
-#### Fine Mesh
 ![k-omega SST Fine Velocity Residuals](plots/k_omegaSST/fine/ResidualsOfVelocity.png)
 
 *Figure 37: Convergence history of velocity residuals for the k-omega SST model on the fine mesh.*
@@ -251,7 +255,6 @@ For the k-$$\omega$$ SST case, following initial conditions where set, using $$k
 *Figure 41: Temperature profiles extracted from the 4 probe locations across the control volume domain using the k-omega SST model on the fine mesh.*
 
 
-### Boundary Layer & Aerodynamic Coefficients
 ![k-omega SST Skin Friction Coefficient](plots/k_omegaSST/SkinCoefficient.png)
 
 *Figure 42: Local skin friction coefficient distribution along the surface calculated with the k-omega SST model.*
@@ -265,3 +268,8 @@ For the k-$$\omega$$ SST case, following initial conditions where set, using $$k
 ![k-omega SST Momentum Thickness Reynolds Number vs X](plots/k_omegaSST/ReThetaVsX.png)
 
 *Figure 44: Development of the momentum thickness Reynolds number ($Re_\theta$) along the streamwise direction ($X$) for the k-omega SST model.*
+
+### Validation
+Validation
+### Conclusion
+Conclusion
