@@ -172,6 +172,7 @@ Verification for case using Spalart-Allmaras
 
 The GCI error from all 3 meshes is calculated to be 1.7%.
 
+For the k-$\omega$ SST case, following initial conditions where set, using ...
 
 
 ![k-omega SST Coarse Velocity Residuals](plots/k_omegaSST/coarse/ResidualsOfVelocity.png)
