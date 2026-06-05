@@ -77,7 +77,7 @@ For these turbulents models, it is important that the mesh near the wall is unde
 
 ### Case using Spalart-Allmaras
 
-For the Spalart-Allmaras model, I used set the inlet for $$\tilde{\nu} = \nu*3 = 4.7e-05 \frac{m^2}{s}$$ and let $\nu_t$=0 at the inlet, so it can be calculated. 
+For the Spalart-Allmaras model, I used set the inlet for $$\tilde{\nu} = \nu*3 = 4.7e-05 \frac{m^2}{s}$$ and let $$\nu_t = 0 \frac{m^2}{s}$$ at the inlet, so it can be calculated. 
 
 ### Verification
 
