@@ -170,6 +170,12 @@ For the Spalart-Allmaras model, I set the inlet value to $\tilde{\nu} = \nu \tim
 
 *Figure 26: Development of the momentum thickness Reynolds number ($Re_\theta$) along the streamwise direction ($X$) for the SA model.*
 
+| Mesh Resolution | Total Cells | % Change |
+| :--- | :--- | :--- |
+| 1 x 1 | 0  | — |
+| 1 x 1 | 0 | 0.0% |
+| 1 x 1 | 0 | 0.0% |
+
 The GCI error across all 3 meshes is calculated to be 1.7%.
 
 ### Validation
