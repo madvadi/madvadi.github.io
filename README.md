@@ -170,7 +170,7 @@ For the Spalart-Allmaras model, I set the inlet value to $\tilde{\nu} = \nu \tim
 
 *Figure 26: Development of the momentum thickness Reynolds number ($Re_\theta$) along the streamwise direction ($X$) for the SA model.*
 
-# Error Calculation Methodlogy
+# Error Calculation Methodology
 ## The GCI Calculation Process Using Representative Grid Size
 
 To calculate the Grid Convergence Index (GCI) error using the representative grid size, you follow a structured, multi-step verification process:
