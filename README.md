@@ -199,17 +199,17 @@ For the $k$-$\omega$ SST case, the following initial conditions were set using $
 *Figure 28: Convergence history of pressure residuals for the k-omega SST model on the coarse mesh.*
 
 
-![k-omega SST Coarse Velocity Probes](plots/k_omegaSST/coarse/ProbVelocity.png)
+![k-omega SST Coarse Velocity Probes](plots/k_omegaSST/coarse/ProbeVelocity.png)
 
 *Figure 29: Velocity profiles extracted from the 4 probe locations across the control volume domain using the k-omega SST model on the coarse mesh.*
 
 
-![k-omega SST Coarse Pressure Probes](plots/k_omegaSST/coarse/ProbPressure.png)
+![k-omega SST Coarse Pressure Probes](plots/k_omegaSST/coarse/ProbePressure.png)
 
 *Figure 30: Pressure distributions extracted from the 4 probe locations across the control volume domain using the k-omega SST model on the coarse mesh.*
 
 
-![k-omega SST Coarse Temperature Probes](plots/k_omegaSST/coarse/ProbTemperature.png)
+![k-omega SST Coarse Temperature Probes](plots/k_omegaSST/coarse/ProbeTemperature.png)
 
 *Figure 31: Temperature profiles extracted from the 4 probe locations across the control volume domain using the k-omega SST model on the coarse mesh.*
 
@@ -224,17 +224,17 @@ For the $k$-$\omega$ SST case, the following initial conditions were set using $
 *Figure 33: Convergence history of pressure residuals for the k-omega SST model on the medium mesh.*
 
 
-![k-omega SST Medium Velocity Probes](plots/k_omegaSST/medium/ProbVelocity.png)
+![k-omega SST Medium Velocity Probes](plots/k_omegaSST/medium/ProbeVelocity.png)
 
 *Figure 34: Velocity profiles extracted from the 4 probe locations across the control volume domain using the k-omega SST model on the medium mesh.*
 
 
-![k-omega SST Medium Pressure Probes](plots/k_omegaSST/medium/ProbPressure.png)
+![k-omega SST Medium Pressure Probes](plots/k_omegaSST/medium/ProbePressure.png)
 
 *Figure 35: Pressure distributions extracted from the 4 probe locations across the control volume domain using the k-omega SST model on the medium mesh.*
 
 
-![k-omega SST Medium Temperature Probes](plots/k_omegaSST/medium/ProbTemperature.png)
+![k-omega SST Medium Temperature Probes](plots/k_omegaSST/medium/ProbeTemperature.png)
 
 *Figure 36: Temperature profiles extracted from the 4 probe locations across the control volume domain using the k-omega SST model on the medium mesh.*
 
