@@ -197,14 +197,16 @@ For the verification, the residuals for velocity, pressure, and temperature wher
 
 The residuals and values from probes of quaility where shown in figures 9-23 for each level of mesh, i.e. coarse, medium, and fine, with coarse being the base mesh. Residuals for all 3 meshes have either leveled out or drop significantly, while the probe values for temperature, velocity, and pressure, have shown no significant charge for more than 3000 iterations minimum.
 
-The GCI error calculated for the gradients of $$Re_{\theta}$$ from coarse, medium, and fine meshes in Figure 26 using methodlogy in the Error Calculation Methodology section, which is found to be 0.09%, comparing the $$Re_{\theta}$$ at 50% of the plate length. The value tabled in the table below.
+The GCI error calculated for the gradients of $$Re_{\theta}$$ from coarse, medium, and fine meshes in Figure 26 using methodlogy in the Error Calculation Methodology section, which is found to be 0.09%, comparing the $$Re_{\theta}$$ at 50% of the plate length. The value tabled in the table 2.
 
 
 | Mesh Resolution | $$Re_{\theta}$$ at x = 1.0 m | % Change |
-| :--- | :--- | :--- | :--- |
+| :--- | :--- | :--- |
 | 175 x 90 | 7837.1 | — |
 | 263 x 135 | 7860.1 | 0.293 |
 | 350 x  180| 8014.5 | 1.93 |
+
+*Table 2: Grid convergence error when refined results are compared against the baseline 175 x 90 mesh results.*
 
 ### Validation
 In Figure 25, we see that the u+ vs $$log_{10} (y+)$$ has a significant disagreement with Coles' theory for all levels of the mesh refinement when 5 < $$y^+$$ < 30, as this is the buffer zone between the viscous sublayer, where $$u^+ = y^+$$ applies, and the log-law region, $$y^+$$ > 30. In Figure 24, the error between K-S theory and the simulation results for the coarse mesh is incredibly small.
