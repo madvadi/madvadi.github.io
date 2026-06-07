@@ -195,20 +195,27 @@ For the verification, the residuals for velocity, pressure, and temperature wher
 
 *Figure 26: Development of the momentum thickness Reynolds number (* $$Re_{\theta}$$ *) along the streamwise direction (X) for the SA model.*
 
-The residuals and values from probes of quaility where shown in figures 9-23 for each level of mesh, i.e. coarse, medium, and fine, with coarse being the base mesh. Residuals for all 3 meshes have either leveled out or drop significantly, while the probe values for temperature, velocity, and pressure, have shown no significant charge for ... number of iterations.
+The residuals and values from probes of quaility where shown in figures 9-23 for each level of mesh, i.e. coarse, medium, and fine, with coarse being the base mesh. Residuals for all 3 meshes have either leveled out or drop significantly, while the probe values for temperature, velocity, and pressure, have shown no significant charge for more than 3000 iterations minimum.
 
-The GCI error calculated for the gradients of $$Re_{\theta}$$ from coarse, medium, and fine meshes in Figure 26 using methodlogy in the Error Calculation Methodology section, which is found to be 1.7%.
+The GCI error calculated for the gradients of $$Re_{\theta}$$ from coarse, medium, and fine meshes in Figure 26 using methodlogy in the Error Calculation Methodology section, which is found to be 0.09%, comparing the $$Re_{\theta}$$ at 50% of the plate length. The value tabled in the table below.
+
+
+| Mesh Resolution | $$Re_{\theta}$$ at x = 1.0 m | % Change |
+| :--- | :--- | :--- | :--- |
+| 175 x 90 | 7837.1 | — |
+| 263 x 135 | 7860.1 | 0.293 |
+| 350 x  180| 8014.5 | 1.93 |
 
 ### Validation
-In Figure 25, we see that the u+ vs $$log_{10} (y+)$$ has a significant disagreement with Coles' theory for all levels of the mesh refinement when 5 < y+ < 30, as this is the buffer zone between the viscous sublayer, where u+ = y+ applies, and the log-law region, y+ > 30. In Figure 24, the error between K-S theory and the simulation results for the coarse mesh is incredibly small.
-We approximate an agreement with the NASA estimation of $$Re_{\theta}$$ increase along the flat plate boundary layer. 
+In Figure 25, we see that the u+ vs $$log_{10} (y+)$$ has a significant disagreement with Coles' theory for all levels of the mesh refinement when 5 < $$y^+$$ < 30, as this is the buffer zone between the viscous sublayer, where $$u^+ = y^+$$ applies, and the log-law region, $$y^+$$ > 30. In Figure 24, the error between K-S theory and the simulation results for the coarse mesh is incredibly small.
+The data provided by Nasa BLTMR approximate an agreement with the NASA estimation of $$Re_{\theta}$$ increase along the flat plate boundary layer as seen in figure 26. 
 
 ### Conclusion
 Conclusion
 
-### Case using k-$$\omega$$ SST
+### Case using k- $$\omega$$ SST
 
-For the k-$$\omega$$ SST case, the following initial conditions were set using $$k = \frac{3}{2} (U I)^2$$, where I is the turbulence intensity set to I = 0.039, and $$\epsilon = C_{\mu}^{3/4} \frac{k^{3/2}}{L}$$. Here, $$L \sim 0.07\delta$$, where $$\delta$$ is the boundary layer thickness estimated to be 0.029 meters using reference [X, X], resulting in $$\nu_{T} = C_{\nu}\frac{k^2}{\epsilon}=2894.3$$.
+For the k- $$\omega$$ SST case, the following initial conditions were set using $$k = \frac{3}{2} (U I)^2$$, where I is the turbulence intensity set to I = 0.039, and $$\epsilon = C_{\mu}^{3/4} \frac{k^{3/2}}{L}$$. Here, $$L \sim 0.07\delta$$, where $$\delta$$ is the boundary layer thickness estimated to be 0.029 meters using reference [X, X], resulting in $$\nu_{T} = C_{\nu}\frac{k^2}{\epsilon}=2894.3$$.
 
 ### Verification
 ![k-omega SST Coarse Velocity Residuals](plots/k_omegaSST/coarse/ResidualsOfVelocity.png)
