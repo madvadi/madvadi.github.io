@@ -188,12 +188,12 @@ For the verification, the residuals for velocity, pressure, and temperature wher
 
 ![SA Dimensionless Velocity Profile (u+ vs y+)](plots/SA/u+y+.png)
 
-*Figure 25: Dimensionless boundary layer velocity profile ($$u^+$$ vs $$y^+$$) plotted against the theoretical law of the wall using the SA model.*
+*Figure 25: Dimensionless boundary layer velocity profile (* $$u^+$$ * vs * $$y^+$$ *) plotted against the theoretical law of the wall using the SA model.*
 
 
 ![SA Momentum Thickness Reynolds Number vs X](plots/SA/ReThetaVsX.png)
 
-*Figure 26: Development of the momentum thickness Reynolds number ($$Re_\theta$$) along the streamwise direction (X) for the SA model.*
+*Figure 26: Development of the momentum thickness Reynolds number (* $$Re_{\theta}$$ *) along the streamwise direction (X) for the SA model.*
 
 The residuals and values from probes of quaility where shown in figures 9-23 for each level of mesh, i.e. coarse, medium, and fine, with coarse being the base mesh. Residuals for all 3 meshes have either leveled out or drop significantly, while the probe values for temperature, velocity, and pressure, have shown no significant charge for ... number of iterations.
 
