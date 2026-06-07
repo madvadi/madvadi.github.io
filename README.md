@@ -78,19 +78,19 @@ For these turbulence models, it is crucial that the mesh spacing near the wall r
 
 To calculate the Grid Convergence Index (GCI) error using the representative grid size, you follow a structured, multi-step verification process:
 
-1. **Calculate Representative Grid Sizes ($h$):** Generate three distinct meshes—coarse, medium, and fine—and compute the characteristic grid size ($h_1, h_2, h_3$) for each using the total domain area and total cell count:
+1. **Calculate Representative Grid Sizes ($$h$$):** Generate three distinct meshes—coarse, medium, and fine—and compute the characteristic grid size ($$h_1, h_2, h_3$$) for each using the total domain area and total cell count:
    $$h = \sqrt{\frac{A_{total}}{N}}$$
 
-2. **Determine Grid Refinement Ratios ($r$):** Calculate the refinement ratios between the grid pairs. It is highly recommended to keep these ratios above 1.3 to ensure the grid resolutions are distinct enough to capture discretization changes:
+2. **Determine Grid Refinement Ratios ($$r$$):** Calculate the refinement ratios between the grid pairs. It is highly recommended to keep these ratios above 1.3 to ensure the grid resolutions are distinct enough to capture discretization changes:
    $$r_{21} = \frac{h_2}{h_1}, \quad r_{32} = \frac{h_3}{h_2}$$
 
-3. **Extract Solution Variables ($f$):** Run the CFD simulations and extract a critical target scalar variable (such as drag coefficient, lift coefficient, or peak velocity) from all three grids, yielding $f_1$ (fine), $f_2$ (medium), and $f_3$ (coarse).
+3. **Extract Solution Variables ($$f$$):** Run the CFD simulations and extract a critical target scalar variable (such as drag coefficient, lift coefficient, or peak velocity) from all three grids, yielding $$f_1$$ (fine), $$f_2$$ (medium), and $$f_3$$ (coarse).
 
-4. **Solve for the Local Order of Accuracy ($p$):** Solve iteratively for the apparent order of accuracy ($$p$$) using the grid refinement ratios and the differences between the solutions:
+4. **Solve for the Local Order of Accuracy ($$p$$):** Solve iteratively for the apparent order of accuracy ($$p$$) using the grid refinement ratios and the differences between the solutions:
    $$p = \frac{1}{\ln(r_{21})} \left| \ln\left| \frac{\epsilon_{32}}{\epsilon_{21}} \right| + q(p) \right|$$
-   *(Where $\epsilon_{32} = f_3 - f_2$, $\epsilon_{21} = f_2 - f_1$, and $q(p)$ is a correction factor that equals zero if the grid refinement ratio is constant, i.e., $r_{21} = r_{32}$).*
+   *(Where $$\epsilon_{32} = f_3 - f_2$$, $$\epsilon_{21} = f_2 - f_1$$, and $$q(p)$$ is a correction factor that equals zero if the grid refinement ratio is constant, i.e., $$r_{21} = r_{32}$$).*
 
-5. **Calculate Relative Error ($\epsilon_{21}$):** Determine the relative error between the two finest grids:
+5. **Calculate Relative Error ($$\epsilon_{21}$$):** Determine the relative error between the two finest grids:
    $$\epsilon_{21} = \left| \frac{f_2 - f_1}{f_1} \right|$$
 
 6. **Compute the GCI Error:** Finally, calculate the fine-grid GCI error by applying a safety factor ($F_s$), which is typically set to $1.25$ for a rigorous three-grid study:
@@ -100,7 +100,7 @@ To calculate the Grid Convergence Index (GCI) error using the representative gri
 
 ### Case using Spalart-Allmaras
 
-For the Spalart-Allmaras model, I set the inlet value to $\tilde{\nu} = \nu \times 3 = 4.7\times10^{-5} \frac{m^2}{s}$ and defined $\nu_t = 0 \frac{m^2}{s}$ at the inlet so that it could be calculated. 
+For the Spalart-Allmaras model, I set the inlet value to $$\tilde{\nu} = \nu \times 3 = 4.7\times10^{-5} \frac{m^2}{s}$$ and defined $$\nu_t = 0 \frac{m^2}{s}$$ at the inlet so that it could be calculated. 
 
 ### Verification
 
