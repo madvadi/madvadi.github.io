@@ -93,7 +93,7 @@ To calculate the Grid Convergence Index (GCI) error using the representative gri
 5. **Calculate Relative Error ($$\epsilon_{21}$$):** Determine the relative error between the two finest grids:
    $$\epsilon_{21} = \left| \frac{f_2 - f_1}{f_1} \right|$$
 
-6. **Compute the GCI Error:** Finally, calculate the fine-grid GCI error by applying a safety factor ($F_s$), which is typically set to $1.25$ for a rigorous three-grid study:
+6. **Compute the GCI Error:** Finally, calculate the fine-grid GCI error by applying a safety factor ($$F_s$$), which is typically set to 1.25 for a rigorous three-grid study:
    $$GCI_{fine} = \frac{F_s \cdot \epsilon_{21}}{r_{21}^p - 1}$$
 
 > **Note:** The resulting percentage represents your numerical uncertainty band. It quantifies how close your fine-grid solution is to the theoretical, asymptotic "grid-independent" solution.
