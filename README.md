@@ -74,8 +74,7 @@ The baseline mesh used features a 175 by 90 grid size with the boundary conditio
 
 For these turbulence models, it is crucial that the mesh spacing near the wall remains under $y^+ = 1$ in order to fully resolve the viscous sub-layer. Using the calculated $y$-coordinate value for $y^+ = 1$, I applied a simple expansion ratio to cluster the nodes closely along the y-axis.
 
-# Error Calculation Methodology
-## The GCI Calculation Process Using Representative Grid Size
+### Error Calculation Methodology
 
 To calculate the Grid Convergence Index (GCI) error using the representative grid size, you follow a structured, multi-step verification process:
 
