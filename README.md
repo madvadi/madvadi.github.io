@@ -100,9 +100,10 @@ To calculate the Grid Convergence Index (GCI) error using the representative gri
 
 ### Case using Spalart-Allmaras
 
-For the Spalart-Allmaras model, I set the inlet value to $$\tilde{\nu} = \nu \times 3 = 4.7\times10^{-5} \frac{m^2}{s}$$ and defined $$\nu_t = 0 \frac{m^2}{s}$$ at the inlet so that it could be calculated. 
+For the Spalart-Allmaras model, the inlet values where set to $$\tilde{\nu} = \nu \times 3 = 4.7\times10^{-5} \frac{m^2}{s}$$ and defined $$\nu_t = 0 \frac{m^2}{s}$$ at the inlet so that it could be calculated. 
 
 ### Verification
+For the verification, the residuals for velocity, pressure, and temperature where recorded to see if they either drop over 3 orders of magnitude and leveled out or have drop significantly. Alongside the residuals, the values for those quanilities where measured in 4 key places to monitor the change in those values, the locations pick where in the developed boundary layer and in the freestream. Probe locations are at the leading edges, half way throught the plate, 75% of the plate. 
 
 
 ![SA Coarse Velocity Residuals](plots/SA/coarse/ResidualsOfVelocity.png)
@@ -187,27 +188,27 @@ For the Spalart-Allmaras model, I set the inlet value to $$\tilde{\nu} = \nu \ti
 
 ![SA Dimensionless Velocity Profile (u+ vs y+)](plots/SA/u+y+.png)
 
-*Figure 25: Dimensionless boundary layer velocity profile ($u^+$ vs $y^+$) plotted against the theoretical law of the wall using the SA model.*
+*Figure 25: Dimensionless boundary layer velocity profile ($$u^+$$ vs $$y^+$$) plotted against the theoretical law of the wall using the SA model.*
 
 
 ![SA Momentum Thickness Reynolds Number vs X](plots/SA/ReThetaVsX.png)
 
-*Figure 26: Development of the momentum thickness Reynolds number ($Re_\theta$) along the streamwise direction ($X$) for the SA model.*
+*Figure 26: Development of the momentum thickness Reynolds number ($$Re_\theta$$) along the streamwise direction (X) for the SA model.*
 
 The residuals and values from probes of quaility where shown in figures 9-23 for each level of mesh, i.e. coarse, medium, and fine, with coarse being the base mesh. Residuals for all 3 meshes have either leveled out or drop significantly, while the probe values for temperature, velocity, and pressure, have shown no significant charge for ... number of iterations.
 
 The GCI error calculated for the gradients of $$Re_{\theta}$$ from coarse, medium, and fine meshes in Figure 26 using methodlogy in the Error Calculation Methodology section, which is found to be 1.7%.
 
 ### Validation
-In Figure 25, we see that the u+ vs log10(y+) has a significant disagreement with Coles' theory for all levels of the mesh refinement when 5 < y+ < 30, as this is the buffer zone between the viscous sublayer, where u+ = y+ applies, and the log-law region, y+ > 30. In Figure 24, the error between K-S theory and the simulation results for the coarse mesh is incredibly small.
+In Figure 25, we see that the u+ vs $$log_{10} (y+)$$ has a significant disagreement with Coles' theory for all levels of the mesh refinement when 5 < y+ < 30, as this is the buffer zone between the viscous sublayer, where u+ = y+ applies, and the log-law region, y+ > 30. In Figure 24, the error between K-S theory and the simulation results for the coarse mesh is incredibly small.
 We approximate an agreement with the NASA estimation of $$Re_{\theta}$$ increase along the flat plate boundary layer. 
 
 ### Conclusion
 Conclusion
 
-### Case using $k$-$\omega$ SST
+### Case using k-$$\omega$$ SST
 
-For the $k$-$\omega$ SST case, the following initial conditions were set using $k = \frac{3}{2} (U I)^2$, where $I$ is the turbulence intensity set to $I = 0.039$, and $\epsilon = C_{\mu}^{3/4} \frac{k^{3/2}}{L}$. Here, $L \sim 0.07\delta$, where $\delta$ is the boundary layer thickness estimated to be 0.029 meters using reference [X, X], resulting in $\nu_{T} = C_{\nu}\frac{k^2}{\epsilon}=2894.3$.
+For the k-$$\omega$$ SST case, the following initial conditions were set using $$k = \frac{3}{2} (U I)^2$$, where I is the turbulence intensity set to I = 0.039, and $$\epsilon = C_{\mu}^{3/4} \frac{k^{3/2}}{L}$$. Here, $$L \sim 0.07\delta$$, where $$\delta$$ is the boundary layer thickness estimated to be 0.029 meters using reference [X, X], resulting in $$\nu_{T} = C_{\nu}\frac{k^2}{\epsilon}=2894.3$$.
 
 ### Verification
 ![k-omega SST Coarse Velocity Residuals](plots/k_omegaSST/coarse/ResidualsOfVelocity.png)
