@@ -116,84 +116,50 @@ For the verification, the residuals for velocity, pressure, and temperature wher
 *Figure 10: Convergence history of pressure residuals for the SA model on the coarse mesh.*
 
 
-![SA Coarse Velocity Probability](plots/SA/coarse/ProbVelocity.png)
-
-*Figure 11: Velocity profiles extracted from the 4 probe locations across the control volume domain using the SA model on the coarse mesh.*
-
-
-![SA Coarse Pressure Probability](plots/SA/coarse/ProbPressure.png)
-
-*Figure 12: Pressure distributions extracted from the 4 probe locations across the control volume domain using the SA model on the coarse mesh.*
-
-
-![SA Coarse Temperature Probability](plots/SA/coarse/ProbTemperature.png)
-
-*Figure 13: Temperature profiles extracted from the 4 probe locations across the control volume domain using the SA model on the coarse mesh.*
-
-
 ![SA Medium Velocity Residuals](plots/SA/medium/ResidualsOfVelocity.png)
 
-*Figure 14: Convergence history of velocity residuals for the SA model on the medium mesh.*
+*Figure 11: Convergence history of velocity residuals for the SA model on the medium mesh.*
 
 
 ![SA Medium Pressure Residuals](plots/SA/medium/ResidualsOfPressure.png)
 
-*Figure 15: Convergence history of pressure residuals for the SA model on the medium mesh.*
-
-
-![SA Medium Velocity Probability](plots/SA/medium/ProbeVelocity.png)
-
-*Figure 16: Velocity profiles extracted from the 4 probe locations across the control volume domain using the SA model on the medium mesh.*
-
-
-![SA Medium Pressure Probability](plots/SA/medium/ProbePressure.png)
-
-*Figure 17: Pressure distributions extracted from the 4 probe locations across the control volume domain using the SA model on the medium mesh.*
-
-
-![SA Medium Temperature Probability](plots/SA/medium/ProbeTemperature.png)
-
-*Figure 18: Temperature profiles extracted from the 4 probe locations across the control volume domain using the SA model on the medium mesh.*
+*Figure 12: Convergence history of pressure residuals for the SA model on the medium mesh.*
 
 
 ![SA Fine Velocity Residuals](plots/SA/fine/ResidualsOfVelocity.png)
 
-*Figure 19: Convergence history of velocity residuals for the SA model on the fine mesh.*
+*Figure 13: Convergence history of velocity residuals for the SA model on the fine mesh.*
 
 
 ![SA Fine Pressure Residuals](plots/SA/fine/ResidualsOfPressure.png)
 
-*Figure 20: Convergence history of pressure residuals for the SA model on the fine mesh.*
+*Figure 14: Convergence history of pressure residuals for the SA model on the fine mesh.*
 
+![SA Fine Pressure Residuals](plots/SA/AllLevelsVelocityProbes.png)
 
-![SA Fine Velocity Probability](plots/SA/fine/ProbeVelocity.png)
+*Figure 15: Velocity Probes.*
 
-*Figure 21: Velocity profiles extracted from the 4 probe locations across the control volume domain using the SA model on the fine mesh.*
+![SA Fine Pressure Residuals](plots/SA/AllLevelsPressureProbes.png)
 
+*Figure 16: Pressure Probes.*
 
-![SA Fine Pressure Probability](plots/SA/fine/ProbePressure.png)
+![SA Fine Pressure Residuals](plots/SA/AllLevelsTemperatureProbes.png)
 
-*Figure 22: Pressure distributions extracted from the 4 probe locations across the control volume domain using the SA model on the fine mesh.*
-
-
-![SA Fine Temperature Probability](plots/SA/fine/ProbeTemperature.png)
-
-*Figure 23: Temperature profiles extracted from the 4 probe locations across the control volume domain using the SA model on the fine mesh.*
-
+*Figure 17: Temperature Probes.*
 
 ![SA Skin Friction Coefficient](plots/SA/SkinCoefficient.png)
 
-*Figure 24: Local skin friction coefficient distribution along the surface calculated with the SA model.*
+*Figure 18: Local skin friction coefficient distribution along the surface calculated with the SA model.*
 
 
 ![SA Dimensionless Velocity Profile (u+ vs y+)](plots/SA/u+y+.png)
 
-*Figure 25: Dimensionless boundary layer velocity profile (* $$u^+$$ * vs * $$y^+$$ *) plotted against the theoretical law of the wall using the SA model.*
+*Figure 19: Dimensionless boundary layer velocity profile (* $$u^+$$ *vs* $$y^+$$ *) plotted against the theoretical law of the wall using the SA model.*
 
 
 ![SA Momentum Thickness Reynolds Number vs X](plots/SA/ReThetaVsX.png)
 
-*Figure 26: Development of the momentum thickness Reynolds number (* $$Re_{\theta}$$ *) along the streamwise direction (X) for the SA model.*
+*Figure 20: Development of the momentum thickness Reynolds number (* $$Re_{\theta}$$ *) along the streamwise direction (X) for the SA model.*
 
 The residuals and values from probes of quaility where shown in figures 9-23 for each level of mesh, i.e. coarse, medium, and fine, with coarse being the base mesh. Residuals for all 3 meshes have either leveled out or drop significantly, while the probe values for temperature, velocity, and pressure, have shown no significant charge for more than 3000 iterations minimum.
 
