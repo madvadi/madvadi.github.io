@@ -166,17 +166,17 @@ For the verification, the residuals for velocity, pressure, and temperature wher
 *Figure 20: Convergence history of pressure residuals for the SA model on the fine mesh.*
 
 
-![SA Fine Velocity Probability](plots/SA/fine/ProbVelocity.png)
+![SA Fine Velocity Probability](plots/SA/fine/ProbeVelocity.png)
 
 *Figure 21: Velocity profiles extracted from the 4 probe locations across the control volume domain using the SA model on the fine mesh.*
 
 
-![SA Fine Pressure Probability](plots/SA/fine/ProbPressure.png)
+![SA Fine Pressure Probability](plots/SA/fine/ProbePressure.png)
 
 *Figure 22: Pressure distributions extracted from the 4 probe locations across the control volume domain using the SA model on the fine mesh.*
 
 
-![SA Fine Temperature Probability](plots/SA/fine/ProbTemperature.png)
+![SA Fine Temperature Probability](plots/SA/fine/ProbeTemperature.png)
 
 *Figure 23: Temperature profiles extracted from the 4 probe locations across the control volume domain using the SA model on the fine mesh.*
 
