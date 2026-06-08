@@ -197,14 +197,14 @@ For the verification, the residuals for velocity, pressure, and temperature wher
 
 The residuals and values from probes of quaility where shown in figures 9-23 for each level of mesh, i.e. coarse, medium, and fine, with coarse being the base mesh. Residuals for all 3 meshes have either leveled out or drop significantly, while the probe values for temperature, velocity, and pressure, have shown no significant charge for more than 3000 iterations minimum.
 
-The GCI error calculated for the gradients of $$Re_{\theta}$$ from coarse, medium, and fine meshes in Figure 26 using methodlogy in the Error Calculation Methodology section, which is found to be 0.09%, comparing the $$Re_{\theta}$$ at 50% of the plate length. The value tabled in the table 2.
+The GCI error calculated for the gradients of $$Re_{\theta}$$ from coarse, medium, and fine meshes in Figure 26 using methodlogy in the Error Calculation Methodology section, which is found to be 0.6%, comparing the $$Re_{\theta}$$ at 50% of the plate length. The value tabled in the table 2.
 
 
 | Mesh Resolution | $$Re_{\theta}$$ at x = 1.0 m | % Change |
 | :--- | :--- | :--- |
-| 175 x 90 | 7837.1 | — |
-| 263 x 135 | 7860.1 | 0.293 |
-| 350 x  180| 8014.5 | 1.93 |
+| 175 x 90 | 8014.5 | — |
+| 263 x 135 | 7806.7 | 2.661 |
+| 350 x  180| 7754.2 | 0.651 |
 
 *Table 2: Grid convergence error when refined results are compared against the baseline 175 x 90 mesh results.*
 
