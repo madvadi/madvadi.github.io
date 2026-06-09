@@ -1,4 +1,3 @@
-# madvadi.github.io
 # Portfolio of Cenk Tekin CFD Projects
 
 Introduction: This is a presentation of a number of CFD projects that I have been using to keep my skills up to date with advancements in OpenFOAM 13 and CFD in general.
@@ -88,7 +87,7 @@ To calculate the Grid Convergence Index (GCI) error using the representative gri
 
 4. **Solve for the Local Order of Accuracy ($$p$$):** Solve iteratively for the apparent order of accuracy ($$p$$) using the grid refinement ratios and the differences between the solutions:
    $$p = \frac{1}{\ln(r_{21})} \left| \ln\left| \frac{\epsilon_{32}}{\epsilon_{21}} \right| + q(p) \right|$$
-   *(Where $$\epsilon_{32} = f_3 - f_2$$, $$\epsilon_{21} = f_2 - f_1$$, and $$q(p)$$ is a correction factor that equals zero if the grid refinement ratio is constant, i.e., $$r_{21} = r_{32}$$).*
+   *(Where* $$\epsilon_{32} = f_3 - f_2$$, $$\epsilon_{21} = f_2 - f_1$$ *, and* $$q(p)$$ *is a correction factor that equals zero if the grid refinement ratio is constant, i.e.,* $$r_{21} = r_{32}$$).
 
 5. **Calculate Relative Error ($$\epsilon_{21}$$):** Determine the relative error between the two finest grids:
    $$\epsilon_{21} = \left| \frac{f_2 - f_1}{f_1} \right|$$
