@@ -230,4 +230,4 @@ The data provided by Nasa BLTMR approximate an agreement with the NASA estimatio
 
 
 ### Conclusion
-Conclusion
+Considering the results produced from this simulation using a pressure-based solver for subsonic, incompressible flow, i.e. Ma < 0.3, agrees with the validation data from Nasa TMR Zero Pressure Gradient flate plate case, means that it can produce the initial internal field for subsonic pre-inlet for a CD nozzle.
