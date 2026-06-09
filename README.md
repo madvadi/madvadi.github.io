@@ -179,8 +179,8 @@ The GCI error calculated for the gradients of $$Re_{\theta}$$ from coarse, mediu
 *Table 2: Grid convergence error when refined results are compared against the baseline 175 x 90 mesh results.*
 
 ### Validation
-In Figure 20, we see that the u+ vs $$log_{10} (y+)$$ has a significant disagreement with Coles' theory for all levels of the mesh refinement when 5 < $$y^+$$ < 30, as this is the buffer zone between the viscous sublayer, where $$u^+ = y^+$$ applies, and the log-law region, $$y^+$$ > 30. In Figure 21, the error between K-S theory and the simulation results for the coarse mesh is incredibly small.
-The data provided by Nasa BLTMR approximate an agreement with the NASA estimation of $$Re_{\theta}$$ increase along the flat plate boundary layer as seen in figure 26. 
+In Figure 19, we see that the u+ vs $$log_{10} (y+)$$ has a significant disagreement with Coles' theory for all levels of the mesh refinement when 5 < $$y^+$$ < 30, as this is the buffer zone between the viscous sublayer, where $$u^+ = y^+$$ applies, and the log-law region, $$y^+$$ > 30. In Figure 20, the error between K-S theory and the simulation results for the coarse mesh is incredibly small.
+The data provided by Nasa BLTMR approximate an agreement with the NASA estimation of $$Re_{\theta}$$ increase along the flat plate boundary layer as seen in figure 21. 
 
 ### Conclusion
 Conclusion
