@@ -57,6 +57,12 @@ Figure 7 shows that the results from all levels of refinement do not change sign
 
 *Table 1: Grid convergence error when refined results are compared against the baseline 129 x 129 mesh results.*
 
+Coarse to Medium mesh relative error 0.0045949492391629595
+
+Medium to Fine mesh relative error 0.006385039176709853
+
+GCI fine = -0.028942710478639184
+
 ### Conclusion 
 
 From the results, we can see that the findings from the Lid-Cavity simulation have been verified and validated against the Ghia et al. 1982 paper for a Reynolds number of 100.
@@ -231,3 +237,14 @@ The data provided by Nasa BLTMR approximate an agreement with the NASA estimatio
 
 ### Conclusion
 Considering the results produced from this simulation using a pressure-based solver for subsonic, incompressible flow, i.e. Ma < 0.3, agrees with the validation data from Nasa TMR Zero Pressure Gradient flate plate case, means that it can produce the initial internal field for subsonic pre-inlet for a CD nozzle.
+
+## References 
+### In-Text Citations
+* (Ghia et al., 1982)
+* (AIAA TMBWG, 2026)
+
+### Reference List
+
+Ghia, U., Ghia, K.N. and Shin, C.T., 1982. High-Re solutions for incompressible flow using the Navier-Stokes equations and a multigrid method. *Journal of Computational Physics*, 48(3), pp. 387–411.
+
+AIAA Turbulence Model Benchmarking Working Group (TMBWG), 2026. *Turbulence Modeling Resource: Zero Pressure Gradient Flat Plate Validation Case*. Available at: <https://tmbwg.github.io/turbmodels/flatplate_val.html> [Accessed 9 June 2026].
