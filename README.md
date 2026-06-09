@@ -178,7 +178,7 @@ The GCI error calculated for the gradients of $$Re_{\theta}$$ from coarse, mediu
 
 *Table 2: Grid convergence error when refined results are compared against the baseline 175 x 90 mesh results.*
 
-| (Re_\theta) | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) |
+| $$Re_{\theta}$$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) |
 | ----------- | --------- | --------- | ------- | --------------- | ------------- |
 | 4000        |      0     |      0     |    0     |       0          |      0         |
 | 6000        |     0      |       0    |    0     |           0      |         0      |
