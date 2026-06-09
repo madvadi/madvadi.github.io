@@ -178,6 +178,18 @@ The GCI error calculated for the gradients of $$Re_{\theta}$$ from coarse, mediu
 
 *Table 2: Grid convergence error when refined results are compared against the baseline 175 x 90 mesh results.*
 
+| (Re_\theta) | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) |
+| ----------- | --------- | --------- | ------- | --------------- | ------------- |
+| 4000        |      0     |      0     |    0     |       0          |      0         |
+| 6000        |     0      |       0    |    0     |           0      |         0      |
+| 8000        |      0     |      0     |      0   |           0      |        0       |
+| 10000       |      0     |     0      |      0   |          0       |        0       |
+| 11500       |     0      |     0      |    0     |          0       |       0        |
+
+*Table 3: Verification of mesh convergence using the skin-friction coefficient Cf at selected momentum-thickness Reynolds numbers. Percentage differences are calculated relative to the finer mesh solution.*
+
+
+
 ### Validation
 In Figure 19, we see that the u+ vs $$log_{10} (y+)$$ has a significant disagreement with Coles' theory for all levels of the mesh refinement when 5 < $$y^+$$ < 30, as this is the buffer zone between the viscous sublayer, where $$u^+ = y^+$$ applies, and the log-law region, $$y^+$$ > 30. In Figure 20, the error between K-S theory and the simulation results for the coarse mesh is incredibly small.
 The data provided by Nasa BLTMR approximate an agreement with the NASA estimation of $$Re_{\theta}$$ increase along the flat plate boundary layer as seen in figure 21. 
