@@ -167,7 +167,7 @@ The residuals and values from probes of quaility where shown in figures 9-14 for
 
 *Figure 21: Development of the momentum thickness Reynolds number (* $$Re_{\theta}$$ *) along the streamwise direction (X) for the SA model.*
 
-The GCI error calculated for the gradients of $$Re_{\theta}$$ from coarse, medium, and fine meshes in Figure 26 using methodlogy in the Error Calculation Methodology section, which is found to be 0.6%, comparing the $$Re_{\theta}$$ at 50% of the plate length. The value tabled in the table 2.
+The GCI error calculated for the gradients of $$Re_{\theta}$$ from coarse, medium, and fine meshes in Figure 26 using methodlogy in the Error Calculation Methodology section, which is found to be 0.6%, comparing the $$Re_{\theta}$$ at 50% of the plate length. The value tabled in the table xx.
 
 
 | Mesh Resolution | $$Re_{\theta}$$ at x = 1.0 m | % Change |
@@ -178,6 +178,7 @@ The GCI error calculated for the gradients of $$Re_{\theta}$$ from coarse, mediu
 
 *Table 2: Grid convergence error when refined results are compared against the baseline 175 x 90 mesh results.*
 
+
 | $$Re_{\theta}$$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) |
 | ----------- | --------- | --------- | ------- | --------------- | ------------- |
 | 4000        |      0     |      0     |    0     |       0          |      0         |
@@ -186,13 +187,47 @@ The GCI error calculated for the gradients of $$Re_{\theta}$$ from coarse, mediu
 | 10000       |      0     |     0      |      0   |          0       |        0       |
 | 11500       |     0      |     0      |    0     |          0       |       0        |
 
-*Table 3: Verification of mesh convergence using the skin-friction coefficient Cf at selected momentum-thickness Reynolds numbers. Percentage differences are calculated relative to the finer mesh solution.*
+*Table 2: Verification of mesh convergence using the skin-friction coefficient* $$C_f$$ *at selected momentum-thickness Reynolds numbers. Percentage differences are calculated relative to the finer mesh solution.*
 
 
+| $$\frac{x}{L_{plate}}$$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) |
+| ------------- | --------- | --------- | ------- | --------------- | ------------- |
+| 0.2           |           |           |         |                 |               |
+| 0.4           |           |           |         |                 |               |
+| 0.6           |           |           |         |                 |               |
+| 0.8           |           |           |         |                 |               |
+| 1.0           |           |           |         |                 |               |
+
+
+*Table xx: Verification of mesh convergence based on the momentum-thickness Reynolds number* $$Re_{\theta}$$ *at selected streamwise locations. Percentage differences are calculated relative to the finer mesh solution.*
 
 ### Validation
 In Figure 19, we see that the u+ vs $$log_{10} (y+)$$ has a significant disagreement with Coles' theory for all levels of the mesh refinement when 5 < $$y^+$$ < 30, as this is the buffer zone between the viscous sublayer, where $$u^+ = y^+$$ applies, and the log-law region, $$y^+$$ > 30. In Figure 20, the error between K-S theory and the simulation results for the coarse mesh is incredibly small.
 The data provided by Nasa BLTMR approximate an agreement with the NASA estimation of $$Re_{\theta}$$ increase along the flat plate boundary layer as seen in figure 21. 
+
+
+| $$\frac{x}{L_{plate}}$$ | NASA TMR | x2 Mesh | Error (%) |
+| ------------- | -------- | ------- | --------- |
+| 0.2           |          |         |           |
+| 0.4           |          |         |           |
+| 0.6           |          |         |           |
+| 0.8           |          |         |           |
+| 1.0           |          |         |           |
+
+*Table : Validation of the mesh-independent solution using the NASA Turbulence Modeling Resource (TMR) reference data. Percentage error is calculated relative to the reference values.*
+
+
+| $$Re_{\theta}$$ | Kármán–Schoenherr | x2 Mesh | Error (%) |
+| ----------- | ----------------- | ------- | --------- |
+| 4000        |                   |         |           |
+| 6000        |                   |         |           |
+| 8000        |                   |         |           |
+| 10000       |                   |         |           |
+| 11500       |                   |         |           |
+
+
+*Table : Validation of the mesh-independent solution using the Kármán–Schoenherr skin-friction correlation. Percentage error is calculated relative to the reference correlation.*
+
 
 ### Conclusion
 Conclusion
