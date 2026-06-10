@@ -187,11 +187,11 @@ The GCI error calculated for the gradients of $$Re_{\theta}$$ from coarse, mediu
 
 | $$Re_{\theta}$$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) |  $$GCI_{medium}$$ (%)  | $$GCI_{fine}$$ (%) | 
 | ----------- | --------- | --------- | ------- | --------------- | ------------- | --------------- | ------------- |
-| 4000        |      0     |      0     |    0     |       5.11      |      0.42  |       0.66      |      0.12  |
-| 6000        |     0      |       0    |    0     |       4.49      |      0.45  |       0.72      |      0.15  |
-| 8000        |      0     |      0     |      0   |       3.83      |      0.48  |       0.81      |      0.21  |
-| 10000       |      0     |     0      |      0   |       3.47      |      0.29  |       0.44      |      0.08  |
-| 11500       |     0      |     0      |    0     |       3.28      |      0.25  |       0.20      |      0.07  |
+| 4000        | 0.00295   | 0.00311   | 0.00312 |       5.11      |      0.42  |       0.66      |      0.12  |
+| 6000        | 0.00276   | 0.00289   | 0.00291 |       4.49      |      0.45  |       0.72      |      0.15  |
+| 8000        | 0.00265   | 0.00275   | 0.00276 |       3.83      |      0.48  |       0.81      |      0.21  |
+| 10000       | 0.00256   | 0.00265   | 0.00266 |       3.47      |      0.29  |       0.44      |      0.08  |
+| 11500       | 0.00250   | 0.00258   | 0.00259 |       3.28      |      0.25  |       0.20      |      0.07  |
 
 *Table 2: Verification of mesh convergence using the skin-friction coefficient* $$C_f$$ *at selected momentum-thickness Reynolds numbers. Percentage differences are calculated relative to the finer mesh solution.*
 
