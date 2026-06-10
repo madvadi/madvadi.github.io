@@ -49,11 +49,11 @@ The data in Figures 3 and 4 show that the velocities and pressure converge to a 
 
 Figure 7 shows that the results from all levels of refinement do not change significantly. The resulting errors are compiled in Table 1.
 
-| Mesh Resolution | Total Cells | Max $U_x$ | % Change |
-| :--- | :--- | :--- | :--- |
-| 129 x 129 | 16,641 | -0.216 | — |
-| 258 x 258 | 66,564 | -0.217 | 0.463% |
-| 516 x 516 | 266,256 | -0.216 | 0.175% |
+| Mesh Resolution | Max $U_x$ | % Change |
+| :--- | :--- | :--- |
+| 129 x 129 | -0.216 | — |
+| 258 x 258 | -0.217 | 0.463% |
+| 516 x 516 | -0.216 | 0.175% |
 
 *Table 1: Grid convergence error when refined results are compared against the baseline 129 x 129 mesh results.*
 
