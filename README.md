@@ -204,13 +204,13 @@ The GCI error calculated for the gradients of $$Re_{\theta}$$ from coarse, mediu
 *Table 3: Verification of mesh convergence based on the u+ vs y+. Percentage differences are calculated relative to the finer mesh solution.*
 
 
-| $$\frac{x}{L_{plate}}$$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) |
+| $$\frac{x}{L_{plate}}$$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) | $$GCI_{medium}$$ (%)  | $$GCI_{fine}$$ (%) | 
 | ------------- | --------- | --------- | ------- | --------------- | ------------- |
-| 0.2           |           |           |         |                 |               |
-| 0.4           |           |           |         |                 |               |
-| 0.6           |           |           |         |                 |               |
-| 0.8           |           |           |         |                 |               |
-| 1.0           |           |           |         |                 |               |
+| 0.2           | 3780 | 3620 | 3615 | 4.54 | 0.0161 | 0.0210 | 3.89e-04 |
+| 0.4           | 6620 | 6490 | 6443 | 2.10 | 0.695 | 1.87 | 1.02 |
+| 0.6           | 9320 | 9130 | 9070 | 2.08 | 0.707 | 1.95 | 1.08 |
+| 0.8           | 11900 | 11600 | 11600 | 2.89 | 0.268 | 0.418 | 0.0847 |
+| 1.0           | 14300 | 14000 | 13900 | 2.53 | 0.381 | 0.670 | 0.196 |
 
 
 *Table 4: Verification of mesh convergence based on the momentum-thickness Reynolds number* $$Re_{\theta}$$ *at selected streamwise locations. Percentage differences are calculated relative to the finer mesh solution.*
