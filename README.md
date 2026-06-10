@@ -212,11 +212,11 @@ The data provided by Nasa BLTMR approximate an agreement with the NASA estimatio
 
 | $$\frac{x}{L_{plate}}$$ | NASA TMR | x2 Mesh | Error (%) |
 | ------------- | -------- | ------- | --------- |
-| 0.2 | 2133.03833 | 3615.010039070856 | 69.4770313419945 |
-| 0.4 | 3765.681641 | 6443.562211362974 | 71.11277122332217 |
-| 0.6 | 5262.479004 | 9066.908452258403 | 72.29348459854499 |
-| 0.8 | 6680.038086 | 11577.952939694502 | 73.32166060489288 |
-| 1.0 | 8078.162109 | 13941.35253580978 | 72.5807472999027 |
+| 0.2 | 3766 | 3615 | 4.00 |
+| 0.4 | 6680 | 6443 | 3.54 |
+| 0.6 | 9428 | 9067 | 3.83 |
+| 0.8 | 11961 | 11578 | 3.21 |
+| 1.0 | 14384 | 13941 | 3.08 |
 
 *Table : Validation of the mesh-independent solution using the NASA Turbulence Modeling Resource (TMR) reference data. Percentage error is calculated relative to the reference values.*
 
