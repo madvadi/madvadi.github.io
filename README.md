@@ -192,7 +192,7 @@ The GCI error calculated for the gradients of $$Re_{\theta}$$ from coarse, mediu
 | 30        | 0.00276   | 0.00289   | 0.00291 |       4.49      |      0.45  |       0.72      |      0.15  |
 | 50        | 0.00265   | 0.00275   | 0.00276 |       3.83      |      0.48  |       0.81      |      0.21  |
 | 100       | 0.00256   | 0.00265   | 0.00266 |       3.47      |      0.29  |       0.44      |      0.08  |
-| 150       | 0.00250   | 0.00258   | 0.00259 |       3.28      |      0.25  |       0.20      |      0.07  |
+| 1000       | 0.00250   | 0.00258   | 0.00259 |       3.28      |      0.25  |       0.20      |      0.07  |
 
 *Table 3: Verification of mesh convergence based on the u+ value relative to the y+ values. Percentage differences are calculated relative to the finer mesh solution.*
 
