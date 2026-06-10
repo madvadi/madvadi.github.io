@@ -212,11 +212,11 @@ The data provided by Nasa BLTMR approximate an agreement with the NASA estimatio
 
 | $$\frac{x}{L_{plate}}$$ | NASA TMR | x2 Mesh | Error (%) |
 | ------------- | -------- | ------- | --------- |
-| 0.2           |          |         |           |
-| 0.4           |          |         |           |
-| 0.6           |          |         |           |
-| 0.8           |          |         |           |
-| 1.0           |          |         |           |
+| 0.2 | 2133.03833 | 3615.010039070856 | 69.4770313419945 |
+| 0.4 | 3765.681641 | 6443.562211362974 | 71.11277122332217 |
+| 0.6 | 5262.479004 | 9066.908452258403 | 72.29348459854499 |
+| 0.8 | 6680.038086 | 11577.952939694502 | 73.32166060489288 |
+| 1.0 | 8078.162109 | 13941.35253580978 | 72.5807472999027 |
 
 *Table : Validation of the mesh-independent solution using the NASA Turbulence Modeling Resource (TMR) reference data. Percentage error is calculated relative to the reference values.*
 
@@ -233,12 +233,11 @@ The data provided by Nasa BLTMR approximate an agreement with the NASA estimatio
 
 | $$Re_{\theta}$$ | Kármán–Schoenherr | x2 Mesh | Error (%) |
 | ----------- | ----------------- | ------- | --------- |
-| 4000        |                   |         |           |
-| 6000        |                   |         |           |
-| 8000        |                   |         |           |
-| 10000       |                   |         |           |
-| 11500       |                   |         |           |
-
+| 4000 | 0.00314396 | 0.003119266854151661 | 0.7854153948631256 |
+| 6000 | 0.00290117 | 0.0029059643548560075 | 0.16525590903006943 |
+| 8000 | 0.00274561 | 0.0027640285431899227 | 0.6708361052706979 |
+| 10000 | 0.00263344 | 0.0026559303475700026 | 0.8540292381828611 |
+| 11500 | 0.00257075 | 0.0025905867904628204 | 0.771634365956249 |
 
 *Table : Validation of the mesh-independent solution using the Kármán–Schoenherr skin-friction correlation. Percentage error is calculated relative to the reference correlation.*
 
