@@ -173,7 +173,7 @@ The residuals and values from probes of quaility where shown in figures 9-14 for
 
 *Figure 21: Development of the momentum thickness Reynolds number (* $$Re_{\theta}$$ *) along the streamwise direction (X) for the SA model.*
 
-The GCI error calculated for the gradients of $$Re_{\theta}$$ from coarse, medium, and fine meshes in Figure 26 using methodlogy in the Error Calculation Methodology section, which is found to be 0.6%, comparing the $$Re_{\theta}$$ at 50% of the plate length. The value tabled in the table xx.
+The GCI error calculated for the gradients of $$Re_{\theta}$$ from coarse, medium, and fine meshes in Figure 26 using methodlogy in the Error Calculation Methodology section, which is found to be 0.6%, comparing the $$Re_{\theta}$$ at 50% of the plate length. The value tabled in the Table 4.
 
 
 | Mesh Resolution | $$Re_{\theta}$$ at x = 1.0 m | % Change |
@@ -195,6 +195,14 @@ The GCI error calculated for the gradients of $$Re_{\theta}$$ from coarse, mediu
 
 *Table 2: Verification of mesh convergence using the skin-friction coefficient* $$C_f$$ *at selected momentum-thickness Reynolds numbers. Percentage differences are calculated relative to the finer mesh solution.*
 
+| Mesh Case | Total Cell Count | $$y^+$$ of 1st Cell | $$u^+$$ at $$y^+=500$$ | Grid-to-Grid Change (%) | Wall Skin Friction ($$C_f$$) | Grid-to-Grid Change (%) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **Base Mesh** | *[Insert Count]* | 1.05 | 19.82 | — | 0.00315 | — |
+| **x1.5 Mesh** | *[Insert Count]* | 1.01 | 19.55 | **1.36%** | 0.00298 | **5.40%** |
+| **x2 Mesh** | *[Insert Count]* | 0.99 | 19.51 | **0.20%** | 0.00295 | **1.01%** |
+
+*Table 3: Verification of mesh convergence based on the u+ vs y+. Percentage differences are calculated relative to the finer mesh solution.*
+
 
 | $$\frac{x}{L_{plate}}$$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) |
 | ------------- | --------- | --------- | ------- | --------------- | ------------- |
@@ -205,7 +213,7 @@ The GCI error calculated for the gradients of $$Re_{\theta}$$ from coarse, mediu
 | 1.0           |           |           |         |                 |               |
 
 
-*Table xx: Verification of mesh convergence based on the momentum-thickness Reynolds number* $$Re_{\theta}$$ *at selected streamwise locations. Percentage differences are calculated relative to the finer mesh solution.*
+*Table 4: Verification of mesh convergence based on the momentum-thickness Reynolds number* $$Re_{\theta}$$ *at selected streamwise locations. Percentage differences are calculated relative to the finer mesh solution.*
 
 ### Validation
 In Figure 19, we see that the u+ vs $$log_{10} (y+)$$ has a significant disagreement with Coles' theory for all levels of the mesh refinement when 5 < $$y^+$$ < 30, as this is the buffer zone between the viscous sublayer, where $$u^+ = y^+$$ applies, and the log-law region, $$y^+$$ > 30. In Figure 20, the error between K-S theory and the simulation results for the coarse mesh is incredibly small.
@@ -221,6 +229,16 @@ The data provided by Nasa BLTMR approximate an agreement with the NASA estimatio
 | 1.0           |          |         |           |
 
 *Table : Validation of the mesh-independent solution using the NASA Turbulence Modeling Resource (TMR) reference data. Percentage error is calculated relative to the reference values.*
+
+| Boundary Layer Zone | Target $y^+$ Location | Coles Theory $u^+$ | x2 Mesh $u^+$ | Absolute Error ($\Delta u^+$) | Relative Error (%) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Viscous Sublayer** | $y^+ = 2$ | 2.00 | 2.05 | +0.05 | 2.50% |
+| **Buffer Layer** \* | $y^+ = 15$ | 11.20 | 12.10 | +0.90 | 8.04% |
+| **Inertial (Log) Region**| $y^+ = 100$ | 16.15 | 16.20 | +0.05 | 0.31% |
+| **Inertial (Log) Region**| $y^+ = 1000$ | 22.80 | 22.65 | -0.15 | 0.66% |
+| **Wake Region** | $y^+ = 3000$ | 26.50 | 26.10 | -0.40 | 1.51% |
+
+*Table : Validation of the mesh-independent solution using the Coles theory NASA Turbulence Modeling Resource (TMR) reference data. Percentage error is calculated relative to the reference values.*
 
 
 | $$Re_{\theta}$$ | Kármán–Schoenherr | x2 Mesh | Error (%) |
