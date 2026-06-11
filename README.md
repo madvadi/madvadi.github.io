@@ -243,11 +243,11 @@ The data provided by Nasa BLTMR approximate an agreement with the NASA estimatio
 
 | $$Re_{\theta}$$ | Kármán–Schoenherr | x2 Mesh | Error (%) |
 | ----------- | ----------------- | ------- | --------- |
-| 4000 | 0.00314396 | 0.003119266854151661 | 0.7854153948631256 |
-| 6000 | 0.00290117 | 0.0029059643548560075 | 0.16525590903006943 |
-| 8000 | 0.00274561 | 0.0027640285431899227 | 0.6708361052706979 |
-| 10000 | 0.00263344 | 0.0026559303475700026 | 0.8540292381828611 |
-| 11500 | 0.00257075 | 0.0025905867904628204 | 0.771634365956249 |
+| 4000 | 0.00314 | 0.00312 | 0.785 |
+| 6000 | 0.00290 | 0.00291 | 0.165 |
+| 8000 | 0.00275 | 0.00276 | 0.671 |
+| 10000 | 0.00263 | 0.00266 | 0.854 |
+| 11500 | 0.00257 | 0.00259 | 0.772 |
 
 *Table 8: Validation of the mesh-independent solution using the Kármán–Schoenherr skin-friction correlation. Percentage error is calculated relative to the reference correlation.*
 
