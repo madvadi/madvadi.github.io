@@ -108,70 +108,77 @@ To calculate the Grid Convergence Index (GCI) error using the representative gri
 For the Spalart-Allmaras model, the inlet values where set to $$\tilde{\nu} = \nu \times 3 = 4.7\times10^{-5} \frac{m^2}{s}$$ and defined $$\nu_t = 0 \frac{m^2}{s}$$ at the inlet so that it could be calculated. 
 
 ### Verification
-For the verification, the residuals for velocity, pressure, and temperature where recorded to see if they either drop over 3 orders of magnitude and leveled out or have drop significantly. Alongside the residuals, the values for those quanilities where measured in several key locations across the flate plate, as seen in Figure 9.
+For the verification, the residuals for velocity, pressure, and temperature where recorded to see if they either drop over 3 orders of magnitude and leveled out or have drop significantly. Alongside the residuals, the values for those quanilities where measured in several key locations across the flate plate, as seen in Table 2.
 
-![SA Coarse Velocity Residuals](plots/SA/probeLocations)
+| Probe Number | Coordinates |
+| ------------ | ------------------ |
+| 1 | 0.5, 0.025 |
+| 2 | 0.5, 0.25 |
+| 3 | 1, 0.025 |
+| 4 | 1, 0.25 |
+| 5 | 2, 0.025 |
+| 6 | 2, 0.25 |
 
-*Figure 9: The probe locations in the domain.*
+*Table 2: Probe locations within the domain.*
 
 Probes 1 and 2 are based at the leading edge of the plate, this is where the wake forms as flow hits the plate, whcih is a point of potential unsteady behaviour, and hence, is worth monitoring. Probe 1 is at distance of 25 mm from the plate and probe 2 is at a distance of 25 cm, this such that there is one probe close to the boundary layer law-log reigion or wake center and one in the freestream, to make sure that the behaviour is stable. Subsequence probes are place at x = 0.5 and x = 1.5 m. 2 locations where pick along the boundary layer to monitor if those locations would become steady.
 
 ![SA Coarse Velocity Residuals](plots/SA/coarse/ResidualsOfVelocity.png)
 
-*Figure 10: Convergence history of velocity residuals for the SA model on the coarse mesh.*
+*Figure 9: Convergence history of velocity residuals for the SA model on the coarse mesh.*
 
 ![SA Coarse Pressure Residuals](plots/SA/coarse/ResidualsOfPressure.png)
 
-*Figure 11: Convergence history of pressure residuals for the SA model on the coarse mesh.*
+*Figure 10: Convergence history of pressure residuals for the SA model on the coarse mesh.*
 
 
 ![SA Medium Velocity Residuals](plots/SA/medium/ResidualsOfVelocity.png)
 
-*Figure 12: Convergence history of velocity residuals for the SA model on the medium mesh.*
+*Figure 11: Convergence history of velocity residuals for the SA model on the medium mesh.*
 
 
 ![SA Medium Pressure Residuals](plots/SA/medium/ResidualsOfPressure.png)
 
-*Figure 13: Convergence history of pressure residuals for the SA model on the medium mesh.*
+*Figure 12: Convergence history of pressure residuals for the SA model on the medium mesh.*
 
 
 ![SA Fine Velocity Residuals](plots/SA/fine/ResidualsOfVelocity.png)
 
-*Figure 14: Convergence history of velocity residuals for the SA model on the fine mesh.*
+*Figure 13: Convergence history of velocity residuals for the SA model on the fine mesh.*
 
 
 ![SA Fine Pressure Residuals](plots/SA/fine/ResidualsOfPressure.png)
 
-*Figure 15: Convergence history of pressure residuals for the SA model on the fine mesh.*
+*Figure 14: Convergence history of pressure residuals for the SA model on the fine mesh.*
 
-The residuals and values from probes of quaility where shown in figures 9-14 for each level of mesh, i.e. coarse, medium, and fine, with coarse being the base mesh. While residuals for all 3 meshes have either leveled out or drop significantly, it is important also measure the values of velocity, pressure, and temperature, using the probe locaiton mentioned previously. Figures 16-18 shows the final values that each of the probes converged on by the end of the simulation plotted against the amount of cells used in the simulation. For all 3 variables, no sigificate change was found. 
+The residuals and values from probes of quaility where shown in figures 9-14 for each level of mesh, i.e. coarse, medium, and fine, with coarse being the base mesh. While residuals for all 3 meshes have either leveled out or drop significantly, it is important also measure the values of velocity, pressure, and temperature, using the probe locaiton mentioned previously. Figures 15-17 shows the final values that each of the probes converged on by the end of the simulation plotted against the amount of cells used in the simulation. For all 3 variables, no sigificate change was found. 
 
 ![SA Fine Pressure Residuals](plots/SA/AllLevelsVelocityProbes.png)
 
-*Figure 16: Velocity Probes.*
+*Figure 15: Velocity Probes.*
 
 ![SA Fine Pressure Residuals](plots/SA/AllLevelsPressureProbes.png)
 
-*Figure 17: Pressure Probes.*
+*Figure 16: Pressure Probes.*
 
 ![SA Fine Pressure Residuals](plots/SA/AllLevelsTemperatureProbes.png)
 
-*Figure 18: Temperature Probes.*
+*Figure 17: Temperature Probes.*
 
 
 ![SA Skin Friction Coefficient](plots/SA/SkinCoefficient.png)
 
-*Figure 19: Local skin friction coefficient distribution along the surface calculated with the SA model.*
+*Figure 18: Local skin friction coefficient distribution along the surface calculated with the SA model.*
 
 
 ![SA Dimensionless Velocity Profile (u+ vs y+)](plots/SA/u+y+.png)
 
-*Figure 20: Dimensionless boundary layer velocity profile (* $$u^+$$ *vs* $$y^+$$ *) plotted against the theoretical law of the wall using the SA model.*
+*Figure 19: Dimensionless boundary layer velocity profile (* $$u^+$$ *vs* $$y^+$$ *) plotted against the theoretical law of the wall using the SA model.*
 
 
 ![SA Momentum Thickness Reynolds Number vs X](plots/SA/ReThetaVsX.png)
 
-*Figure 21: Development of the momentum thickness Reynolds number (* $$Re_{\theta}$$ *) along the streamwise direction (X) for the SA model.*
+*Figure 20: Development of the momentum thickness Reynolds number (* $$Re_{\theta}$$ *) along the streamwise direction (X) for the SA model.*
 
 The GCI error calculated for the gradients of $$Re_{\theta}$$ from coarse, medium, and fine meshes in Figure 26 using methodlogy in the Error Calculation Methodology section, which is found to be 0.6%, comparing the $$Re_{\theta}$$ at 50% of the plate length. The value tabled in the Table 4.
 
@@ -184,7 +191,7 @@ The GCI error calculated for the gradients of $$Re_{\theta}$$ from coarse, mediu
 | 10000       | 0.00256   | 0.00265   | 0.00266 |       3.47      |      0.29  |       0.44      |      0.08  |
 | 11500       | 0.00250   | 0.00258   | 0.00259 |       3.28      |      0.25  |       0.20      |      0.07  |
 
-*Table 2: Verification of mesh convergence using the skin-friction coefficient* $$C_f$$ *at selected momentum-thickness Reynolds numbers. Percentage differences are calculated relative to the finer mesh solution.*
+*Table 3: Verification of mesh convergence using the skin-friction coefficient* $$C_f$$ *at selected momentum-thickness Reynolds numbers. Percentage differences are calculated relative to the finer mesh solution.*
 
 | $$y^+$$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) |  $$GCI_{medium}$$ (%)  | $$GCI_{fine}$$ (%) | 
 | ----------- | --------- | --------- | ------- | --------------- | ------------- | --------------- | ------------- |
@@ -194,7 +201,7 @@ The GCI error calculated for the gradients of $$Re_{\theta}$$ from coarse, mediu
 | 100       | 0.00256   | 0.00265   | 0.00266 |       3.47      |      0.29  |       0.44      |      0.08  |
 | 1000       | 0.00250   | 0.00258   | 0.00259 |       3.28      |      0.25  |       0.20      |      0.07  |
 
-*Table 3: Verification of mesh convergence based on the u+ value relative to the y+ values. Percentage differences are calculated relative to the finer mesh solution.*
+*Table 4: Verification of mesh convergence based on the u+ value relative to the y+ values. Percentage differences are calculated relative to the finer mesh solution.*
 
 
 | $$\frac{x}{L_{plate}}$$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) | $$GCI_{medium}$$ (%)  | $$GCI_{fine}$$ (%) | 
@@ -205,11 +212,11 @@ The GCI error calculated for the gradients of $$Re_{\theta}$$ from coarse, mediu
 | 0.8           | 11900 | 11600 | 11600 | 2.89 | 0.268 | 0.418 | 0.0847 |
 | 1.0           | 14300 | 14000 | 13900 | 2.53 | 0.381 | 0.670 | 0.196 |
 
-*Table 4: Verification of mesh convergence based on the momentum-thickness Reynolds number* $$Re_{\theta}$$ *at selected streamwise locations. Percentage differences are calculated relative to the finer mesh solution.*
+*Table 5: Verification of mesh convergence based on the momentum-thickness Reynolds number* $$Re_{\theta}$$ *at selected streamwise locations. Percentage differences are calculated relative to the finer mesh solution.*
 
 ### Validation
-In Figure 19, we see that the u+ vs $$log_{10} (y+)$$ has a significant disagreement with Coles' theory for all levels of the mesh refinement when 5 < $$y^+$$ < 30, as this is the buffer zone between the viscous sublayer, where $$u^+ = y^+$$ applies, and the log-law region, $$y^+$$ > 30. In Figure 20, the error between K-S theory and the simulation results for the coarse mesh is incredibly small.
-The data provided by Nasa BLTMR approximate an agreement with the NASA estimation of $$Re_{\theta}$$ increase along the flat plate boundary layer as seen in figure 21. 
+In Figure 19, we see that the u+ vs $$log_{10} (y+)$$ has a significant disagreement with Coles' theory for all levels of the mesh refinement when 5 < $$y^+$$ < 30, as this is the buffer zone between the viscous sublayer, where $$u^+ = y^+$$ applies, and the log-law region, $$y^+$$ > 30. In Figure 18, the error between K-S theory and the simulation results for the coarse mesh is incredibly small.
+The data provided by Nasa BLTMR approximate an agreement with the NASA estimation of $$Re_{\theta}$$ increase along the flat plate boundary layer as seen in figure 20. 
 
 
 | $$\frac{x}{L_{plate}}$$ | NASA TMR | x2 Mesh | Error (%) |
@@ -219,7 +226,7 @@ The data provided by Nasa BLTMR approximate an agreement with the NASA estimatio
 | 0.6 | 9428 | 9067 | 3.83 |
 | 0.8 | 11961 | 11578 | 3.21 |
 | 1.0 | 14384 | 13941 | 3.08 |
-*Table 5: Validation of the mesh-independent solution using the NASA Turbulence Modeling Resource (TMR) reference data. Percentage error is calculated relative to the reference values.*
+*Table 6: Validation of the mesh-independent solution using the NASA Turbulence Modeling Resource (TMR) reference data. Percentage error is calculated relative to the reference values.*
 
 | $y^+$ Location | Coles Theory $u^+$ | x2 Mesh $u^+$ | Relative Error (%) |
 | :--- | :--- | :--- | :--- |
@@ -229,7 +236,7 @@ The data provided by Nasa BLTMR approximate an agreement with the NASA estimatio
 | 50 | 14.5 | 14.6 | 0.997 |
 | 100 | 16.2 | 16.3 | 0.305 |
 | 1000 | 22.4 | 21.9 | 1.95 |
-*Table 6: Validation of the mesh-independent solution using the Coles theory NASA Turbulence Modeling Resource (TMR) reference data. Percentage error is calculated relative to the reference values.*
+*Table 7: Validation of the mesh-independent solution using the Coles theory NASA Turbulence Modeling Resource (TMR) reference data. Percentage error is calculated relative to the reference values.*
 
 
 | $$Re_{\theta}$$ | Kármán–Schoenherr | x2 Mesh | Error (%) |
@@ -239,7 +246,7 @@ The data provided by Nasa BLTMR approximate an agreement with the NASA estimatio
 | 8000 | 0.00274561 | 0.0027640285431899227 | 0.6708361052706979 |
 | 10000 | 0.00263344 | 0.0026559303475700026 | 0.8540292381828611 |
 | 11500 | 0.00257075 | 0.0025905867904628204 | 0.771634365956249 |
-*Table 7: Validation of the mesh-independent solution using the Kármán–Schoenherr skin-friction correlation. Percentage error is calculated relative to the reference correlation.*
+*Table 8: Validation of the mesh-independent solution using the Kármán–Schoenherr skin-friction correlation. Percentage error is calculated relative to the reference correlation.*
 
 
 ### Conclusion
