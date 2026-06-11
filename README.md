@@ -226,6 +226,7 @@ The data provided by Nasa BLTMR approximate an agreement with the NASA estimatio
 | 0.6 | 9428 | 9067 | 3.83 |
 | 0.8 | 11961 | 11578 | 3.21 |
 | 1.0 | 14384 | 13941 | 3.08 |
+
 *Table 6: Validation of the mesh-independent solution using the NASA Turbulence Modeling Resource (TMR) reference data. Percentage error is calculated relative to the reference values.*
 
 | $y^+$ Location | Coles Theory $u^+$ | x2 Mesh $u^+$ | Relative Error (%) |
@@ -236,6 +237,7 @@ The data provided by Nasa BLTMR approximate an agreement with the NASA estimatio
 | 50 | 14.5 | 14.6 | 0.997 |
 | 100 | 16.2 | 16.3 | 0.305 |
 | 1000 | 22.4 | 21.9 | 1.95 |
+
 *Table 7: Validation of the mesh-independent solution using the Coles theory NASA Turbulence Modeling Resource (TMR) reference data. Percentage error is calculated relative to the reference values.*
 
 
@@ -246,6 +248,7 @@ The data provided by Nasa BLTMR approximate an agreement with the NASA estimatio
 | 8000 | 0.00274561 | 0.0027640285431899227 | 0.6708361052706979 |
 | 10000 | 0.00263344 | 0.0026559303475700026 | 0.8540292381828611 |
 | 11500 | 0.00257075 | 0.0025905867904628204 | 0.771634365956249 |
+
 *Table 8: Validation of the mesh-independent solution using the Kármán–Schoenherr skin-friction correlation. Percentage error is calculated relative to the reference correlation.*
 
 
