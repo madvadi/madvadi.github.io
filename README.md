@@ -106,7 +106,7 @@ The baseline mesh used features a 175 by 90 grid size, with the boundary conditi
 For the Spalart-Allmaras model, the inlet values where set to $$\tilde{\nu} = \nu \times 3 = 4.7\times10^{-5} \frac{m^2}{s}$$ and letted $$\nu_t = 0 \frac{m^2}{s}$$ at the inlet float (Spalart and Allmaras 1992). 
 
 ### Verification
-For the verification, the residuals for velocity, pressure, and temperature where recorded to see if they either drop over 3 orders of magnitude and leveled out or have drop significantly. Alongside the residuals, the values for those quanilities where measured in several key locations across the flate plate, as seen in Table 2.
+For verification, the residuals for velocity, pressure, and temperature were recorded to show that they met the convergence criteria, having dropped by at least three orders of magnitude and leveled out. Convergence criteria also dictate that the values of these quantities do not change for a steady-state flow; hence, several probes were placed in key locations, as shown in Table 2.
 
 | Probe Number | Coordinates |
 | ------------ | ------------------ |
