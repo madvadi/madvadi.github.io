@@ -129,6 +129,7 @@ Probes 1 and 2 are positioned at the leading edge of the plate. This is where th
 
 *Figure 10: Convergence history of pressure residuals for the SA model on the coarse mesh.*
 
+In figures 9 and 10, it is seen that the residuals have dropped and flatlined at 1e-05 for Ux, 1e-06 for Uy, and 1e-04 for pressure, hence this meets the critica for convergence for the coarse mesh. 
 
 ![SA Medium Velocity Residuals](plots/SA/medium/ResidualsOfVelocity.png)
 
@@ -139,6 +140,7 @@ Probes 1 and 2 are positioned at the leading edge of the plate. This is where th
 
 *Figure 12: Convergence history of pressure residuals for the SA model on the medium mesh.*
 
+In figures 11 and 12, it is seen that the residuals have dropped to 1e-10 for Ux, 1e-08 for Uy, and 1e-07 for pressure which has averaged out, hence this meets the critica for convergence for the fine mesh. However has the order of maginitude did not flateline, it is important to show the actually values staying considtance over the iterations. 
 
 ![SA Fine Velocity Residuals](plots/SA/fine/ResidualsOfVelocity.png)
 
@@ -149,7 +151,9 @@ Probes 1 and 2 are positioned at the leading edge of the plate. This is where th
 
 *Figure 14: Convergence history of pressure residuals for the SA model on the fine mesh.*
 
-The residuals and values from probes of quaility where shown in figures 9-14 for each level of mesh, i.e. coarse, medium, and fine, with coarse being the base mesh. While residuals for all 3 meshes have either leveled out or drop significantly, it is important also measure the values of velocity, pressure, and temperature, using the probe locaiton mentioned previously. Figures 15-17 shows the final values that each of the probes converged on by the end of the simulation plotted against the amount of cells used in the simulation. For all 3 variables, no sigificate change was found. 
+In figures 13 and 14, it is seen that the residuals have dropped and averaged out at 1e-11 for Ux, 1e-09 for Uy, and 1e-07 for pressure, hence this meets the critica for convergence for the medium mesh. 
+
+ Figures 15-17 shows the final values that each of the probes converged on by the end of the simulation plotted against the amount of cells used in the simulation. For all 3 variables, no sigificate change was found. 
 
 ![SA Fine Pressure Residuals](plots/SA/AllLevelsVelocityProbes.png)
 
