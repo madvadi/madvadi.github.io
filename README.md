@@ -94,19 +94,16 @@ From the results, we can see that the findings from the Lid-Cavity simulation ha
 
 ## Subsonic Turbulent Boundary Layer over a Flat Plate with a Compressible Pressure Solver
 
-In a CD nozzle, a high-temperature and high-pressure subsonic flow is converted to supersonic flow before being exhausted from the engine. A high-fidelity simulation must remain stable across two flow regimes (i.e., subsonic and supersonic) while capturing the physics acting on the nozzle wall, such as wall temperature. Using a density-based solver in the subsonic section of a CD nozzle makes it difficult to maintain stability, therefore, a pressure-based solver is used to produce an internal field for that specific section of the nozzle. To validate the internal field produced by the pressure solver, a unit cases using zero-pressure-gradient flat plate simulations in a incompressible (modelled as incompressible), subsonic, turbulent flow using the Spalart-Allmaras model, as a one equation model is computational efficient for large mesh sizes, such as those used for CD nozzles.
-The NASA Turbulent Modeling Resource provides a validation case for my simulation to be compared against, which can be found at https://tmbwg.github.io/turbmodels/flatplate_val.html.
-
-The baseline mesh used features a 175 by 90 grid size with the boundary conditions shown in Figure 8.
+In a CD nozzle, a high-temperature, high-pressure subsonic flow is converted into a supersonic flow before being exhausted from the engine. A high-fidelity simulation must remain stable across two flow regimes (i.e., subsonic and supersonic) while capturing the boundary layer at the nozzle wall to determine quantities such as wall temperature. Using a density-based solver in the subsonic section of a CD nozzle makes it difficult to maintain stability. Therefore, a pressure-based solver is used to produce an internal field for that specific section of the nozzle (Ansys, 2026). Several assumptions are made for the nozzle simulation as a whole, which affect this validation unit case: the flow is chemically frozen, the cross-sectional area for the subsonic section is constant, and the flow is modeled as 2D axisymmetric. To validate the internal field produced by the pressure solver, a unit case was conducted using zero-pressure-gradient flat-plate simulations in an incompressible (modeled as compressible), subsonic, turbulent flow. The Spalart–Allmaras model, as a one-equation model, is computationally efficient for large mesh sizes, such as those used for CD nozzles. The NASA Turbulence Modeling Resource provides a validation case for my simulation to be compared against, which can be found at (AIAA TMRWG, 2026).
 
 ![Flate Plate Mesh](plots/Mesh_N_BCs.png)
 *Figure 8: Mesh with a 175 x 90 resolution and its corresponding boundary conditions.*
 
-For these turbulence models, it is crucial that the mesh spacing near the wall remains under $y^+ = 1$ in order to fully resolve the viscous sub-layer. Using the calculated $y$-coordinate value for $y^+ = 1$, I applied a simple expansion ratio to cluster the nodes closely along the y-axis.
+The baseline mesh used features a 175 by 90 grid size, with the boundary conditions shown in Figure 8. For these turbulence models, it is crucial that the mesh spacing near the wall remains under $y^+ = 1$ to fully resolve the viscous sublayer. Using the calculated y-coordinate value for $y^+ = 1$, I applied a simple expansion ratio to cluster the nodes closely along the y-axis.
 
 ### Case using Spalart-Allmaras
 
-For the Spalart-Allmaras model, the inlet values where set to $$\tilde{\nu} = \nu \times 3 = 4.7\times10^{-5} \frac{m^2}{s}$$ and defined $$\nu_t = 0 \frac{m^2}{s}$$ at the inlet so that it could be calculated. 
+For the Spalart-Allmaras model, the inlet values where set to $$\tilde{\nu} = \nu \times 3 = 4.7\times10^{-5} \frac{m^2}{s}$$ and letted $$\nu_t = 0 \frac{m^2}{s}$$ at the inlet float (Spalart and Allmaras 1992). 
 
 ### Verification
 For the verification, the residuals for velocity, pressure, and temperature where recorded to see if they either drop over 3 orders of magnitude and leveled out or have drop significantly. Alongside the residuals, the values for those quanilities where measured in several key locations across the flate plate, as seen in Table 2.
@@ -266,3 +263,7 @@ Considering the results produced from this simulation using a pressure-based sol
 Ghia, U., Ghia, K.N. and Shin, C.T., 1982. High-Re solutions for incompressible flow using the Navier-Stokes equations and a multigrid method. *Journal of Computational Physics*, 48(3), pp. 387–411.
 
 AIAA Turbulence Model Benchmarking Working Group (TMBWG), 2026. *Turbulence Modeling Resource: Zero Pressure Gradient Flat Plate Validation Case*. Available at: <https://tmbwg.github.io/turbmodels/flatplate_val.html> [Accessed 9 June 2026].
+
+Ansys (2026) Ansys Fluent Theory Guide. Canonsburg, PA: Ansys, Inc.
+
+Spalart, P.R. and Allmaras, S.R. (1992) 'A one-equation turbulence model for aerodynamic flows', Technical Report AIAA-92-0439. Reno, NV: American Institute of Aeronautics and Astronautics. doi: 10.2514/6.1992-439.
