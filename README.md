@@ -18,7 +18,7 @@ In the following projects, calculation of the Grid Convergence Index (GCI) error
    $$p = \frac{1}{\ln(r_{21})} \left| \ln\left| \frac{\epsilon_{32}}{\epsilon_{21}} \right| + q(p) \right|$$
    *(Where* $$\epsilon_{32} = f_3 - f_2$$, $$\epsilon_{21} = f_2 - f_1$$ *, and* $$q(p)$$ *is a correction factor that equals zero if the grid refinement ratio is constant, i.e.,* $$r_{21} = r_{32}$$).
 
-5. **Calculate Relative Error ($$\epsilon_{21}$$):** Determine the relative error between the two finest grids:
+5. **Calculate Relative Error ($$\epsilon_{32}$$ and $$\epsilon_{21}$$):** Determine the relative error between the two finest grids:
    $$\epsilon_{21} = \left| \frac{f_2 - f_1}{f_1} \right|$$
 
 6. **Compute the GCI Error:** Finally, calculate the fine-grid GCI error by applying a safety factor ($$F_s$$), which is typically set to 1.25 for a rigorous three-grid study:
@@ -78,7 +78,7 @@ Figure 7 shows that the results from all levels of refinement do not change sign
 | :--- | :--- | :--- |
 | 129 x 129 | -0.216 | — |
 | 258 x 258 | -0.217 | 0.463% |
-| 516 x 516 | -0.216 | 0.175% |
+| 516 x 516 | -0.2169 | 0.175% |
 
 *Table 1: Grid convergence error when refined results are compared against the baseline 129 x 129 mesh results.*
 
