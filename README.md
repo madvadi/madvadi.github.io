@@ -201,6 +201,8 @@ Because turbulent boundary layers follow at generalised law at in the viscous su
 
 *Table 4: Verification of mesh convergence based on the u+ value relative to the y+ values. Percentage differences are calculated relative to the finer mesh solution.*
 
+Then measuring the development of the thickenss of the boundary layer, the $$Re_{\theta}$$ profile is plotted long the plate as seen in Figure 20. 
+
 ![SA Momentum Thickness Reynolds Number vs X](plots/SA/ReThetaVsX.png)
 
 *Figure 20: Development of the momentum thickness Reynolds number (* $$Re_{\theta}$$ *) along the streamwise direction (X) for the SA model.*
@@ -258,11 +260,6 @@ The data provided by Nasa BLTMR approximate an agreement with the NASA estimatio
 Considering the results produced from this simulation using a pressure-based solver for subsonic, incompressible flow, i.e. Ma < 0.3, agrees with the validation data from Nasa TMR Zero Pressure Gradient flate plate case, means that it can produce the initial internal field for subsonic pre-inlet for a CD nozzle. The simulation settings here will be able to capature the subsonic, high temperature, and high pressure at the end of the combustion chamber as it goes into the nozzle.
 
 ## References 
-### In-Text Citations
-* (Ghia et al., 1982)
-* (AIAA TMBWG, 2026)
-
-### Reference List
 
 Ghia, U., Ghia, K.N. and Shin, C.T., 1982. High-Re solutions for incompressible flow using the Navier-Stokes equations and a multigrid method. *Journal of Computational Physics*, 48(3), pp. 387–411.
 
