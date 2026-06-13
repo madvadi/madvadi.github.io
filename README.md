@@ -141,7 +141,9 @@ In figures 9 and 10, it is seen that the residuals have dropped and flatlined at
 
 *Figure 12: Convergence history of pressure residuals for the SA model on the medium mesh.*
 
-In figures 11 and 12, it is seen that the residuals have dropped to 1e-10 for Ux, 1e-08 for Uy, and 1e-07 for pressure which has averaged out, hence this meets the critica for convergence for the fine mesh. However has the order of maginitude did not flateline, it is important to show the actually values staying considtance over the iterations. 
+
+In figures 11 and 12, it is seen that the residuals have dropped and averaged out at 1e-11 for Ux, 1e-09 for Uy, and 1e-07 for pressure, hence this meets the critica for convergence for the medium mesh. 
+
 
 ![SA Fine Velocity Residuals](plots/SA/fine/ResidualsOfVelocity.png)
 
@@ -152,9 +154,7 @@ In figures 11 and 12, it is seen that the residuals have dropped to 1e-10 for Ux
 
 *Figure 14: Convergence history of pressure residuals for the SA model on the fine mesh.*
 
-In figures 13 and 14, it is seen that the residuals have dropped and averaged out at 1e-11 for Ux, 1e-09 for Uy, and 1e-07 for pressure, hence this meets the critica for convergence for the medium mesh. 
-
- Figures 15-17 shows the final values that each of the probes converged on by the end of the simulation plotted against the amount of cells used in the simulation. For all 3 variables, no sigificate change was found. 
+In figures 13 and 14, it is seen that the residuals have dropped to 1e-10 for Ux, 1e-08 for Uy, and 1e-07 for pressure which has averaged out, hence this meets the critica for convergence for the fine mesh. However has the order of maginitude did not flateline, it is important to show the actually values staying considtance over the iterations. Hence, figures 15-17 shows the final values that each of the probes converged on by the end of the simulation plotted against the amount of cells used in the simulation. For all 3 variables, no sigificate change was found as the mesh was refined. 
 
 ![SA Fine Pressure Residuals](plots/SA/AllLevelsVelocityProbes.png)
 
@@ -168,23 +168,11 @@ In figures 13 and 14, it is seen that the residuals have dropped and averaged ou
 
 *Figure 17: Temperature Probes.*
 
+To understand the contribution of viscosity to the drag, the skin coefficient profile is calcualted across the plate, as seen in Figure 18, and in table 3, at several key points on the plate, using $$Re_{\theta} at that point, the relative and GCI error is calcualted and found to have convergenced at those points, i.e. the GCI and relative error decreases as the meshes is refined.
 
 ![SA Skin Friction Coefficient](plots/SA/SkinCoefficient.png)
 
 *Figure 18: Local skin friction coefficient distribution along the surface calculated with the SA model.*
-
-
-![SA Dimensionless Velocity Profile (u+ vs y+)](plots/SA/u+y+.png)
-
-*Figure 19: Dimensionless boundary layer velocity profile (* $$u^+$$ *vs* $$y^+$$ *) plotted against the theoretical law of the wall using the SA model.*
-
-
-![SA Momentum Thickness Reynolds Number vs X](plots/SA/ReThetaVsX.png)
-
-*Figure 20: Development of the momentum thickness Reynolds number (* $$Re_{\theta}$$ *) along the streamwise direction (X) for the SA model.*
-
-The GCI error calculated for the gradients of $$Re_{\theta}$$ from coarse, medium, and fine meshes in Figure 26 using methodlogy in the Error Calculation Methodology section, which is found to be 0.6%, comparing the $$Re_{\theta}$$ at 50% of the plate length. The value tabled in the Table 4.
-
 
 | $$Re_{\theta}$$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) |  $$GCI_{medium}$$ (%)  | $$GCI_{fine}$$ (%) | 
 | ----------- | --------- | --------- | ------- | --------------- | ------------- | --------------- | ------------- |
@@ -196,6 +184,13 @@ The GCI error calculated for the gradients of $$Re_{\theta}$$ from coarse, mediu
 
 *Table 3: Verification of mesh convergence using the skin-friction coefficient* $$C_f$$ *at selected momentum-thickness Reynolds numbers. Percentage differences are calculated relative to the finer mesh solution.*
 
+Because turbulent boundary layers follow at generalised law at in the viscous sub-layer and the log-law region, it is important to compare the velocity profile with universal laws such as Coles Law (AIAA TMBWG, 2026). In Figure 19, there is a .....
+
+![SA Dimensionless Velocity Profile (u+ vs y+)](plots/SA/u+y+.png)
+
+*Figure 19: Dimensionless boundary layer velocity profile (* $$u^+$$ *vs* $$y^+$$ *) plotted against the theoretical law of the wall using the SA model.*
+
+
 | $$y^+$$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) |  $$GCI_{medium}$$ (%)  | $$GCI_{fine}$$ (%) | 
 | ----------- | --------- | --------- | ------- | --------------- | ------------- | --------------- | ------------- |
 | 5        | 0.00295   | 0.00311   | 0.00312 |       5.11      |      0.42  |       0.66      |      0.12  |
@@ -205,6 +200,10 @@ The GCI error calculated for the gradients of $$Re_{\theta}$$ from coarse, mediu
 | 1000       | 0.00250   | 0.00258   | 0.00259 |       3.28      |      0.25  |       0.20      |      0.07  |
 
 *Table 4: Verification of mesh convergence based on the u+ value relative to the y+ values. Percentage differences are calculated relative to the finer mesh solution.*
+
+![SA Momentum Thickness Reynolds Number vs X](plots/SA/ReThetaVsX.png)
+
+*Figure 20: Development of the momentum thickness Reynolds number (* $$Re_{\theta}$$ *) along the streamwise direction (X) for the SA model.*
 
 
 | $$\frac{x}{L_{plate}}$$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) | $$GCI_{medium}$$ (%)  | $$GCI_{fine}$$ (%) | 
@@ -256,7 +255,7 @@ The data provided by Nasa BLTMR approximate an agreement with the NASA estimatio
 
 
 ### Conclusion
-Considering the results produced from this simulation using a pressure-based solver for subsonic, incompressible flow, i.e. Ma < 0.3, agrees with the validation data from Nasa TMR Zero Pressure Gradient flate plate case, means that it can produce the initial internal field for subsonic pre-inlet for a CD nozzle.
+Considering the results produced from this simulation using a pressure-based solver for subsonic, incompressible flow, i.e. Ma < 0.3, agrees with the validation data from Nasa TMR Zero Pressure Gradient flate plate case, means that it can produce the initial internal field for subsonic pre-inlet for a CD nozzle. The simulation settings here will be able to capature the subsonic, high temperature, and high pressure at the end of the combustion chamber as it goes into the nozzle.
 
 ## References 
 ### In-Text Citations
