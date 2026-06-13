@@ -74,19 +74,20 @@ The data in Figures 3 and 4 show that the velocities and pressure converge to a 
 
 Figure 7 shows that the results from all levels of refinement do not change significantly. The resulting errors are compiled in Table 1.
 
-| Mesh Resolution | Max $U_x$ | % Change |
-| :--- | :--- | :--- |
-| 129 x 129 | -0.216 | — |
-| 258 x 258 | -0.217 | 0.463% |
-| 516 x 516 | -0.2169 | 0.175% |
+| Mesh Resolution | Max $U_x$ | % Relative Error | % GCI Error |
+| :--- | :--- | :--- | :--- |
+| 129 x 129 | -0.216309 | — | |
+| 258 x 258 | -0.217237 | 0.463 | 0.744 |
+| 516 x 516 | -0.216975 | 0.175 | 0.594 |
 
 *Table 1: Grid convergence error when refined results are compared against the baseline 129 x 129 mesh results.*
 
-Coarse to Medium mesh relative error 0.0045949492391629595
+coarse value = -0.216309, medium value = -0.217237, fine value = -0.216975
 
-Medium to Fine mesh relative error 0.006385039176709853
+Relative Error 32 = 0.004271832146457611, GCI medium = 0.007440428363199541
 
-GCI fine = -0.028942710478639184
+Relative Error 21 = 0.001207512386219667, GCI fine = 0.0005937842439744134
+
 
 ### Conclusion 
 
