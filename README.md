@@ -19,9 +19,9 @@ In the following projects, calculation of the Grid Convergence Index (GCI) error
    *(Where* $$\epsilon_{32} = f_3 - f_2$$, $$\epsilon_{21} = f_2 - f_1$$ *, and* $$q(p)$$ *is a correction factor that equals zero if the grid refinement ratio is constant, i.e.,* $$r_{21} = r_{32}$$).
 
 5. **Calculate Relative Error ($$\epsilon_{32}$$ and $$\epsilon_{21}$$):** Determine the relative error between the two finest grids:
-   $$\epsilon_{21} = \left| \frac{f_2 - f_1}{f_1} \right|$$
+   $$\epsilon_{21} = \left| \frac{f_2 - f_1}{f_1} \right|$$ and $$\epsilon_{32} = \left| \frac{f_3 - f_2}{f_2} \right|$$
 
-6. **Compute the GCI Error:** Finally, calculate the fine-grid GCI error by applying a safety factor ($$F_s$$), which is typically set to 1.25 for a rigorous three-grid study:
+6. **Compute the GCI Error:** Finally, calculate the fine- and medium-grid GCI error by applying a safety factor ($$F_s$$), which is typically set to 1.25 for a rigorous three-grid study:
    $$GCI_{fine} = \frac{F_s \cdot \epsilon_{21}}{r_{21}^p - 1}$$
 
 > **Note:** The resulting percentage represents your numerical uncertainty band. It quantifies how close your fine-grid solution is to the theoretical, asymptotic "grid-independent" solution.
@@ -76,7 +76,7 @@ Figure 7 shows that the results from all levels of refinement do not change sign
 
 | Mesh Resolution | Max $U_x$ | % Relative Error | % GCI Error |
 | :--- | :--- | :--- | :--- |
-| 129 x 129 | -0.216309 | — | |
+| 129 x 129 | -0.216309 | — | -- |
 | 258 x 258 | -0.217237 | 0.463 | 0.744 |
 | 516 x 516 | -0.216975 | 0.175 | 0.594 |
 
