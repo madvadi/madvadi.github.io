@@ -184,7 +184,7 @@ To understand the contribution of viscosity to the drag, the skin coefficient pr
 
 *Table 3: Verification of mesh convergence using the skin-friction coefficient* $$C_f$$ *at selected momentum-thickness Reynolds numbers. Percentage differences are calculated relative to the finer mesh solution.*
 
-Because turbulent boundary layers follow at generalised law at in the viscous sub-layer and the log-law region, it is important to compare the velocity profile with universal laws such as Coles Law of the Wall (AIAA TMBWG, 2026), which will be discussed further in the validation section. In Figure 19, there is a between 5 < y+ < 30 that is called the buffer zone, between the viscous sub-layer ($$y^+$$ =< 5) and log-law reigion ( $$y^+$$ >= 30 ), where either viscous or turbulent effects domainate. Hence, due to it's compelexity, this study will only validate the viscous sub-layer and log-law $$u^+$$ velocity profile. In Figure 19, between 5 < $$y^+$$ < 30,  the $$u^+ = y^+$$ is used as a placeholder while at $$y^+$$ < 5, $$y^+ = u^+$$ and $$y^+ > 30$$ uses Coles Mean Velocity profile law (AIAA TMBWG, 2026). All finement levels show simiilar profile in Figure 19, and in Table 4, relative and GCI errors measured at several key $$y^+$$ values, thsoe errors decrease with mesh refinement with the error decreasing with ascation into the log-law reigion soon after leaving the buffer zones.
+Because turbulent boundary layers follow at generalised law at in the viscous sub-layer and the log-law region, it is important to compare the velocity profile with universal laws such as Coles Law of the Wall (AIAA TMBWG, 2026), which will be discussed further in the validation section. In Figure 19, there is a between 5 < $$y^+$$ < 30 that is called the buffer zone, between the viscous sub-laye, $$y^+$$ =< 5, and log-law reigion, $$y^+$$ => 30, where either viscous or turbulent effects domainate. Hence, due to it's compelexity, this study will only validate the viscous sub-layer and log-law $$u^+$$ velocity profile. In Figure 19, between 5 < $$y^+$$ < 30,  the $$u^+ = y^+$$ is used as a placeholder while at $$y^+$$ < 5, $$y^+ = u^+$$ and $$y^+ > 30$$ uses Coles Mean Velocity profile law (AIAA TMBWG, 2026). All finement levels show simiilar profile in Figure 19, and in Table 4, relative and GCI errors measured at several key $$y^+$$ values, thsoe errors decrease with mesh refinement with the error decreasing with ascation into the log-law reigion soon after leaving the buffer zones.
 
 ![SA Dimensionless Velocity Profile (u+ vs y+)](plots/SA/u+y+.png)
 
@@ -205,16 +205,16 @@ To characterise the momentum that is lost to the boundary layer, the $$Re_{\thet
 
 ![SA Momentum Thickness Reynolds Number vs X](plots/SA/ReThetaVsX.png)
 
-*Figure 20: Development of the momentum thickness Reynolds number (* $$Re_{\theta}$$ *) along the streamwise direction (x) for the SA model.*
+*Figure 20: Development of the momentum thickness Reynolds number (* $$Re_{\theta}$$ *) along the streamwise direction $$\frac{x}{L}$$ for the SA model.*
 
 
 | $$\frac{x}{L_{plate}}$$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) | $$GCI_{medium}$$ (%)  | $$GCI_{fine}$$ (%) | 
-| ------------- | --------- | --------- | ------- | --------------- | ------------- | --------------- | ------------- |
-| 0.2           | 3780 | 3620 | 3615 | 4.54 | 0.0161 | 0.0210 | 3.89e-04 |
-| 0.4           | 6620 | 6490 | 6443 | 2.10 | 0.695 | 1.87 | 1.02 |
-| 0.6           | 9320 | 9130 | 9070 | 2.08 | 0.707 | 1.95 | 1.08 |
-| 0.8           | 11900 | 11600 | 11600 | 2.89 | 0.268 | 0.418 | 0.0847 |
-| 1.0           | 14300 | 14000 | 13900 | 2.53 | 0.381 | 0.670 | 0.196 |
+| ----- | --------- | --------- | ------- | --------------- | ------------- | --------------- | ------------- |
+| 0.2   | 3780 | 3620 | 3615 | 4.54 | 0.0161 | 0.0210 | 3.89e-04 |
+| 0.4   | 6620 | 6490 | 6443 | 2.10 | 0.695 | 1.87 | 1.02 |
+| 0.6   | 9320 | 9130 | 9070 | 2.08 | 0.707 | 1.95 | 1.08 |
+| 0.8   | 11900 | 11600 | 11600 | 2.89 | 0.268 | 0.418 | 0.0847 |
+| 1.0   | 14300 | 14000 | 13900 | 2.53 | 0.381 | 0.670 | 0.196 |
 
 *Table 5: Verification of mesh convergence based on the momentum-thickness Reynolds number* $$Re_{\theta}$$ *at selected streamwise locations. Percentage differences are calculated relative to the finer mesh solution.*
 
@@ -245,7 +245,7 @@ As said the verified section, for this study, the log-law and subviscous reigion
 
 *Table 7: Validation of the mesh-independent solution using the Coles theory. Percentage error is calculated relative to the reference values.*
 
-The data from (AIAA TMRWG, 2026) has a maximum error of 4% at the leading edge, which decreases downstream, as seen in Table 8. The error at  $$\frac{x}{L_{plate}} = 0.2$$, close to the leading edge, is caused by the wake from the flow having recently hit the leading edge and still stabilising the velocity fluctuations.
+The data from (AIAA TMRWG, 2026) has a maximum error of 4% at the leading edge, which decreases downstream, as seen in Table 8. The error at  $$\frac{x}{L_{plate}} = 0.2$$, is caused by being close to the sagnation point at the leading edge and still stabilising the pressure fluctuations.
 
 | $$\frac{x}{L_{plate}}$$ | NASA TMR | x2 Mesh | Error (%) |
 | ------------- | -------- | ------- | --------- |
