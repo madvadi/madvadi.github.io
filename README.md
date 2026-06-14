@@ -109,7 +109,7 @@ For the Spalart-Allmaras model, the inlet values where set to $$\tilde{\nu} = \n
 ### Verification
 For verification, the residuals for velocity, pressure, and temperature were recorded to show that they met the convergence criteria, having dropped by at least three orders of magnitude and leveled out. Convergence criteria also dictate that the values of these quantities do not change for a steady-state flow; hence, several probes were placed in key locations, as shown in Table 2.
 
-| Probe Number | Coordinates |
+| Probe Number | Coordinates (x, y) |
 | ------------ | ------------------ |
 | 1 | 0.5, 0.025 |
 | 2 | 0.5, 0.25 |
@@ -220,7 +220,7 @@ To characterise the momentum that is lost to the boundary layer, the $$Re_{\thet
 
 ### Validation
 With the results verified, this section shows that the fine mesh results argee with the data from (AIAA TMBWG, 2026).
-In Figure 18, the error between K-S theory and the simulation results for the coarse mesh is incredibly small.
+In Table 6, the error between K-S theory and the fine mesh results plotted in Figure 18, are under 1%, showing good argeement with skin coefficient.
 
 | $$Re_{\theta}$$ | Kármán–Schoenherr | x2 Mesh | Error (%) |
 | ----------- | ----------------- | ------- | --------- |
@@ -232,7 +232,7 @@ In Figure 18, the error between K-S theory and the simulation results for the co
 
 *Table 6: Validation of the mesh-independent solution using the Kármán–Schoenherr skin-friction correlation. Percentage error is calculated relative to the reference correlation.*
 
-In Figure 19, we see that the $$u^+$$ vs $$log_{10} (y^+)$$ has a significant disagreement with Coles' theory for all levels of the mesh refinement when 5 < $$y^+$$ < 30, as this is the buffer zone between the viscous sublayer, where $$u^+ = y^+$$ applies, and the log-law region, $$y^+$$ > 30. 
+As said the verified section, for this study, the log-law and subviscous reigions are studied and therefore the buffer zone, i.e. 5 < $$y^+$$ < 30, is disregraded. In the  
 
 | $y^+$ Location | Coles Theory $u^+$ | x2 Mesh $u^+$ | Relative Error (%) |
 | :--- | :--- | :--- | :--- |
