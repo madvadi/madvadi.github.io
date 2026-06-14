@@ -192,12 +192,12 @@ Because turbulent boundary layers follow at generalised law at in the viscous su
 
 
 | $$y^+$$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) |  $$GCI_{medium}$$ (%)  | $$GCI_{fine}$$ (%) | 
-| ----------- | --------- | --------- | ------- | --------------- | ------------- | --------------- | ------------- |
-| 5        | 0.00295   | 0.00311   | 0.00312 |       5.11      |      0.42  |       0.66      |      0.12  |
-| 30        | 0.00276   | 0.00289   | 0.00291 |       4.49      |      0.45  |       0.72      |      0.15  |
-| 50        | 0.00265   | 0.00275   | 0.00276 |       3.83      |      0.48  |       0.81      |      0.21  |
-| 100       | 0.00256   | 0.00265   | 0.00266 |       3.47      |      0.29  |       0.44      |      0.08  |
-| 1000       | 0.00250   | 0.00258   | 0.00259 |       3.28      |      0.25  |       0.20      |      0.07  |
+| -----| ------- | ------- | ------- | ---- | ------------- | --------------- | ------------- |
+| 5    | 0.00295 | 0.00311 | 0.00312 | 5.11 |      0.42  |       0.66      |      0.12  |
+| 30   | 0.00276 | 0.00289 | 0.00291 | 4.49 |      0.45  |       0.72      |      0.15  |
+| 50   | 0.00265 | 0.00275 | 0.00276 | 3.83 |      0.48  |       0.81      |      0.21  |
+| 100  | 0.00256 | 0.00265 | 0.00266 | 3.47 |      0.29  |       0.44      |      0.08  |
+| 1000 | 0.00250 | 0.00258 | 0.00259 | 3.28 |      0.25  |       0.20      |      0.07  |
 
 *Table 4: Verification of mesh convergence based on the u+ value relative to the y+ values. Percentage differences are calculated relative to the finer mesh solution.*
 
@@ -219,11 +219,11 @@ To characterise the momentum that is lost to the boundary layer, the $$Re_{\thet
 *Table 5: Verification of mesh convergence based on the momentum-thickness Reynolds number* $$Re_{\theta}$$ *at selected streamwise locations. Percentage differences are calculated relative to the finer mesh solution.*
 
 ### Validation
-With the results verified, this section shows that the fine mesh results argee with the data from (AIAA TMBWG, 2026).
-In Table 6, the error between K-S theory and the fine mesh results plotted in Figure 18, are under 1%, showing good argeement with skin coefficient.
+With the results verified, this section shows that the fine mesh results agree with the data from (AIAA TMBWG, 2026).
+In Table 6, the relative error between K-S theory and the fine mesh results are under 1%, showing good agreement with skin coefficient between 4000 < $$Re_{\theta}$$ < 12000.
 
 | $$Re_{\theta}$$ | Kármán–Schoenherr | x2 Mesh | Error (%) |
-| ----------- | ----------------- | ------- | --------- |
+| ---- | ------- | ------- | ----- |
 | 4000 | 0.00314 | 0.00312 | 0.785 |
 | 6000 | 0.00290 | 0.00291 | 0.165 |
 | 8000 | 0.00275 | 0.00276 | 0.671 |
@@ -232,7 +232,7 @@ In Table 6, the error between K-S theory and the fine mesh results plotted in Fi
 
 *Table 6: Validation of the mesh-independent solution using the Kármán–Schoenherr skin-friction correlation. Percentage error is calculated relative to the reference correlation.*
 
-As said the verified section, for this study, the log-law and subviscous reigions are studied and therefore the buffer zone, i.e. 5 < $$y^+$$ < 30, is disregraded. In the  
+As stated in the verification section, for this study, the log-law region and viscous sublayer are validated, while the buffer zone (i.e., 5<$$y^+$$<30) is disregarded. Within the log-law region, the lowest errors occur at $$y^+$$ = 30, 50, and 100, as Coles' law of the wall operates most accurately here. Beyond this, at $$y^+$$ =1000, the error begins to increase as the flow approaches the outer layer.
 
 | $y^+$ Location | Coles Theory $u^+$ | x2 Mesh $u^+$ | Relative Error (%) |
 | :--- | :--- | :--- | :--- |
