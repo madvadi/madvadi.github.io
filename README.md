@@ -245,7 +245,7 @@ As said the verified section, for this study, the log-law and subviscous reigion
 
 *Table 7: Validation of the mesh-independent solution using the Coles theory. Percentage error is calculated relative to the reference values.*
 
-The data provided by Nasa BLTMR approximate an agreement with the NASA estimation of $$Re_{\theta}$$ increase along the flat plate boundary layer as seen in Figure 20.
+The data from (AIAA TMRWG, 2026) has a maximum error of 4% at the leading edge, which decreases downstream, as seen in Table 8. The error at  $$\frac{x}{L_{plate}} = 0.2$$, close to the leading edge, is caused by the wake from the flow having recently hit the leading edge and still stabilising the velocity fluctuations.
 
 | $$\frac{x}{L_{plate}}$$ | NASA TMR | x2 Mesh | Error (%) |
 | ------------- | -------- | ------- | --------- |
