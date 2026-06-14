@@ -100,7 +100,7 @@ In a CD nozzle, a high-temperature, high-pressure subsonic flow is converted int
 ![Flate Plate Mesh](plots/Mesh_N_BCs.png)
 *Figure 8: Mesh with a 175 x 90 resolution and its corresponding boundary conditions.*
 
-The baseline mesh used features a 175 by 90 grid size, with the boundary conditions shown in Figure 8. For these turbulence models, it is crucial that the mesh spacing near the wall remains under $y^+ = 1$ to fully resolve the viscous sublayer. Using the calculated y-coordinate value for $y^+ = 1$, I applied a simple expansion ratio to cluster the nodes closely along the y-axis.
+The baseline mesh used features a 175 by 90 grid size, with the boundary conditions shown in Figure 8. For these turbulence models, it is crucial that the mesh spacing near the wall remains under $y^+ = 1$ to fully resolve the viscous sublayer. Using the calculated y-coordinate value for $y^+ = 1$, I applied a simple expansion ratio to cluster the nodes closely along the y-axis. For the baseline mesh, close cell center to the wall was 1.4343e-05 meters.
 
 ### Case using Spalart-Allmaras
 
@@ -234,16 +234,17 @@ In Table 6, the relative error between K-S theory and the fine mesh results are 
 
 *Table 6: Validation of the mesh-independent solution using the Kármán–Schoenherr skin-friction correlation. Percentage error is calculated relative to the reference correlation.*
 
-As stated in the verification section, for this study, the log-law region and viscous sublayer are validated, while the buffer zone (i.e., 5<$$y^+$$<30) is disregarded. Within the log-law region, the lowest errors occur at $$y^+$$ = 30, 50, and 100, as Coles' law of the wall operates most accurately here. Beyond this, at $$y^+$$ =1000, the error begins to increase as the flow approaches the outer layer.
+As stated in the verification section, for this study, the log-law region and viscous sublayer are validated, while the buffer zone (i.e., 5<$$y^+$$<30) is disregarded. Within the log-law region, the lowest errors occur at $$y^+$$ = 35, 40, 50, and 100, as Coles' law of the wall operates most accurately here. Beyond this, at $$y^+$$ = 1000 and 1500 the error begins to increase as the flow approaches the outer layer and leave the log-law reigion.
 
 | $y^+$ Location | Coles Theory $u^+$ | x2 Mesh $u^+$ | Relative Error (%) |
 | :--- | :--- | :--- | :--- |
-| 3 | 2.99 | 3.58 | 19.6 |
-| 5 | 4.87 | 6.09 | 24.9 |
-| 30 | 12.9 | 13.4 | 3.18 |
-| 50 | 14.5 | 14.6 | 0.997 |
-| 100 | 16.2 | 16.3 | 0.305 |
-| 1000 | 22.4 | 21.9 | 1.95 |
+| 35 | 13.4 | 13.6 | 1.53 |
+| 40 | 13.8 | 13.9 | 0.496 |
+| 50 | 14.5 | 14.6 | 0.996 |
+| 100 | 16.2 | 16.3 | 0.304 |
+| 300 | 19.0 | 18.8 | 0.564 |
+| 1000 | 22.4 | 21.9 | 1.96 |
+| 1500 | 23.9 | 23.0 | 3.56 |
 
 *Table 7: Validation of the mesh-independent solution using the Coles theory. Percentage error is calculated relative to the reference values.*
 
@@ -258,8 +259,6 @@ The data from (AIAA TMRWG, 2026) has a maximum error of 4% at the leading edge, 
 | 1.0 | 14384 | 13941 | 3.08 |
 
 *Table 8: Validation of the mesh-independent solution using the reference data from (AIAA TMBWG, 2026). Percentage error is calculated relative to the reference values.*
-
-
 
 ### Conclusion
 Considering the results produced from this simulation using a pressure-based solver for subsonic, incompressible flow, i.e. Ma < 0.3, agrees with the validation data from Nasa TMR Zero Pressure Gradient flate plate case, means that it can produce the initial internal field for subsonic pre-inlet for a CD nozzle. The simulation settings here will be able to capature the subsonic, high temperature, and high pressure at the end of the combustion chamber as it goes into the nozzle.
