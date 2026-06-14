@@ -201,11 +201,11 @@ Because turbulent boundary layers follow at generalised law at in the viscous su
 
 *Table 4: Verification of mesh convergence based on the u+ value relative to the y+ values. Percentage differences are calculated relative to the finer mesh solution.*
 
-Then measuring the development of the thickenss of the boundary layer, the $$Re_{\theta}$$ profile is plotted long the plate as seen in Figure 20. 
+To characterise the momentum that is lost to the boundary layer, the $$Re_{\theta}$$​ profile is plotted along the plate, as seen in Figure 20, for all mesh refinements. In Figure 20, the $$Re_{\theta}$$​ results show agreement with each other, although they do not converge with the data provided by (AIAA TMRWG, 2026), which will be discussed in the validation section. In Table 5, the relative and GCI errors decrease as the mesh is refined, and all errors are well under 1%.
 
 ![SA Momentum Thickness Reynolds Number vs X](plots/SA/ReThetaVsX.png)
 
-*Figure 20: Development of the momentum thickness Reynolds number (* $$Re_{\theta}$$ *) along the streamwise direction (X) for the SA model.*
+*Figure 20: Development of the momentum thickness Reynolds number (* $$Re_{\theta}$$ *) along the streamwise direction (x) for the SA model.*
 
 
 | $$\frac{x}{L_{plate}}$$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) | $$GCI_{medium}$$ (%)  | $$GCI_{fine}$$ (%) | 
@@ -219,19 +219,20 @@ Then measuring the development of the thickenss of the boundary layer, the $$Re_
 *Table 5: Verification of mesh convergence based on the momentum-thickness Reynolds number* $$Re_{\theta}$$ *at selected streamwise locations. Percentage differences are calculated relative to the finer mesh solution.*
 
 ### Validation
-In Figure 19, we see that the u+ vs $$log_{10} (y+)$$ has a significant disagreement with Coles' theory for all levels of the mesh refinement when 5 < $$y^+$$ < 30, as this is the buffer zone between the viscous sublayer, where $$u^+ = y^+$$ applies, and the log-law region, $$y^+$$ > 30. In Figure 18, the error between K-S theory and the simulation results for the coarse mesh is incredibly small.
-The data provided by Nasa BLTMR approximate an agreement with the NASA estimation of $$Re_{\theta}$$ increase along the flat plate boundary layer as seen in figure 20. 
+With the results verified, this section shows that the fine mesh results argee with the data from (AIAA TMBWG, 2026).
+In Figure 18, the error between K-S theory and the simulation results for the coarse mesh is incredibly small.
 
+| $$Re_{\theta}$$ | Kármán–Schoenherr | x2 Mesh | Error (%) |
+| ----------- | ----------------- | ------- | --------- |
+| 4000 | 0.00314 | 0.00312 | 0.785 |
+| 6000 | 0.00290 | 0.00291 | 0.165 |
+| 8000 | 0.00275 | 0.00276 | 0.671 |
+| 10000 | 0.00263 | 0.00266 | 0.854 |
+| 11500 | 0.00257 | 0.00259 | 0.772 |
 
-| $$\frac{x}{L_{plate}}$$ | NASA TMR | x2 Mesh | Error (%) |
-| ------------- | -------- | ------- | --------- |
-| 0.2 | 3766 | 3615 | 4.00 |
-| 0.4 | 6680 | 6443 | 3.54 |
-| 0.6 | 9428 | 9067 | 3.83 |
-| 0.8 | 11961 | 11578 | 3.21 |
-| 1.0 | 14384 | 13941 | 3.08 |
+*Table 6: Validation of the mesh-independent solution using the Kármán–Schoenherr skin-friction correlation. Percentage error is calculated relative to the reference correlation.*
 
-*Table 6: Validation of the mesh-independent solution using the NASA Turbulence Modeling Resource (TMR) reference data. Percentage error is calculated relative to the reference values.*
+In Figure 19, we see that the $$u^+$$ vs $$log_{10} (y^+)$$ has a significant disagreement with Coles' theory for all levels of the mesh refinement when 5 < $$y^+$$ < 30, as this is the buffer zone between the viscous sublayer, where $$u^+ = y^+$$ applies, and the log-law region, $$y^+$$ > 30. 
 
 | $y^+$ Location | Coles Theory $u^+$ | x2 Mesh $u^+$ | Relative Error (%) |
 | :--- | :--- | :--- | :--- |
@@ -242,18 +243,20 @@ The data provided by Nasa BLTMR approximate an agreement with the NASA estimatio
 | 100 | 16.2 | 16.3 | 0.305 |
 | 1000 | 22.4 | 21.9 | 1.95 |
 
-*Table 7: Validation of the mesh-independent solution using the Coles theory NASA Turbulence Modeling Resource (TMR) reference data. Percentage error is calculated relative to the reference values.*
+*Table 7: Validation of the mesh-independent solution using the Coles theory. Percentage error is calculated relative to the reference values.*
 
+The data provided by Nasa BLTMR approximate an agreement with the NASA estimation of $$Re_{\theta}$$ increase along the flat plate boundary layer as seen in Figure 20.
 
-| $$Re_{\theta}$$ | Kármán–Schoenherr | x2 Mesh | Error (%) |
-| ----------- | ----------------- | ------- | --------- |
-| 4000 | 0.00314 | 0.00312 | 0.785 |
-| 6000 | 0.00290 | 0.00291 | 0.165 |
-| 8000 | 0.00275 | 0.00276 | 0.671 |
-| 10000 | 0.00263 | 0.00266 | 0.854 |
-| 11500 | 0.00257 | 0.00259 | 0.772 |
+| $$\frac{x}{L_{plate}}$$ | NASA TMR | x2 Mesh | Error (%) |
+| ------------- | -------- | ------- | --------- |
+| 0.2 | 3766 | 3615 | 4.00 |
+| 0.4 | 6680 | 6443 | 3.54 |
+| 0.6 | 9428 | 9067 | 3.83 |
+| 0.8 | 11961 | 11578 | 3.21 |
+| 1.0 | 14384 | 13941 | 3.08 |
 
-*Table 8: Validation of the mesh-independent solution using the Kármán–Schoenherr skin-friction correlation. Percentage error is calculated relative to the reference correlation.*
+*Table 8: Validation of the mesh-independent solution using the reference data from (AIAA TMBWG, 2026). Percentage error is calculated relative to the reference values.*
+
 
 
 ### Conclusion
