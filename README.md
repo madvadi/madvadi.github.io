@@ -24,7 +24,7 @@ In the following projects, calculation of the Grid Convergence Index (GCI) error
 6. **Compute the GCI Error:** Finally, calculate the fine- and medium-grid GCI error by applying a safety factor ($$F_s$$), which is typically set to 1.25 for a rigorous three-grid study:
    $$GCI_{fine} = \frac{F_s \cdot \epsilon_{21}}{r_{21}^p - 1}$$
 
-> **Note:** The resulting percentage represents your numerical uncertainty band. It quantifies how close your fine-grid solution is to the theoretical, asymptotic "grid-independent" solution.
+> **Note:** The resulting percentage represents your numerical uncertainty band. It quantifies how close your fine-grid solution is to the theoretical, asymptotic "grid-independent" solution. (Roache, 2009)
 
 
 ## Lid-cavity Demonstration
@@ -184,7 +184,7 @@ To understand the contribution of viscosity to the drag, the skin coefficient pr
 
 *Table 3: Verification of mesh convergence using the skin-friction coefficient* $$C_f$$ *at selected momentum-thickness Reynolds numbers. Percentage differences are calculated relative to the finer mesh solution.*
 
-Because turbulent boundary layers follow at generalised law at in the viscous sub-layer and the log-law region, it is important to compare the velocity profile with universal laws such as Coles Law of the Wall (AIAA TMBWG, 2026), which will be discussed further in the validation section. In Figure 19, there is a between 5 < $$y^+$$ < 30 that is called the buffer zone, between the viscous sub-layer, $$y^+$$ =< 5, and log-law reigion, $$y^+$$ => 30, where either viscous or turbulent effects domainate. Hence, due to it's compelexity, this study will only validate the viscous sub-layer and log-law $$u^+$$ velocity profile. In Figure 19, between 5 < $$y^+$$ < 30,  the $$u^+ = y^+$$ is used as a placeholder while at $$y^+$$ < 5, $$y^+ = u^+$$ and $$y^+ > 30$$ uses Coles Mean Velocity profile law (AIAA TMBWG, 2026). All finement levels show simiilar profile in Figure 19, and in Table 4, relative and GCI errors measured at several key $$y^+$$ values, those errors decrease with mesh refinement with the error decreasing with ascation into the log-law reigion soon after leaving the buffer zones.
+Because turbulent boundary layers follow at generalised law at in the viscous sub-layer and the log-law region, it is important to compare the velocity profile with universal laws such as Coles Law of the Wall (AIAA TMBWG, 2026), which will be discussed further in the validation section. In Figure 19, there is a between 5 < $$y^+$$ < 30 that is called the buffer zone, between the viscous sub-layer, $$y^+$$ =< 5, and log-law reigion, $$y^+$$ => 30, where either viscous or turbulent effects domainate. Hence, due to it's compelexity, this study will only validate the viscous sub-layer and log-law $$u^+$$ velocity profile. In Figure 19, between 5 < $$y^+$$ < 30,  the $$u^+ = y^+$$ is used as a placeholder while at $$y^+$$ < 5, $$y^+ = u^+$$ and $$y^+ > 30$$ uses Coles Mean Velocity profile law (AIAA TMBWG, 2026). All finement levels show simiilar profile in Figure 19, and in Table 4, relative and GCI errors measured at several key $$y^+$$ values, those errors decrease with mesh refinement with the error decreasing with ascation into the log-law reigion soon after leaving the buffer zones (Apsley, 2009).
 
 ![SA Dimensionless Velocity Profile (u+ vs y+)](plots/SA/u+y+.png)
 
@@ -268,3 +268,7 @@ AIAA Turbulence Model Benchmarking Working Group (TMBWG), 2026. *Turbulence Mode
 Ansys (2026) Ansys Fluent Theory Guide. Canonsburg, PA: Ansys, Inc.
 
 Spalart, P.R. and Allmaras, S.R. (1992) 'A one-equation turbulence model for aerodynamic flows', Technical Report AIAA-92-0439. Reno, NV: American Institute of Aeronautics and Astronautics. doi: 10.2514/6.1992-439.
+
+Apsley, D., 2009. Structure of a Turbulent Boundary Layer. Lecture Notes: Turbulent Boundary Layers. University of Manchester. Available at: https://personalpages.manchester.ac.uk/staff/david.d.apsley/lectures/turbbl/regions.pdf [Accessed 15 June 2026].
+
+Roache, P.J., 2009. *Fundamentals of Verification and Validation*. Albuquerque: Hermosa Publishers.
