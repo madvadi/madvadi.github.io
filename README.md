@@ -4,7 +4,7 @@ Introduction: This is a presentation of a number of CFD projects that I have bee
 
 ### Error Calculation Methodology
 
-In the following projects, calculation of the Grid Convergence Index (GCI) error is as follows:
+In the following projects, using the methodology from (Roache, 2009), the calculation of the Grid Convergence Index (GCI) error is as follows:
 
 1. **Calculate Representative Grid Sizes ($h$):** Generate three distinct meshes—coarse, medium, and fine—and compute the characteristic grid size ($h_1, h_2, h_3$) for each using the total domain area and total cell count:
    $$h = \sqrt{\frac{A_{\text{total}}}{N}}$$
@@ -15,8 +15,7 @@ In the following projects, calculation of the Grid Convergence Index (GCI) error
 3. **Extract Solution Variables ($f$):** Run the CFD simulations and extract a critical target scalar variable (such as drag coefficient, lift coefficient, or peak velocity) from all three grids, yielding $f_1$ (fine), $f_2$ (medium), and $f_3$ (coarse).
 
 4. **Solve for the Local Order of Accuracy ($p$):** Solve iteratively for the apparent order of accuracy ($p$) using the grid refinement ratios and the differences between the solutions:
-   $$p = \frac{1}{\ln(r_{21})} \left| \ln\left| \frac{\epsilon_{32}}{\epsilon_{21}} \right| + q(p) \right|$$
-   *(Where $\epsilon_{32} = f_3 - f_2$, $\epsilon_{21} = f_2 - f_1$, and $q(p)$ is a correction factor that equals zero if the grid refinement ratio is constant, i.e., $r_{21} = r_{32}$).*
+   $$p = \frac{1}{\ln(r_{21})} \left| \ln\left| \frac{\epsilon_{32}}{\epsilon_{21}} \right| + q(p) \right|$$ where $$q(p) = ln(\frac{r_{21}^p - s}{r_{32}^p - s})$$, $$\epsilon_{32} = f_3 - f_2$$, $$\epsilon_{21} = f_2 - f_1$$, and $$ s = 1 \dot sgn(\frac{\epsilon_{32}}{\epsilon_{21}}) $$.
 
 5. **Calculate Relative Error ($\epsilon_{32}$ and $\epsilon_{21}$):** Determine the relative error between the two finest grids:
    $$\epsilon_{21} = \left| \frac{f_2 - f_1}{f_1} \right| \quad \text{and} \quad \epsilon_{32} = \left| \frac{f_3 - f_2}{f_2} \right|$$
@@ -24,18 +23,22 @@ In the following projects, calculation of the Grid Convergence Index (GCI) error
 6. **Compute the GCI Error:** Finally, calculate the fine- and medium-grid GCI error by applying a safety factor ($F_s$), which is typically set to 1.25 for a rigorous three-grid study:
    $$\text{GCI}_{\text{fine}} = \frac{F_s \cdot \epsilon_{21}}{r_{21}^p - 1}$$
 
-> **Note:** The resulting percentage represents your numerical uncertainty band. It quantifies how close your fine-grid solution is to the theoretical, asymptotic "grid-independent" solution (Roache, 2009).
+> **Note:** The resulting percentage represents your numerical uncertainty band. It quantifies how close your fine-grid solution is to the theoretical, asymptotic "grid-independent" solution.
 
 ## Subsonic Turbulent Boundary Layer over a Flat Plate with a Compressible Pressure Solver
 
 In a convergent-divergent (CD) nozzle, a high-temperature, high-pressure subsonic flow is converted into a supersonic flow before being exhausted from the engine. A high-fidelity simulation must remain stable across two flow regimes (i.e., subsonic and supersonic) while capturing the boundary layer at the nozzle wall to determine quantities such as wall temperature. Using a density-based solver in the subsonic section of a CD nozzle makes it difficult to maintain stability. Therefore, a pressure-based solver is used to produce an internal field for that specific section of the nozzle (Ansys, 2026). Several assumptions are made for the nozzle simulation as a whole, which affect this validation unit case: the flow is chemically frozen, the cross-sectional area for the subsonic section is constant, and the flow is modeled as 2D axisymmetric. 
 
-To validate the internal field produced by the pressure solver, a unit case study was conducted using zero-pressure-gradient flat-plate simulations in an incompressible (modeled as compressible), subsonic, turbulent flow. The Spalart–Allmaras model, as a one-equation model, is computationally efficient for large mesh sizes, such as those used for CD nozzles. The NASA Turbulence Modeling Resource provides a validation case for my simulation to be compared against, which can be found at (AIAA TMRWG, 2026).
+To validate the internal field produced by the pressure solver, a unit case study was conducted using zero-pressure-gradient flat-plate simulations in an incompressible (modeled as compressible), subsonic, turbulent air flow. The Spalart–Allmaras model, as a one-equation model, is computationally efficient for large mesh sizes, such as those used for CD nozzles. The NASA Turbulence Modeling Resource provides a validation case for my simulation to be compared against, which can be found at (AIAA TMRWG, 2026). The working fluid is air modelled as an ideal gas, using a reference temperature of 300 K and inlet/freestream velocity which is found to be 69.522 m/s, corresponding to a Mach number of 0.2, matching the NASA TMR benchmark conditions. 
+
+### Mesh and Boundary Conditions
 
 ![Flat Plate Mesh](plots/Mesh_N_BCs.png)
 *Figure 1: Mesh with a 175 x 90 resolution and its corresponding boundary conditions.*
 
-The baseline mesh features a 175 by 90 grid size, with the boundary conditions shown in Figure 1. For these turbulence models, it is crucial that the mesh spacing near the wall remains under $y^+ = 1$ to fully resolve the viscous sublayer. Using the calculated y-coordinate value for $y^+ = 1$, I applied a simple expansion ratio to cluster the nodes closely along the y-axis. For the baseline mesh, the closest cell center to the wall was $1.4343 \times 10^{-5}$ meters.
+The baseline mesh features a 175 by 90 grid size, with the boundary conditions shown in Figure 1. For these turbulence models, it is crucial that the mesh spacing near the wall remains under $y^+ = 1$ to fully resolve the viscous sublayer. Using the calculated y-coordinate value for $$y^+ = 1$$, I applied a simple expansion ratio to cluster the nodes closely along the y-axis. For the baseline mesh, the closest cell center to the wall was $$1.4343 \times 10^{-5}$$ meters.
+
+For the grid independence study, a medium mesh was generated by multiplying the baseline mesh nodes by 1.5 in each direction, resulting in a 263 × 135 grid. For the fine mesh, the nodes were doubled in each direction relative to the baseline mesh, resulting in a grid size of 350 × 180. This yields refinement ratios of $$r_{32} = 1.5$$ and $$r_{21} = 1.3$$, both of which are above the recommended minimum refinement ratio of 1.1 (Roache, 2009). I choose these refinement sizes to be  as efficient as possible while also being within the asymptotic range. 
 
 ### Case Using Spalart–Allmaras
 
