@@ -234,7 +234,7 @@ In Table 6, the relative error between K-S theory and the fine mesh results are 
 
 *Table 6: Validation of the mesh-independent solution using the Kármán–Schoenherr skin-friction correlation. Percentage error is calculated relative to the reference correlation.*
 
-As stated in the verification section, for this study, the log-law region and viscous sublayer are validated, while the buffer zone (i.e., 5<$$y^+$$<30) is disregarded. Within the log-law region, the lowest errors occur at $$y^+$$ = 35, 40, 50, and 100, as Coles' law of the wall operates most accurately here. Beyond this, at $$y^+$$ = 1000 and 1500 the error begins to increase as the flow approaches the outer layer and leave the log-law reigion.
+As stated in the verification section, for this study, the log-law region and viscous sublayer are validated, while the buffer zone (i.e., 5<$$y^+$$<30) is disregarded. Within the log-law region, the lowest errors occur between 30 < $$y^+$$ < 100, as Coles' law of the wall operates most accurately here. Beyond $$y^+$$ > 300, the error begins to increase as the flow approaches the outer layer and leave the log-law reigion.
 
 | $y^+$ Location | Coles Theory $u^+$ | x2 Mesh $u^+$ | Relative Error (%) |
 | :--- | :--- | :--- | :--- |
@@ -248,7 +248,7 @@ As stated in the verification section, for this study, the log-law region and vi
 
 *Table 7: Validation of the mesh-independent solution using the Coles theory. Percentage error is calculated relative to the reference values.*
 
-The data from (AIAA TMRWG, 2026) has a maximum error of 4% at the leading edge, which decreases downstream to 3.08% at the end of the plate, as seen in Table 8. At the leading edge there is a sudden change of the flow's velocity going from freestream velocity to zero velocity, as the plate boundary conditions is no slip. As seen in the mesh in Figure 8, the grid has been push slightly towards the leading edge to minies this error as much as possible. 
+The data from (AIAA TMRWG, 2026) has a maximum error of 4% at the leading edge, which decreases downstream to 3.08% at the end of the plate, as seen in Table 8. At the leading edge there is a sudden change of the flow's velocity going from freestream velocity to zero velocity, as the plate boundary conditions is no slip, meaning that the ... As seen in the mesh in Figure 8, the grid has been push slightly towards the leading edge to minies this error as much as possible by resolving the stagnation points pressure flactation. The data from AIAA TMRWG, 2026, is for a typical $$Re_{\theta}$$ progression for a turbulent boundary layer that increases similar to the 0.8 power law, and is expected that turbulent models such as Spalart Allmaras, will have noticible error while following a similar progression. 
 
 | $$\frac{x}{L_{plate}}$$ | NASA TMR | x2 Mesh | Error (%) |
 | ------------- | -------- | ------- | --------- |
