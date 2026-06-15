@@ -15,7 +15,7 @@ In the following projects, using the methodology from (Roache, 2009), the calcul
 3. **Extract Solution Variables ($f$):** Run the CFD simulations and extract a critical target scalar variable (such as drag coefficient, lift coefficient, or peak velocity) from all three grids, yielding $f_1$ (fine), $f_2$ (medium), and $f_3$ (coarse).
 
 4. **Solve for the Local Order of Accuracy ($p$):** Solve iteratively for the apparent order of accuracy ($p$) using the grid refinement ratios and the differences between the solutions:
-   $$p = \frac{1}{\ln(r_{21})} \left| \ln\left| \frac{\epsilon_{32}}{\epsilon_{21}} \right| + q(p) \right|$$ where $$q(p) = ln(\frac{r_{21}^p - s}{r_{32}^p - s})$$, $$\epsilon_{32} = f_3 - f_2$$, $$\epsilon_{21} = f_2 - f_1$$, and $$s = 1 \dot sgn(\frac{\epsilon_{32}}{\epsilon_{21}})$$.
+   $$p = \frac{1}{\ln(r_{21})} \left| \ln\left| \frac{\epsilon_{32}}{\epsilon_{21}} \right| + q(p) \right|$$ where $$q(p) = ln(\frac{r_{21}^p - s}{r_{32}^p - s})$$, $$\epsilon_{32} = f_3 - f_2$$, $$\epsilon_{21} = f_2 - f_1$$, and $$s = 1  sgn(\frac{\epsilon_{32}}{\epsilon_{21}})$$.
 
 5. **Calculate Relative Error ($\epsilon_{32}$ and $\epsilon_{21}$):** Determine the relative error between the two finest grids:
    $$\epsilon_{21} = \left| \frac{f_2 - f_1}{f_1} \right| \quad \text{and} \quad \epsilon_{32} = \left| \frac{f_3 - f_2}{f_2} \right|$$
