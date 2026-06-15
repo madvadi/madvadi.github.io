@@ -15,13 +15,13 @@ In the following projects, using the methodology from (Roache, 2009), the calcul
 3. **Extract Solution Variables ($f$):** Run the CFD simulations and extract a critical target scalar variable (such as drag coefficient, lift coefficient, or peak velocity) from all three grids, yielding $f_1$ (fine), $f_2$ (medium), and $f_3$ (coarse).
 
 4. **Solve for the Local Order of Accuracy ($p$):** Solve iteratively for the apparent order of accuracy ($p$) using the grid refinement ratios and the differences between the solutions:
-   $$p = \frac{1}{\ln(r_{21})} \left| \ln\left| \frac{\epsilon_{32}}{\epsilon_{21}} \right| + q(p) \right|$$ where $$q(p) = ln(\frac{r_{21}^p - s}{r_{32}^p - s})$$, $$\epsilon_{32} = f_3 - f_2$$, $$\epsilon_{21} = f_2 - f_1$$, and $$s = 1  sgn(\frac{\epsilon_{32}}{\epsilon_{21}})$$.
+   $$p = \frac{1}{\ln(r_{21})} \left| \ln\left| \frac{\epsilon_{32}}{\epsilon_{21}} \right| + q(p) \right|$$ where $$q(p) = ln(\frac{r_{21}^p - s}{r_{32}^p - s})$$, $$\epsilon_{32} = f_3 - f_2$$, $$\epsilon_{21} = f_2 - f_1$$, and $$s = 1 \cdot sgn(\frac{\epsilon_{32}}{\epsilon_{21}})$$.
 
 5. **Calculate Relative Error ($\epsilon_{32}$ and $\epsilon_{21}$):** Determine the relative error between the two finest grids:
    $$\epsilon_{21} = \left| \frac{f_2 - f_1}{f_1} \right| \quad \text{and} \quad \epsilon_{32} = \left| \frac{f_3 - f_2}{f_2} \right|$$
 
 6. **Compute the GCI Error:** Finally, calculate the fine- and medium-grid GCI error by applying a safety factor ($F_s$), which is typically set to 1.25 for a rigorous three-grid study:
-   $$\text{GCI}_{\text{fine}} = \frac{F_s \cdot \epsilon_{21}}{r_{21}^p - 1}$$
+   $$\text{GCI}_{\text{fine}} = \frac{F_s \cdot \epsilon_{21}}{r_{21}^p - 1}$$.
 
 > **Note:** The resulting percentage represents your numerical uncertainty band. It quantifies how close your fine-grid solution is to the theoretical, asymptotic "grid-independent" solution.
 
