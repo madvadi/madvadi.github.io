@@ -31,16 +31,16 @@ In the following projects, calculation of the Grid Convergence Index (GCI) error
 In a CD nozzle, a high-temperature, high-pressure subsonic flow is converted into a supersonic flow before being exhausted from the engine. A high-fidelity simulation must remain stable across two flow regimes (i.e., subsonic and supersonic) while capturing the boundary layer at the nozzle wall to determine quantities such as wall temperature. Using a density-based solver in the subsonic section of a CD nozzle makes it difficult to maintain stability. Therefore, a pressure-based solver is used to produce an internal field for that specific section of the nozzle (Ansys, 2026). Several assumptions are made for the nozzle simulation as a whole, which affect this validation unit case: the flow is chemically frozen, the cross-sectional area for the subsonic section is constant, and the flow is modeled as 2D axisymmetric. To validate the internal field produced by the pressure solver, a unit case was conducted using zero-pressure-gradient flat-plate simulations in an incompressible (modeled as compressible), subsonic, turbulent flow. The Spalart–Allmaras model, as a one-equation model, is computationally efficient for large mesh sizes, such as those used for CD nozzles. The NASA Turbulence Modeling Resource provides a validation case for my simulation to be compared against, which can be found at (AIAA TMRWG, 2026).
 
 ![Flate Plate Mesh](plots/Mesh_N_BCs.png)
-*Figure 8: Mesh with a 175 x 90 resolution and its corresponding boundary conditions.*
+*Figure 1: Mesh with a 175 x 90 resolution and its corresponding boundary conditions.*
 
-The baseline mesh used features a 175 by 90 grid size, with the boundary conditions shown in Figure 8. For these turbulence models, it is crucial that the mesh spacing near the wall remains under $y^+ = 1$ to fully resolve the viscous sublayer. Using the calculated y-coordinate value for $y^+ = 1$, I applied a simple expansion ratio to cluster the nodes closely along the y-axis. For the baseline mesh, close cell center to the wall was 1.4343e-05 meters.
+The baseline mesh used features a 175 by 90 grid size, with the boundary conditions shown in Figure 1. For these turbulence models, it is crucial that the mesh spacing near the wall remains under $y^+ = 1$ to fully resolve the viscous sublayer. Using the calculated y-coordinate value for $y^+ = 1$, I applied a simple expansion ratio to cluster the nodes closely along the y-axis. For the baseline mesh, close cell center to the wall was 1.4343e-05 meters.
 
 ### Case using Spalart-Allmaras
 
 For the Spalart-Allmaras model, the inlet values where set to $$\tilde{\nu} = \nu \times 3 = 4.7\times10^{-5} \frac{m^2}{s}$$ and letted $$\nu_t = 0 \frac{m^2}{s}$$ at the inlet float (Spalart and Allmaras 1992). 
 
 ### Verification
-For verification, the residuals for velocity, pressure, and temperature were recorded to show that they met the convergence criteria, having dropped by at least three orders of magnitude and leveled out. Convergence criteria also dictate that the values of these quantities do not change for a steady-state flow; hence, several probes were placed in key locations, as shown in Table 2.
+For verification, the residuals for velocity, pressure, and temperature were recorded to show that they met the convergence criteria, having dropped by at least three orders of magnitude and leveled out. Convergence criteria also dictate that the values of these quantities do not change for a steady-state flow; hence, several probes were placed in key locations, as shown in Table 1.
 
 | Probe Number | Coordinates (x, y) |
 | ------------ | ------------------ |
@@ -51,28 +51,28 @@ For verification, the residuals for velocity, pressure, and temperature were rec
 | 5 | 2, 0.025 |
 | 6 | 2, 0.25 |
 
-*Table 2: Probe locations within the domain.*
+*Table 1: Probe locations within the domain.*
 
 Probes 1 and 2 are positioned at the leading edge of the plate. This is where the wake forms as the flow hits the plate—a point of potential unsteady behaviour—and is therefore worth monitoring to ensure that the values at those points stabilise. Probes 1, 3, and 5 are set 0.025 m from the wall. This ensures that the quantities are stable at two points within the log-law portion of the boundary layer (in the case of probes 3 and 5), and just above the leading edge to measure how the quantities are affected by the wake (in the case of probe 1). Probes 2, 4, and 6 are located in the freestream above the boundary layer to ensure that no unsteady behaviour is occurring there, and that the freestream values are maintained.
 
 ![SA Coarse Velocity Residuals](plots/SA/coarse/ResidualsOfVelocity.png)
 
-*Figure 9: Convergence history of velocity residuals for the SA model on the coarse mesh.*
+*Figure 2: Convergence history of velocity residuals for the SA model on the coarse mesh.*
 
 ![SA Coarse Pressure Residuals](plots/SA/coarse/ResidualsOfPressure.png)
 
-*Figure 10: Convergence history of pressure residuals for the SA model on the coarse mesh.*
+*Figure 3: Convergence history of pressure residuals for the SA model on the coarse mesh.*
 
-In figures 9 and 10, it is seen that the residuals have dropped and flatlined at 1e-05 for Ux, 1e-06 for Uy, and 1e-04 for pressure, hence this meets the critica for convergence for the coarse mesh. 
+In figures 2 and 3, it is seen that the residuals have dropped and flatlined at 1e-05 for Ux, 1e-06 for Uy, and 1e-04 for pressure, hence this meets the critica for convergence for the coarse mesh. 
 
 ![SA Medium Velocity Residuals](plots/SA/medium/ResidualsOfVelocity.png)
 
-*Figure 11: Convergence history of velocity residuals for the SA model on the medium mesh.*
+*Figure 4: Convergence history of velocity residuals for the SA model on the medium mesh.*
 
 
 ![SA Medium Pressure Residuals](plots/SA/medium/ResidualsOfPressure.png)
 
-*Figure 12: Convergence history of pressure residuals for the SA model on the medium mesh.*
+*Figure 5: Convergence history of pressure residuals for the SA model on the medium mesh.*
 
 
 In Figures 11 and 12, it is seen that the residuals have dropped and averaged out at 1e-11 for Ux, 1e-09 for Uy, and 1e-07 for pressure, hence this meets the critica for convergence for the medium mesh. 
@@ -80,32 +80,32 @@ In Figures 11 and 12, it is seen that the residuals have dropped and averaged ou
 
 ![SA Fine Velocity Residuals](plots/SA/fine/ResidualsOfVelocity.png)
 
-*Figure 13: Convergence history of velocity residuals for the SA model on the fine mesh.*
+*Figure 6: Convergence history of velocity residuals for the SA model on the fine mesh.*
 
 
 ![SA Fine Pressure Residuals](plots/SA/fine/ResidualsOfPressure.png)
 
-*Figure 14: Convergence history of pressure residuals for the SA model on the fine mesh.*
+*Figure 7: Convergence history of pressure residuals for the SA model on the fine mesh.*
 
-In figures 13 and 14, it is seen that the residuals have dropped to 1e-10 for Ux, 1e-08 for Uy, and 1e-07 for pressure which has averaged out, hence this meets the critica for convergence for the fine mesh. However has the order of maginitude did not flateline, it is important to show the actually values staying considtance over the iterations. Hence, figures 15-17 shows the final values that each of the probes converged on by the end of the simulation plotted against the amount of cells used in the simulation. For all 3 variables, no sigificate change was found as the mesh was refined. 
+In Figures 6 and 7, it is seen that the residuals have dropped to 1e-10 for Ux, 1e-08 for Uy, and 1e-07 for pressure which has averaged out, hence this meets the critica for convergence for the fine mesh. However has the order of maginitude did not flateline, it is important to show the actually values staying considtance over the iterations. Hence, Figures 8-10 shows the final values that each of the probes converged on by the end of the simulation plotted against the amount of cells used in the simulation. For all 3 variables, no sigificate change was found as the mesh was refined. 
 
 ![SA Fine Pressure Residuals](plots/SA/AllLevelsVelocityProbes.png)
 
-*Figure 15: Velocity Probes.*
+*Figure 8: Velocity Probes.*
 
 ![SA Fine Pressure Residuals](plots/SA/AllLevelsPressureProbes.png)
 
-*Figure 16: Pressure Probes.*
+*Figure 9: Pressure Probes.*
 
 ![SA Fine Pressure Residuals](plots/SA/AllLevelsTemperatureProbes.png)
 
-*Figure 17: Temperature Probes.*
+*Figure 10: Temperature Probes.*
 
-To understand the contribution of viscosity to the drag, the skin coefficient profile is calcualted across the plate, as seen in Figure 18, and in Table 3, at several key points on the plate, using $$Re_{\theta}$$ at that point, the relative and GCI error is calcualted and found to have convergenced at those points, i.e. the GCI and relative error decreases as the meshes is refined.
+To understand the contribution of viscosity to the drag, the skin coefficient profile is calcualted across the plate, as seen in Figure 11, and in Table 2, at several key points on the plate, using $$Re_{\theta}$$ at that point, the relative and GCI error is calcualted and found to have convergenced at those points, i.e. the GCI and relative error decreases as the meshes is refined.
 
 ![SA Skin Friction Coefficient](plots/SA/SkinCoefficient.png)
 
-*Figure 18: Local skin friction coefficient distribution along the surface calculated with the SA model.*
+*Figure 11: Local skin friction coefficient distribution along the surface calculated with the SA model.*
 
 | $$Re_{\theta}$$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) |  $$GCI_{medium}$$ (%)  | $$GCI_{fine}$$ (%) | 
 | ----------- | --------- | --------- | ------- | --------------- | ------------- | --------------- | ------------- |
@@ -115,13 +115,13 @@ To understand the contribution of viscosity to the drag, the skin coefficient pr
 | 10000       | 0.00256   | 0.00265   | 0.00266 |       3.47      |      0.29  |       0.44      |      0.08  |
 | 11500       | 0.00250   | 0.00258   | 0.00259 |       3.28      |      0.25  |       0.20      |      0.07  |
 
-*Table 3: Verification of mesh convergence using the skin-friction coefficient* $$C_f$$ *at selected momentum-thickness Reynolds numbers. Percentage differences are calculated relative to the finer mesh solution.*
+*Table 2: Verification of mesh convergence using the skin-friction coefficient* $$C_f$$ *at selected momentum-thickness Reynolds numbers. Percentage differences are calculated relative to the finer mesh solution.*
 
-Because turbulent boundary layers follow at generalised law at in the viscous sub-layer and the log-law region, it is important to compare the velocity profile with universal laws such as Coles Law of the Wall (AIAA TMBWG, 2026), which will be discussed further in the validation section. In Figure 19, there is a between 5 < $$y^+$$ < 30 that is called the buffer zone, between the viscous sub-layer, $$y^+$$ =< 5, and log-law reigion, $$y^+$$ => 30, where either viscous or turbulent effects domainate. Hence, due to it's compelexity, this study will only validate the viscous sub-layer and log-law $$u^+$$ velocity profile. In Figure 19, between 5 < $$y^+$$ < 30,  the $$u^+ = y^+$$ is used as a placeholder while at $$y^+$$ < 5, $$y^+ = u^+$$ and $$y^+ > 30$$ uses Coles Mean Velocity profile law (AIAA TMBWG, 2026). All finement levels show simiilar profile in Figure 19, and in Table 4, relative and GCI errors measured at several key $$y^+$$ values, those errors decrease with mesh refinement with the error decreasing with ascation into the log-law reigion soon after leaving the buffer zones (Apsley, 2009).
+Because turbulent boundary layers follow at generalised law at in the viscous sub-layer and the log-law region, it is important to compare the velocity profile with universal laws such as Coles Law of the Wall (AIAA TMBWG, 2026), which will be discussed further in the validation section. In Figure 12, there is a between 5 < $$y^+$$ < 30 that is called the buffer zone, between the viscous sub-layer, $$y^+$$ =< 5, and log-law reigion, $$y^+$$ => 30, where either viscous or turbulent effects domainate. Hence, due to it's compelexity, this study will only validate the viscous sub-layer and log-law $$u^+$$ velocity profile. In Figure 12, between 5 < $$y^+$$ < 30,  the $$u^+ = y^+$$ is used as a placeholder while at $$y^+$$ < 5, $$y^+ = u^+$$ and $$y^+ > 30$$ uses Coles Mean Velocity profile law (AIAA TMBWG, 2026). All finement levels show simiilar profile in Figure 12, and in Table 3, relative and GCI errors measured at several key $$y^+$$ values, those errors decrease with mesh refinement with the error decreasing with ascation into the log-law reigion soon after leaving the buffer zones (Apsley, 2009).
 
 ![SA Dimensionless Velocity Profile (u+ vs y+)](plots/SA/u+y+.png)
 
-*Figure 19: Dimensionless boundary layer velocity profile (* $$u^+$$ *vs* $$y^+$$ *) plotted against the theoretical law of the wall using the SA model, at* $$Re_{\theta} = 10000$$.
+*Figure 12: Dimensionless boundary layer velocity profile (* $$u^+$$ *vs* $$y^+$$ *) plotted against the theoretical law of the wall using the SA model, at* $$Re_{\theta} = 10000$$.
 
 
 | $$y^+$$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) |  $$GCI_{medium}$$ (%)  | $$GCI_{fine}$$ (%) | 
@@ -133,13 +133,13 @@ Because turbulent boundary layers follow at generalised law at in the viscous su
 | 300 | 18.8 | 18.9 | 18.9 | 0.730 | 0.00415 | 0.0102 | 0.909 |
 | 1000 | 22.0 | 21.9 | 21.9 | 0.521 | 0.210 | 0.382 | 0.258 |
 
-*Table 4: Verification of mesh convergence based on the u+ value relative to the y+ values. Percentage differences are calculated relative to the finer mesh solution.*
+*Table 3: Verification of mesh convergence based on the u+ value relative to the y+ values. Percentage differences are calculated relative to the finer mesh solution.*
 
-To verify that the growth rate of the boundary layer follows the correct trend, the $$Re_{\theta}$$​ profile is plotted along the plate for all mesh refinements (Figure 20). The $$Re_{\theta}$$​ results demonstrate excellent grid convergence with one another, as supported by Table 5 where the relative and Grid Convergence Index (GCI) errors systematically decrease to well under 1%. While grid independent, the profiles maintain a small, stable offset from the reference data provided by the NASA Turbulence Modeling Resource (NASA TMR, 2026). As detailed in Table 8, the maximum deviation from the NASA baseline is 4% near the leading edge, which progressively decreases downstream to 3.08% at the end of the plate. At the leading edge, the flow experiences a severe velocity gradient as it transitions from the freestream velocity to zero to satisfy the no-slip condition. This localized stagnation effect introduces strong localized pressure and velocity gradients that impact the downstream eddy viscosity development, as evidenced at $$\frac{x}{L_{plate}} = 0.2$$ in Table 6. To mitigate this geometric singularity, the grid was refined toward the leading edge (Figure 8) to resolve these steep near-wall gradients. Because the NASA TMR data represents a model-agnostic, typical $$Re_{\theta}$$​ progression, it is expected that specific implementations of the Spalart–Allmaras model will exhibit a minor, highly bounded variation while matching the overall spatial trend.
+To verify that the growth rate of the boundary layer follows the correct trend, the $$Re_{\theta}$$​ profile is plotted along the plate for all mesh refinements (Figure 13). The $$Re_{\theta}$$​ results demonstrate excellent grid convergence with one another, as supported by Table 4 where the relative and Grid Convergence Index (GCI) errors systematically decrease to well under 1%. While grid independent, the profiles maintain a small, stable offset from the reference data provided by the NASA Turbulence Modeling Resource (NASA TMR, 2026). As detailed in Table 5, the maximum deviation from the NASA baseline is 4% near the leading edge, which progressively decreases downstream to 3.08% at the end of the plate. At the leading edge, the flow experiences a severe velocity gradient as it transitions from the freestream velocity to zero to satisfy the no-slip condition. This localized stagnation effect introduces strong localized pressure and velocity gradients that impact the downstream eddy viscosity development, as evidenced at $$\frac{x}{L_{plate}} = 0.2$$ in Table 5. To mitigate this geometric singularity, the grid was refined toward the leading edge (Figure 1) to resolve these steep near-wall gradients. Because the NASA TMR data represents a model-agnostic, typical $$Re_{\theta}$$​ progression, it is expected that specific implementations of the Spalart–Allmaras model will exhibit a minor, highly bounded variation while matching the overall spatial trend.
 
 ![SA Momentum Thickness Reynolds Number vs X](plots/SA/ReThetaVsX.png)
 
-*Figure 20: Development of the momentum thickness Reynolds number (* $$Re_{\theta}$$ *) along the streamwise direction* $$\frac{x}{L}$$ *for the SA model, at* $$Re_{\theta} = 10000$$.
+*Figure 13: Development of the momentum thickness Reynolds number (* $$Re_{\theta}$$ *) along the streamwise direction* $$\frac{x}{L}$$ *for the SA model, at* $$Re_{\theta} = 10000$$.
 
 
 | $$\frac{x}{L_{plate}}$$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) | $$GCI_{medium}$$ (%)  | $$GCI_{fine}$$ (%) | 
@@ -150,7 +150,7 @@ To verify that the growth rate of the boundary layer follows the correct trend, 
 | 0.8   | 11900 | 11600 | 11600 | 2.89 | 0.268 | 0.418 | 0.0847 |
 | 1.0   | 14300 | 14000 | 13900 | 2.53 | 0.381 | 0.670 | 0.196 |
 
-*Table 5: Verification of mesh convergence based on the momentum-thickness Reynolds number* $$Re_{\theta}$$ *at selected streamwise locations. Percentage differences are calculated relative to the finer mesh solution.*
+*Table 4: Verification of mesh convergence based on the momentum-thickness Reynolds number* $$Re_{\theta}$$ *at selected streamwise locations. Percentage differences are calculated relative to the finer mesh solution.*
 
 | $$\frac{x}{L_{plate}}$$ | NASA TMR | x2 Mesh | Error (%) |
 | ------------- | -------- | ------- | --------- |
@@ -160,11 +160,11 @@ To verify that the growth rate of the boundary layer follows the correct trend, 
 | 0.8 | 11961 | 11578 | 3.21 |
 | 1.0 | 14384 | 13941 | 3.08 |
 
-*Table 6: Validation of the mesh-independent solution using the reference data from (AIAA TMBWG, 2026). Percentage error is calculated relative to the reference values.*
+*Table 5: Validation of the mesh-independent solution using the reference data from (AIAA TMBWG, 2026). Percentage error is calculated relative to the reference values.*
 
 ### Validation
 With the results verified, this section shows that the fine mesh results agree with the data from (AIAA TMBWG, 2026).
-In Table 7, the relative error between K-S theory and the fine mesh results are under 1%, showing good agreement with skin coefficient between 4000 < $$Re_{\theta}$$ < 12000.
+In Table 6, the relative error between K-S theory and the fine mesh results are under 1%, showing good agreement with skin coefficient between 4000 < $$Re_{\theta}$$ < 12000.
 
 | $$Re_{\theta}$$ | Kármán–Schoenherr | x2 Mesh | Error (%) |
 | ---- | ------- | ------- | ----- |
@@ -174,7 +174,7 @@ In Table 7, the relative error between K-S theory and the fine mesh results are 
 | 10000 | 0.00263 | 0.00266 | 0.854 |
 | 11500 | 0.00257 | 0.00259 | 0.772 |
 
-*Table 7: Validation of the mesh-independent solution using the Kármán–Schoenherr skin-friction correlation. Percentage error is calculated relative to the reference correlation.*
+*Table 6: Validation of the mesh-independent solution using the Kármán–Schoenherr skin-friction correlation. Percentage error is calculated relative to the reference correlation.*
 
 As stated in the verification section, for this study, the log-law region and viscous sublayer are validated, while the buffer zone (i.e., 5<y+<30) is disregarded. At $$Re_{\theta} = 10000$$, within the log-law region, the lowest errors occur between 30 < $$y^+$$ < 100, as Coles' law of the wall operates most accurately here. Beyond $$y^+=300$$, where $$\frac{y}{\delta} = 0.1$$, the error begins to increase as the flow approaches the outer layer, leaving the inner region and log-law layer at $$y^+ = 860$$, where $$\frac{y}{\delta} = 0.3$$.
 
@@ -187,7 +187,7 @@ As stated in the verification section, for this study, the log-law region and vi
 | 300 | 19.0 | 18.8 | 0.564 |
 | 1000 | 22.4 | 21.9 | 1.96 |
 
-*Table 8: Validation of the mesh-independent solution using the Coles theory. Percentage error is calculated relative to the reference values.*
+*Table 7: Validation of the mesh-independent solution using the Coles theory. Percentage error is calculated relative to the reference values.*
 
 ### Conclusion
 Considering the results produced from this simulation using a pressure-based solver for subsonic, incompressible flow, i.e. Ma < 0.3, agrees with the validation data from Nasa TMR Zero Pressure Gradient flate plate case, means that it can produce the initial internal field for subsonic pre-inlet for a CD nozzle. The simulation settings here will be able to capature the subsonic, high temperature, and high pressure at the end of the combustion chamber as it goes into the nozzle.
