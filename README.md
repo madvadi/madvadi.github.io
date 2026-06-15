@@ -75,7 +75,7 @@ In figures 2 and 3, it is seen that the residuals have dropped and flatlined at 
 *Figure 5: Convergence history of pressure residuals for the SA model on the medium mesh.*
 
 
-In Figures 11 and 12, it is seen that the residuals have dropped and averaged out at 1e-11 for Ux, 1e-09 for Uy, and 1e-07 for pressure, hence this meets the critica for convergence for the medium mesh. 
+In figures 4 and 5, it is seen that the residuals have dropped and averaged out at 1e-11 for Ux, 1e-09 for Uy, and 1e-07 for pressure, hence this meets the critica for convergence for the medium mesh. 
 
 
 ![SA Fine Velocity Residuals](plots/SA/fine/ResidualsOfVelocity.png)
