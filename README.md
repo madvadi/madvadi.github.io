@@ -177,7 +177,7 @@ As stated in the verification section, the log-law region and viscous sublayer a
 *Table 7: Validation of the mesh-independent solution using Coles theory. Percentage error is calculated relative to the reference values.*
 
 ### Conclusion
-The results produced from this simulation using a pressure-based solver for subsonic, incompressible flow (i.e., $$\text{Ma} < 0.3$$) agree closely with the validation data from the NASA TMR Zero Pressure Gradient flat plate case. This demonstrates that the setup can reliably produce the initial internal field for the subsonic pre-inlet section of a CD nozzle. The simulation settings used here will successfully capture the subsonic, high-temperature, and high-pressure conditions present at the end of the combustion chamber as the flow enters the nozzle.
+The results produced from this simulation using a pressure-based solver for subsonic, incompressible flow (i.e., $$\text{Ma} < 0.3$$) agree closely with the validation data from the NASA TMR Zero Pressure Gradient flat plate case, with low GCI errors, under 1.08% which occured in the $$Re_{\theta}$$ in Table 4. This demonstrates that the setup can reliably produce the initial internal field for the subsonic pre-inlet section of a CD nozzle., the simulation settings used here will successfully capture the subsonic, high-temperature, and high-pressure conditions present at the end of the combustion chamber as the flow enters the nozzle as the flow in the combustion chamber will be modelled as an ideal gas, at subsonic speeds.
 
 ## References 
 
