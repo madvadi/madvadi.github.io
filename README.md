@@ -184,7 +184,7 @@ To understand the contribution of viscosity to the drag, the skin coefficient pr
 
 *Table 3: Verification of mesh convergence using the skin-friction coefficient* $$C_f$$ *at selected momentum-thickness Reynolds numbers. Percentage differences are calculated relative to the finer mesh solution.*
 
-Because turbulent boundary layers follow at generalised law at in the viscous sub-layer and the log-law region, it is important to compare the velocity profile with universal laws such as Coles Law of the Wall (AIAA TMBWG, 2026), which will be discussed further in the validation section. In Figure 19, there is a between 5 < $$y^+$$ < 30 that is called the buffer zone, between the viscous sub-laye, $$y^+$$ =< 5, and log-law reigion, $$y^+$$ => 30, where either viscous or turbulent effects domainate. Hence, due to it's compelexity, this study will only validate the viscous sub-layer and log-law $$u^+$$ velocity profile. In Figure 19, between 5 < $$y^+$$ < 30,  the $$u^+ = y^+$$ is used as a placeholder while at $$y^+$$ < 5, $$y^+ = u^+$$ and $$y^+ > 30$$ uses Coles Mean Velocity profile law (AIAA TMBWG, 2026). All finement levels show simiilar profile in Figure 19, and in Table 4, relative and GCI errors measured at several key $$y^+$$ values, thsoe errors decrease with mesh refinement with the error decreasing with ascation into the log-law reigion soon after leaving the buffer zones.
+Because turbulent boundary layers follow at generalised law at in the viscous sub-layer and the log-law region, it is important to compare the velocity profile with universal laws such as Coles Law of the Wall (AIAA TMBWG, 2026), which will be discussed further in the validation section. In Figure 19, there is a between 5 < $$y^+$$ < 30 that is called the buffer zone, between the viscous sub-layer, $$y^+$$ =< 5, and log-law reigion, $$y^+$$ => 30, where either viscous or turbulent effects domainate. Hence, due to it's compelexity, this study will only validate the viscous sub-layer and log-law $$u^+$$ velocity profile. In Figure 19, between 5 < $$y^+$$ < 30,  the $$u^+ = y^+$$ is used as a placeholder while at $$y^+$$ < 5, $$y^+ = u^+$$ and $$y^+ > 30$$ uses Coles Mean Velocity profile law (AIAA TMBWG, 2026). All finement levels show simiilar profile in Figure 19, and in Table 4, relative and GCI errors measured at several key $$y^+$$ values, those errors decrease with mesh refinement with the error decreasing with ascation into the log-law reigion soon after leaving the buffer zones.
 
 ![SA Dimensionless Velocity Profile (u+ vs y+)](plots/SA/u+y+.png)
 
@@ -199,7 +199,6 @@ Because turbulent boundary layers follow at generalised law at in the viscous su
 | 100 | 16.2 | 16.3 | 16.3 | 0.283 | 0.0259 | 0.0405 | 8.14e-03 |
 | 300 | 18.8 | 18.9 | 18.9 | 0.730 | 0.00415 | 0.0102 | 0.909 |
 | 1000 | 22.0 | 21.9 | 21.9 | 0.521 | 0.210 | 0.382 | 0.258 |
-| 1500 | 23.0 | 23.0 | 23.0 | 0.199 | 0.0177 | 0.0275 | 5.41e-03 |
 
 *Table 4: Verification of mesh convergence based on the u+ value relative to the y+ values. Percentage differences are calculated relative to the finer mesh solution.*
 
@@ -244,7 +243,7 @@ In Table 7, the relative error between K-S theory and the fine mesh results are 
 
 *Table 7: Validation of the mesh-independent solution using the Kármán–Schoenherr skin-friction correlation. Percentage error is calculated relative to the reference correlation.*
 
-As stated in the verification section, for this study, the log-law region and viscous sublayer are validated, while the buffer zone (i.e., 5<$$y^+$$<30) is disregarded. Within the log-law region, the lowest errors occur between 30 < $$y^+$$ < 100, as Coles' law of the wall operates most accurately here. Beyond $$y^+$$ > 300, the error begins to increase as the flow approaches the outer layer and leave the log-law reigion.
+As stated in the verification section, for this study, the log-law region and viscous sublayer are validated, while the buffer zone (i.e., 5<y+<30) is disregarded. At $$Re_{\theta} = 10000$$, within the log-law region, the lowest errors occur between 30 < $$y^+$$ < 100, as Coles' law of the wall operates most accurately here. Beyond $$y^+=300$$, where $$\frac{y}{\delta} = 0.1$$, the error begins to increase as the flow approaches the outer layer, leaving the inner region and log-law layer at $$y^+ = 860$$, where $$\frac{y}{\delta} = 0.3$$.
 
 | $y^+$ Location | Coles Theory $u^+$ | x2 Mesh $u^+$ | Relative Error (%) |
 | :--- | :--- | :--- | :--- |
@@ -254,7 +253,6 @@ As stated in the verification section, for this study, the log-law region and vi
 | 100 | 16.2 | 16.3 | 0.304 |
 | 300 | 19.0 | 18.8 | 0.564 |
 | 1000 | 22.4 | 21.9 | 1.96 |
-| 1500 | 23.9 | 23.0 | 3.56 |
 
 *Table 8: Validation of the mesh-independent solution using the Coles theory. Percentage error is calculated relative to the reference values.*
 
