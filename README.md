@@ -203,7 +203,7 @@ Because turbulent boundary layers follow at generalised law at in the viscous su
 
 *Table 4: Verification of mesh convergence based on the u+ value relative to the y+ values. Percentage differences are calculated relative to the finer mesh solution.*
 
-To characterise the momentum that is lost to the boundary layer, the $$Re_{\theta}$$​ profile is plotted along the plate, as seen in Figure 20, for all mesh refinements. In Figure 20, the $$Re_{\theta}$$​ results show agreement with each other, although they do not converge with the data provided by (AIAA TMRWG, 2026), which will be discussed in the validation section. In Table 5, the relative and GCI errors decrease as the mesh is refined, and all errors are well under 1%.
+To characterise the momentum that is lost to the boundary layer, the $$Re_{\theta}$$​ profile is plotted along the plate, as seen in Figure 20, for all mesh refinements. In Figure 20, the $$Re_{\theta}$$​ results show agreement with each other, although they do not converge with the data provided by (AIAA TMRWG, 2026), which will be discussed in the validation section. In Table 5, the relative and GCI errors decrease as the mesh is refined, and all errors are well under 1%. The data from (AIAA TMRWG, 2026) has a maximum error of 4% at the leading edge, which decreases downstream to 3.08% at the end of the plate, as seen in Table 8. At the leading edge, there is a sudden change in the flow's velocity as it transitions from the freestream velocity to zero due to the no-slip boundary condition of the plate. This means that the pressure fluctuations interfere with the viscosity domain close to the leading edge, as evidenced at $$\frac{x}{L_{plate}} = 0.2$$ in Table 6. As shown in the mesh in Figure 8, the grid has been refined slightly towards the leading edge to minimise this error as much as possible by resolving the stagnation point's pressure fluctuations. The data from AIAA TMRWG (2026) represents a typical Reθ​ progression for a turbulent boundary layer that increases similarly to the 0.8 power law; it is expected that turbulence models, such as the Spalart–Allmaras model, will exhibit a noticeable error while following a similar progression.
 
 ![SA Momentum Thickness Reynolds Number vs X](plots/SA/ReThetaVsX.png)
 
@@ -220,9 +220,19 @@ To characterise the momentum that is lost to the boundary layer, the $$Re_{\thet
 
 *Table 5: Verification of mesh convergence based on the momentum-thickness Reynolds number* $$Re_{\theta}$$ *at selected streamwise locations. Percentage differences are calculated relative to the finer mesh solution.*
 
+| $$\frac{x}{L_{plate}}$$ | NASA TMR | x2 Mesh | Error (%) |
+| ------------- | -------- | ------- | --------- |
+| 0.2 | 3766 | 3615 | 4.00 |
+| 0.4 | 6680 | 6443 | 3.54 |
+| 0.6 | 9428 | 9067 | 3.83 |
+| 0.8 | 11961 | 11578 | 3.21 |
+| 1.0 | 14384 | 13941 | 3.08 |
+
+*Table 6: Validation of the mesh-independent solution using the reference data from (AIAA TMBWG, 2026). Percentage error is calculated relative to the reference values.*
+
 ### Validation
 With the results verified, this section shows that the fine mesh results agree with the data from (AIAA TMBWG, 2026).
-In Table 6, the relative error between K-S theory and the fine mesh results are under 1%, showing good agreement with skin coefficient between 4000 < $$Re_{\theta}$$ < 12000.
+In Table 7, the relative error between K-S theory and the fine mesh results are under 1%, showing good agreement with skin coefficient between 4000 < $$Re_{\theta}$$ < 12000.
 
 | $$Re_{\theta}$$ | Kármán–Schoenherr | x2 Mesh | Error (%) |
 | ---- | ------- | ------- | ----- |
@@ -232,7 +242,7 @@ In Table 6, the relative error between K-S theory and the fine mesh results are 
 | 10000 | 0.00263 | 0.00266 | 0.854 |
 | 11500 | 0.00257 | 0.00259 | 0.772 |
 
-*Table 6: Validation of the mesh-independent solution using the Kármán–Schoenherr skin-friction correlation. Percentage error is calculated relative to the reference correlation.*
+*Table 7: Validation of the mesh-independent solution using the Kármán–Schoenherr skin-friction correlation. Percentage error is calculated relative to the reference correlation.*
 
 As stated in the verification section, for this study, the log-law region and viscous sublayer are validated, while the buffer zone (i.e., 5<$$y^+$$<30) is disregarded. Within the log-law region, the lowest errors occur between 30 < $$y^+$$ < 100, as Coles' law of the wall operates most accurately here. Beyond $$y^+$$ > 300, the error begins to increase as the flow approaches the outer layer and leave the log-law reigion.
 
@@ -246,19 +256,9 @@ As stated in the verification section, for this study, the log-law region and vi
 | 1000 | 22.4 | 21.9 | 1.96 |
 | 1500 | 23.9 | 23.0 | 3.56 |
 
-*Table 7: Validation of the mesh-independent solution using the Coles theory. Percentage error is calculated relative to the reference values.*
+*Table 8: Validation of the mesh-independent solution using the Coles theory. Percentage error is calculated relative to the reference values.*
 
-The data from (AIAA TMRWG, 2026) has a maximum error of 4% at the leading edge, which decreases downstream to 3.08% at the end of the plate, as seen in Table 8. At the leading edge, there is a sudden change in the flow's velocity as it transitions from the freestream velocity to zero due to the no-slip boundary condition of the plate. This means that the pressure fluctuations interfere with the viscosity domain close to the leading edge, as evidenced at $$\frac{x}{L_{plate}} = 0.2$$ in Table 8. As shown in the mesh in Figure 8, the grid has been refined slightly towards the leading edge to minimise this error as much as possible by resolving the stagnation point's pressure fluctuations. The data from AIAA TMRWG (2026) represents a typical Reθ​ progression for a turbulent boundary layer that increases similarly to the 0.8 power law; it is expected that turbulence models, such as the Spalart–Allmaras model, will exhibit a noticeable error while following a similar progression.
 
-| $$\frac{x}{L_{plate}}$$ | NASA TMR | x2 Mesh | Error (%) |
-| ------------- | -------- | ------- | --------- |
-| 0.2 | 3766 | 3615 | 4.00 |
-| 0.4 | 6680 | 6443 | 3.54 |
-| 0.6 | 9428 | 9067 | 3.83 |
-| 0.8 | 11961 | 11578 | 3.21 |
-| 1.0 | 14384 | 13941 | 3.08 |
-
-*Table 8: Validation of the mesh-independent solution using the reference data from (AIAA TMBWG, 2026). Percentage error is calculated relative to the reference values.*
 
 ### Conclusion
 Considering the results produced from this simulation using a pressure-based solver for subsonic, incompressible flow, i.e. Ma < 0.3, agrees with the validation data from Nasa TMR Zero Pressure Gradient flate plate case, means that it can produce the initial internal field for subsonic pre-inlet for a CD nozzle. The simulation settings here will be able to capature the subsonic, high temperature, and high pressure at the end of the combustion chamber as it goes into the nozzle.
