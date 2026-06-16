@@ -20,7 +20,7 @@ In the following projects, using the methodology from (Roache, 2009), the calcul
 5. **Calculate Relative Error ($\epsilon_{32}$ and $\epsilon_{21}$):** Determine the relative error between the two finest grids:
    $$\epsilon_{21} = \left| \frac{f_2 - f_1}{f_1} \right| \quad \text{and} \quad \epsilon_{32} = \left| \frac{f_3 - f_2}{f_2} \right|$$
 
-6. **Compute the GCI Error:** Finally, calculate the fine- and medium-grid GCI error by applying a safety factor ($F_s$), which is typically set to 1.25 for a rigorous three-grid study:$$\text{GCI}_{\text{fine}} = \frac{F_s \cdot \epsilon_{21}}{r_{21}^p - 1}$$.
+6. **Compute the GCI Error:** Finally, calculate the fine- and medium-grid GCI error by applying a safety factor ($F_s$), which is typically set to 1.25 for a rigorous three-grid study: $$\text{GCI}_{\text{fine}} = \frac{F_s \cdot \epsilon_{21}}{r_{21}^p - 1}$$.
 
 > **Note:** The resulting percentage represents your numerical uncertainty band. It quantifies how close your fine-grid solution is to the theoretical, asymptotic "grid-independent" solution.
 
@@ -109,7 +109,7 @@ To understand the contribution of viscosity to the drag, the skin friction coeff
 | 10000                | 0.00256   | 0.00265   | 0.00266 | 3.47            | 0.29          | 0.44                             | 0.08                           |
 | 11500                | 0.00250   | 0.00258   | 0.00259 | 3.28            | 0.25          | 0.20                             | 0.07                           |
 
-*Table 2: Verification of mesh convergence using the skin-friction coefficient $C_f$ at selected momentum-thickness Reynolds numbers. Percentage differences are calculated relative to the finer mesh solution.*
+*Table 2: Verification of mesh convergence using the skin-friction coefficient* $$C_f$$ *at selected momentum-thickness Reynolds numbers. Percentage differences are calculated relative to the finer mesh solution.*
 
 Because analytic profiles like Coles' Law do not cleanly describe the highly non-linear buffer zone (5<$$y^+$$<30), validation comparison is isolated to the strictly valid algebraic limits: the linear viscous sublayer and the fully developed log-law region. Due to its complexity, this study will only validate the viscous sublayer and log-law $u^+$ velocity profiles. In Figure 12, between $$5 < y^+ < 30$$, $$u^+ = y^+$$ is used as a placeholder, while at $y^+ \le 5$, $y^+ = u^+$ is applied, and $y^+ > 30$ uses Coles' Mean Velocity profile law (AIAA TMBWG, 2026). All refinement levels show a similar profile in Figure 12. In Table 3, the relative and GCI errors measured at several key $y^+$ values systematically decrease with mesh refinement. The error notably decreases upon entering the log-law region soon after leaving the buffer zone (Apsley, 2009).
 
@@ -125,16 +125,16 @@ Because analytic profiles like Coles' Law do not cleanly describe the highly non
 | 300   | 18.8      | 18.9      | 18.9    | 0.730           | 0.00415       | 0.0102                           | 0.909                          |
 | 1000  | 22.0      | 21.9      | 21.9    | 0.521           | 0.210         | 0.382                            | 0.258                          |
 
-*Table 3: Verification of mesh convergence based on the $u^+$ value relative to the $y^+$ values. Percentage differences are calculated relative to the finer mesh solution.*
+*Table 3: Verification of mesh convergence based on the* $$u^+$$ *value relative to the* $$y^+$$ *values. Percentage differences are calculated relative to the finer mesh solution.*
 
-To verify that the growth rate of the boundary layer follows the correct trend, the $\text{Re}_{\theta}$ profile is plotted along the plate for all mesh refinements (Figure 13). The $\text{Re}_{\theta}$ results demonstrate excellent grid convergence with one another, as supported by Table 4, where the relative and Grid Convergence Index (GCI) errors systematically decrease to well under 1%. While grid-independent, the profiles maintain a small, stable offset from the reference data provided by the NASA Turbulence Modeling Resource (NASA TMR, 2026). 
+To verify that the growth rate of the boundary layer follows the correct trend, the $$\text{Re}_{\theta}$$ profile is plotted along the plate for all mesh refinements (Figure 13). The $$\text{Re}_{\theta}$$ results demonstrate excellent grid convergence with one another, as supported by Table 4, where the relative and Grid Convergence Index (GCI) errors systematically decrease to well under 1%. While grid-independent, the profiles maintain a small, stable offset from the reference data provided by the NASA Turbulence Modeling Resource (NASA TMR, 2026). 
 
 As detailed in Table 5, the maximum deviation from the NASA baseline is 4% near the leading edge, which progressively decreases downstream to 3.08% at the end of the plate. At the leading edge, the flow experiences a severe velocity gradient as it transitions from the freestream velocity to zero to satisfy the no-slip condition. In the ultimate CD nozzle configuration, the simulation inlet is located directly at the combustion chamber wall exit plane rather than introducing an upstream freestream stagnation point. Consequently, the downstream nozzle domain will entirely bypass this leading-edge singularity error. This localized stagnation effect introduces strong local pressure and velocity gradients that impact downstream eddy viscosity development, as evidenced at $\frac{x}{L_{\text{plate}}} = 0.2$ in Table 5. To mitigate this geometric singularity, the grid was refined toward the leading edge (Figure 1) to resolve these steep near-wall gradients. Because the NASA TMR data represents a model-agnostic, typical $\text{Re}_{\theta}$ progression, it is expected that specific implementations of the Spalart–Allmaras model will exhibit a minor, highly bounded variation while matching the overall spatial trend. 
 
 ![SA Momentum Thickness Reynolds Number vs X](plots/SA/ReThetaVsX.png)
 *Figure 13: Development of the momentum thickness Reynolds number ($\text{Re}_{\theta}$) along the streamwise direction $\frac{x}{L}$ for the SA model, at $\text{Re}_{\theta} = 10000$.*
 
-| $\frac{x}{L_{\text{plate}}}$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) | $\text{GCI}_{\text{medium}}$ (%) | $\text{GCI}_{\text{fine}}$ (%) |
+| $\frac{x}{L_{\text{plate}}}$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) | $\text{GCI}_{\text{medium}}$ (%) | $$\text{GCI}_{\text{fine}}$$ (%) |
 | ---------------------------- | --------- | --------- | ------- | --------------- | ------------- | -------------------------------- | ------------------------------ |
 | 0.2                          | 3780      | 3620      | 3615    | 4.54            | 0.0161        | 0.0210                           | 3.89e-04                       |
 | 0.4                          | 6620      | 6490      | 6443    | 2.10            | 0.695         | 1.87                             | 1.02                           |
