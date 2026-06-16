@@ -132,7 +132,7 @@ For verification, the residuals for velocity, pressure, and temperature were rec
 
 *Table 1: Probe locations within the domain.*
 
-Probes 1 and 2 are positioned at the leading edge of the plate. This is where the wake forms as the flow hits the plate—a point of potential unsteady behavior—and is therefore worth monitoring to ensure that the values at those points stabilize. Probes 1, 3, and 5 are set 0.025 m from the wall. This ensures that the quantities are stable at two points close to the top boundary layer (in the case of probes 3 and 5), and just above the leading edge to measure how the quantities are affected by the wake (in the case of probe 1). Probes 2, 4, and 6 are located in the freestream above the boundary layer to ensure that no unsteady behavior is occurring there and that the freestream values are maintained.
+Probes 1 and 2 are positioned at the leading edge of the plate. This is where the wake forms as the flow hits the plate—a point of potential unsteady behavior—and is therefore worth monitoring to ensure that the values at those points stabilize. Probes 1, 3, and 5 are set 0.025 m from the wall. This ensures that the quantities are stable at two points close to the top boundary layer (in the case of probes 3 and 5), and just above the leading edge to measure how the quantities are affected by the wake (in the case of probe 1). The thickness of the boundary layer at x=1 m and x=2 m is found to be 9.79e−3 m and 0.029 m, respectively, using the relation $$\delta=\frac{0.37x}{Re_{x}^\frac{1}{5}}$$​ from (Anderson, 1984, p. 1020). Probes 2, 4, and 6 are located in the freestream above the boundary layer to ensure that no unsteady behavior is occurring there and that the freestream values are maintained.
 
 ![SA Coarse Velocity Residuals](plots/SA/coarse/ResidualsOfVelocity.png)
 
@@ -297,3 +297,5 @@ Apsley, D., 2009. Structure of a Turbulent Boundary Layer. Lecture Notes: Turbul
 Roache, P.J., 2009. *Fundamentals of Verification and Validation*. Albuquerque: Hermosa Publishers.
 
 Anderson, J.D., 1995. *Computational Fluid Dynamics: The Basics with Applications*. New York: McGraw-Hill.
+
+Anderson, J.D., 1984. *Fundamentals of Aerodynamics*. New York: McGraw-Hill.
