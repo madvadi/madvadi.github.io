@@ -76,22 +76,22 @@ The objective of this work was not simply to produce CFD results, but to demonst
 
 In the following projects, using the methodology from (Roache, 2009), the calculation of the Grid Convergence Index (GCI) error is as follows:
 
-1. **Calculate Representative Grid Sizes ($h$):** Generate three distinct meshes—coarse, medium, and fine—and compute the characteristic grid size ($h_1, h_2, h_3$) for each using the total domain area and total cell count:
+1. **Calculate Representative Grid Sizes ($$h$$):** Generate three distinct meshes—coarse, medium, and fine—and compute the characteristic grid size ($$h_1, h_2, h_3$$) for each using the total domain area and total cell count:
    $$h = \sqrt{\frac{A_{\text{total}}}{N}}$$
 
-2. **Determine Grid Refinement Ratios ($r$):** Calculate the refinement ratios between the grid pairs. It is highly recommended to keep these ratios above 1.3 to ensure the grid resolutions are distinct enough to capture discretization changes:
+2. **Determine Grid Refinement Ratios ($$r$$):** Calculate the refinement ratios between the grid pairs. It is highly recommended to keep these ratios above 1.3 to ensure the grid resolutions are distinct enough to capture discretization changes:
    $$r_{21} = \frac{h_2}{h_1}, \quad r_{32} = \frac{h_3}{h_2}$$
 
-3. **Extract Solution Variables ($f$):** Run the CFD simulations and extract a critical target scalar variable (such as drag coefficient, lift coefficient, or peak velocity) from all three grids, yielding $f_1$ (fine), $f_2$ (medium), and $f_3$ (coarse).
+3. **Extract Solution Variables ($$f$$):** Run the CFD simulations and extract a critical target scalar variable (such as drag coefficient, lift coefficient, or peak velocity) from all three grids, yielding $$f_1$$ (fine), $$f_2$$ (medium), and $$f_3$$ (coarse).
 
-4. **Solve for the Local Order of Accuracy ($p$):** Solve iteratively for the apparent order of accuracy ($p$) using the grid refinement ratios and the differences between the solutions:
+4. **Solve for the Local Order of Accuracy ($$p$$):** Solve iteratively for the apparent order of accuracy ($$p$$) using the grid refinement ratios and the differences between the solutions:
    $$p = \frac{1}{\ln(r_{21})} \left| \ln\left| \frac{\epsilon_{32}}{\epsilon_{21}} \right| + q(p) \right|$$ 
-   where $q(p) = \ln\left(\frac{r_{21}^p - s}{r_{32}^p - s}\right)$, $\epsilon_{32} = f_3 - f_2$, $\epsilon_{21} = f_2 - f_1$, and $s = 1 \cdot \text{sgn}\left(\frac{\epsilon_{32}}{\epsilon_{21}}\right)$.
+   where $$q(p) = \ln\left(\frac{r_{21}^p - s}{r_{32}^p - s}\right)$$, $$\epsilon_{32} = f_3 - f_2$$, $$\epsilon_{21} = f_2 - f_1$$, and $$s = 1 \cdot \text{sgn}\left(\frac{\epsilon_{32}}{\epsilon_{21}}\right)$$.
 
-5. **Calculate Relative Error ($\epsilon_{32}$ and $\epsilon_{21}$):** Determine the relative error between the two finest grids:
+5. **Calculate Relative Error ($$\epsilon_{32}$$ and $$\epsilon_{21}$$):** Determine the relative error between the two finest grids:
    $$\epsilon_{21} = \left| \frac{f_2 - f_1}{f_1} \right| \quad \text{and} \quad \epsilon_{32} = \left| \frac{f_3 - f_2}{f_2} \right|$$
 
-6. **Compute the GCI Error:** Finally, calculate the fine- and medium-grid GCI error by applying a safety factor ($Fs$), which is typically set to 1.25 for a rigorous three-grid study: 
+6. **Compute the GCI Error:** Finally, calculate the fine- and medium-grid GCI error by applying a safety factor ($$Fs$$), which is typically set to 1.25 for a rigorous three-grid study: 
    $$GCI_{fine} = \frac{F_s \cdot \epsilon_{21}}{r_{21}^p - 1}$$.
 
 > **Note:** The resulting percentage represents your numerical uncertainty band. It quantifies how close your fine-grid solution is to the theoretical, asymptotic "grid-independent" solution.
@@ -108,15 +108,15 @@ To validate the internal field produced by the pressure solver, a unit case stud
 
 *Figure 1: Mesh with a 175 x 90 resolution and its corresponding boundary conditions.*
 
-The baseline mesh features a 175 by 90 grid size, with the boundary conditions shown in Figure 1. For these turbulence models, it is crucial that the mesh spacing near the wall remains under $y^+ = 1$ to fully resolve the viscous sublayer. Using the calculated $y$-coordinate value for $y^+ = 1$, I applied a simple expansion ratio to cluster the nodes closely along the $y$-axis. For the baseline mesh, the closest cell center to the wall was $1.4343 \times 10^{-5}$ meters.
+The baseline mesh features a 175 by 90 grid size, with the boundary conditions shown in Figure 1. For these turbulence models, it is crucial that the mesh spacing near the wall remains under $$y^+ = 1$$ to fully resolve the viscous sublayer. Using the calculated $$y$$-coordinate value for $$y^+ = 1$$, I applied a simple expansion ratio to cluster the nodes closely along the $$y$$-axis. For the baseline mesh, the closest cell center to the wall was $$1.4343 \times 10^{-5}$$ meters.
 
-For the grid independence study, a medium mesh was generated by multiplying the baseline mesh nodes by 1.5 in each direction, resulting in a 263 × 135 grid. For the fine mesh, the nodes were doubled in each direction relative to the baseline mesh, resulting in a grid size of 350 × 180. This yields refinement ratios of $r_{32} = 1.5$ and $r_{21} = 1.33$, both of which are above the recommended minimum refinement ratio of 1.1 (Roache, 2009). I chose these refinement sizes to be as efficient as possible while also being within the asymptotic range. 
+For the grid independence study, a medium mesh was generated by multiplying the baseline mesh nodes by 1.5 in each direction, resulting in a 263 × 135 grid. For the fine mesh, the nodes were doubled in each direction relative to the baseline mesh, resulting in a grid size of 350 × 180. This yields refinement ratios of $$r_{32} = 1.5$$ and $$r_{21} = 1.33$$, both of which are above the recommended minimum refinement ratio of 1.1 (Roache, 2009). I chose these refinement sizes to be as efficient as possible while also being within the asymptotic range. 
 
-This validation case was selected particularly because it shares similarities with the inlet boundary conditions of a CD nozzle. An inlet boundary for a CD nozzle requires one of the variables to float at the inlet to keep the throat choked (Anderson, 1995). Hence, total temperature and total pressure were chosen as the inlet boundary conditions, allowing the velocity to float. The total pressure and total temperature values were set using the case-specific ratios $p_t/p_{\text{ref}} = 1.02828$ and $T_t/T_{\text{ref}} = 1.008$, with $T_{\text{ref}} = 300\text{ K}$ and $p_{\text{ref}} = 101,325\text{ Pa}$. The outlet enforces a fixed static pressure matching the reference atmospheric value ($p/p_{\text{ref}} = 1$), while allowing velocity and temperature to float via zero-gradient conditions. 
+This validation case was selected particularly because it shares similarities with the inlet boundary conditions of a CD nozzle. An inlet boundary for a CD nozzle requires one of the variables to float at the inlet to keep the throat choked (Anderson, 1995). Hence, total temperature and total pressure were chosen as the inlet boundary conditions, allowing the velocity to float. The total pressure and total temperature values were set using the case-specific ratios $$p_t/p_{\text{ref}} = 1.02828$$ and $$T_t/T_{\text{ref}} = 1.008$$, with $$T_{\text{ref}} = 300\text{ K}$$ and $$p_{\text{ref}} = 101,325\text{ Pa}$$. The outlet enforces a fixed static pressure matching the reference atmospheric value ($$p/p_{\text{ref}} = 1$$), while allowing velocity and temperature to float via zero-gradient conditions. 
 
-The top patch boundary condition was set to freestream conditions using the reference velocity, pressure, and temperature values that were also applied to the internal field, thereby achieving a zero-pressure gradient along the $y$-axis. On the bottom surface, between the inlet and the plate, a symmetry condition is used to allow the freestream flow to make contact with the flat plate and enable the boundary layer to develop naturally. This is where the case slightly varies from a CD nozzle; in a nozzle, the inlet is located directly on a wall, meaning an initial turbulent boundary layer must be provided at the inlet. However, this validation case is used primarily to ensure that subsonic flows are correctly resolved by the solver setup. Finally, the flat plate has a no-slip velocity boundary condition, while temperature and pressure were set to zero-gradient. 
+The top patch boundary condition was set to freestream conditions using the reference velocity, pressure, and temperature values that were also applied to the internal field, thereby achieving a zero-pressure gradient along the $$y$$-axis. On the bottom surface, between the inlet and the plate, a symmetry condition is used to allow the freestream flow to make contact with the flat plate and enable the boundary layer to develop naturally. This is where the case slightly varies from a CD nozzle; in a nozzle, the inlet is located directly on a wall, meaning an initial turbulent boundary layer must be provided at the inlet. However, this validation case is used primarily to ensure that subsonic flows are correctly resolved by the solver setup. Finally, the flat plate has a no-slip velocity boundary condition, while temperature and pressure were set to zero-gradient. 
 
-For the Spalart–Allmaras model, the inlet values were set to $\tilde{\nu} = 3\nu = 4.7 \times 10^{-5}\text{ m}^2/\text{s}$, while the derived turbulent kinematic viscosity ($\nu_t$) naturally updates based on the local $\tilde{\nu}$ transport field (Spalart and Allmaras, 1992). The internal field was initialized with $\tilde{\nu} = 4.7 \times 10^{-5}\text{ m}^2/\text{s}$, and this same value was used for the top freestream boundary condition. At the outlet, an inlet-outlet condition was specified using this value, which appears to avoid numerical instabilities. On the plate, the boundary condition was set to a fixed value of $0\text{ m}^2/\text{s}$. The parameter $\nu_t$ is calculated everywhere because of its dependence on $\tilde{\nu}$, with the exception of the plate surface, where its value is fixed to $0\text{ m}^2/\text{s}$.
+For the Spalart–Allmaras model, the inlet values were set to $$\tilde{\nu} = 3\nu = 4.7 \times 10^{-5}\text{ m}^2/\text{s}$$, while the derived turbulent kinematic viscosity ($$\nu_t$$) naturally updates based on the local $$\tilde{\nu}$$ transport field (Spalart and Allmaras, 1992). The internal field was initialized with $$\tilde{\nu} = 4.7 \times 10^{-5}\text{ m}^2/\text{s}$$, and this same value was used for the top freestream boundary condition. At the outlet, an inlet-outlet condition was specified using this value, which appears to avoid numerical instabilities. On the plate, the boundary condition was set to a fixed value of $$0\text{ m}^2/\text{s}$$. The parameter $$\nu_t$$ is calculated everywhere because of its dependence on $$\tilde{\nu}$$, with the exception of the plate surface, where its value is fixed to $$0\text{ m}^2/\text{s}$$.
 
 ### Verification
 For verification, the residuals for velocity, pressure, and temperature were recorded to show that they met the convergence criteria, having dropped by at least three orders of magnitude and leveled out. Convergence criteria also dictate that the values of these quantities do not change for a steady-state flow; hence, several probes were placed in key locations, as shown in Table 1.
@@ -176,13 +176,13 @@ In Figures 6 and 7, the residuals have dropped to 1e-10 for Ux, 1e-08 for Uy, an
 
 *Figure 10: Temperature Probes.*
 
-To understand the contribution of viscosity to the drag, the skin friction coefficient profile is calculated across the plate, as seen in Figure 11. In Table 2, at several key points on the plate, the relative and GCI errors are calculated using $\text{Re}_{\theta}$ at that point. The solutions are found to have converged at those points, meaning the GCI and relative errors decrease as the meshes are refined.
+To understand the contribution of viscosity to the drag, the skin friction coefficient profile is calculated across the plate, as seen in Figure 11. In Table 2, at several key points on the plate, the relative and GCI errors are calculated using $$\text{Re}_{\theta}$$ at that point. The solutions are found to have converged at those points, meaning the GCI and relative errors decrease as the meshes are refined.
 
 ![SA Skin Friction Coefficient](plots/SA/SkinCoefficient.png)
 
 *Figure 11: Local skin friction coefficient distribution along the surface calculated with the SA model.*
 
-| $\text{Re}_{\theta}$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) | $\text{GCI}_{\text{medium}}$ (%) | $\text{GCI}_{\text{fine}}$ (%) |
+| $$\text{Re}_{\theta}$$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) | $$\text{GCI}_{\text{medium}}$$ (%) | $$\text{GCI}_{\text{fine}}$$ (%) |
 | -------------------- | --------- | --------- | ------- | --------------- | ------------- | -------------------------------- | ------------------------------ |
 | 4000                 | 0.00295   | 0.00311   | 0.00312 | 5.11            | 0.42          | 0.66                             | 0.12                           |
 | 6000                 | 0.00276   | 0.00289   | 0.00291 | 4.49            | 0.45          | 0.72                             | 0.15                           |
@@ -192,13 +192,13 @@ To understand the contribution of viscosity to the drag, the skin friction coeff
 
 *Table 2: Verification of mesh convergence using the skin-friction coefficient* $$C_f$$ *at selected momentum-thickness Reynolds numbers. Percentage differences are calculated relative to the finer mesh solution.*
 
-Because analytic profiles like Coles' Law do not cleanly describe the highly non-linear buffer zone ($5 < y^+ < 30$), validation comparison is isolated to the strictly valid algebraic limits: the linear viscous sublayer and the fully developed log-law region. Due to its complexity, this study will only validate the viscous sublayer and log-law $u^+$ velocity profiles. In Figure 12, between $5 < y^+ < 30$, $u^+ = y^+$ is used as a placeholder, while at $y^+ \le 5$, $y^+ = u^+$ is applied, and $y^+ > 30$ uses Coles' Mean Velocity profile law (AIAA TMRWG, 2026). All refinement levels show a similar profile in Figure 12. In Table 3, the relative and GCI errors measured at several key $y^+$ values systematically decrease with mesh refinement. The error notably decreases upon entering the log-law region soon after leaving the buffer zone (Apsley, 2009).
+Because analytic profiles like Coles' Law do not cleanly describe the highly non-linear buffer zone ($$5 < y^+ < 30$$), validation comparison is isolated to the strictly valid algebraic limits: the linear viscous sublayer and the fully developed log-law region. Due to its complexity, this study will only validate the viscous sublayer and log-law $$u^+$$ velocity profiles. In Figure 12, between $$5 < y^+ < 30$$, $$u^+ = y^+$$ is used as a placeholder, while at $$y^+ \le 5$$, $$y^+ = u^+$$ is applied, and $$y^+ > 30$$ uses Coles' Mean Velocity profile law (AIAA TMRWG, 2026). All refinement levels show a similar profile in Figure 12. In Table 3, the relative and GCI errors measured at several key $$y^+$$ values systematically decrease with mesh refinement. The error notably decreases upon entering the log-law region soon after leaving the buffer zone (Apsley, 2009).
 
 ![SA Dimensionless Velocity Profile (u+ vs y+)](plots/SA/u+y+.png)
 
 *Figure 12: Dimensionless boundary layer velocity profile (* $$u^+$$ *vs* $$y^+$$ *) plotted against the theoretical law of the wall using the SA model, at* $$\text{Re}_{\theta} = 10000$$.
 
-| $y^+$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) | $\text{GCI}_{\text{medium}}$ (%) | $\text{GCI}_{\text{fine}}$ (%) |
+| $$y^+$$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) | $$\text{GCI}_{\text{medium}}$$ (%) | $$\text{GCI}_{\text{fine}}$$ (%) |
 | ----- | --------- | --------- | ------- | --------------- | ------------- | -------------------------------- | ------------------------------ |
 | 35    | 13.9      | 13.6      | 13.6    | 2.44            | 0.573         | 0.832                            | 0.365                          |
 | 40    | 13.9      | 13.9      | 13.9    | 0.137           | 0.0689        | 0.148                            | 0.119                          |
@@ -217,7 +217,7 @@ As detailed in Table 5, the maximum deviation from the NASA baseline is 4% near 
 
 *Figure 13: Development of the momentum thickness Reynolds number (* $$Re_{\theta}$$ *) along the streamwise direction* $$\frac{x}{L}$$ *for the SA model, at* $$Re_{\theta} = 10000$$.
 
-| $\frac{x}{L_{\text{plate}}}$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) | $\text{GCI}_{\text{medium}}$ (%) | $\text{GCI}_{\text{fine}}$ (%) |
+| $$\frac{x}{L_{\text{plate}}}$$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) | $$\text{GCI}_{\text{medium}}$$ (%) | $$\text{GCI}_{\text{fine}}$$ (%) |
 | ---------------------------- | --------- | --------- | ------- | --------------- | ------------- | -------------------------------- | ------------------------------ |
 | 0.2                          | 3780      | 3620      | 3615    | 4.54            | 0.0161        | 0.0210                           | 3.89e-04                       |
 | 0.4                          | 6620      | 6490      | 6443    | 2.10            | 0.695         | 1.87                             | 1.02                           |
@@ -227,7 +227,7 @@ As detailed in Table 5, the maximum deviation from the NASA baseline is 4% near 
 
 *Table 4: Verification of mesh convergence based on the momentum-thickness Reynolds number* $$Re_{\theta}$$ *at selected streamwise locations. Percentage differences are calculated relative to the finer mesh solution.*
 
-| $\frac{x}{L_{\text{plate}}}$ | NASA TMR | x2 Mesh | Error (%) |
+| $$\frac{x}{L_{\text{plate}}}$$ | NASA TMR | x2 Mesh | Error (%) |
 | ---------------------------- | -------- | ------- | --------- |
 | 0.2                          | 3766     | 3615    | 4.00      |
 | 0.4                          | 6680     | 6443    | 3.54      |
@@ -238,9 +238,9 @@ As detailed in Table 5, the maximum deviation from the NASA baseline is 4% near 
 *Table 5: Validation of the mesh-independent solution using reference data from (AIAA TMRWG, 2026). Percentage error is calculated relative to the reference values.*
 
 ### Validation
-With the results verified, this section shows that the fine mesh results agree closely with the data from (AIAA TMRWG, 2026). In Table 6, the relative error between Kármán–Schoenherr (K-S) theory and the fine mesh results is under 1%, showing good agreement with the skin friction coefficient between $4000 < \text{Re}_{\theta} < 12000$.
+With the results verified, this section shows that the fine mesh results agree closely with the data from (AIAA TMRWG, 2026). In Table 6, the relative error between Kármán–Schoenherr (K-S) theory and the fine mesh results is under 1%, showing good agreement with the skin friction coefficient between $$4000 < \text{Re}_{\theta} < 12000$$.
 
-| $\text{Re}_{\theta}$ | Kármán–Schoenherr | x2 Mesh | Error (%) |
+| $$\text{Re}_{\theta}$$ | Kármán–Schoenherr | x2 Mesh | Error (%) |
 | -------------------- | ----------------- | ------- | --------- |
 | 4000                 | 0.00314           | 0.00312 | 0.785     |
 | 6000                 | 0.00290           | 0.00291 | 0.165     |
@@ -250,9 +250,9 @@ With the results verified, this section shows that the fine mesh results agree c
 
 *Table 6: Validation of the mesh-independent solution using the Kármán–Schoenherr skin-friction correlation. Percentage error is calculated relative to the reference correlation.*
 
-As stated in the verification section, the log-law region and viscous sublayer are validated for this study, while the buffer zone (i.e., $5 < y^+ < 30$) is disregarded. At $${Re}_{\theta} = 10000$$, within the log-law region, the lowest errors occur between $30 < y^+ < 100$, as Coles' law of the wall operates most accurately here. Beyond $y^+ = 300$, where $\frac{y}{\delta} = 0.1$, the error begins to increase as the flow approaches the outer layer, leaving the inner region and log-law layer at $y^+ = 860$, where $\frac{y}{\delta} = 0.3$.
+As stated in the verification section, the log-law region and viscous sublayer are validated for this study, while the buffer zone (i.e., $$5 < y^+ < 30$$) is disregarded. At $${Re}_{\theta} = 10000$$, within the log-law region, the lowest errors occur between $$30 < y^+ < 100$$, as Coles' law of the wall operates most accurately here. Beyond $$y^+ = 300$$, where $$\frac{y}{\delta} = 0.1$$, the error begins to increase as the flow approaches the outer layer, leaving the inner region and log-law layer at $$y^+ = 860$$, where $$\frac{y}{\delta} = 0.3$$.
 
-| $y^+$ Location | Coles Theory $u^+$ | x2 Mesh $u^+$ | Relative Error (%) |
+| $$y^+$$ Location | Coles Theory $$u^+$$ | x2 Mesh $$u^+$$ | Relative Error (%) |
 | :------------- | :----------------- | :------------ | :----------------- |
 | 35             | 13.4               | 13.6          | 1.53               |
 | 40             | 13.8               | 13.9          | 0.496              |
@@ -264,7 +264,7 @@ As stated in the verification section, the log-law region and viscous sublayer a
 *Table 7: Validation of the mesh-independent solution using Coles theory. Percentage error is calculated relative to the reference values.*
 
 ### Conclusion
-The results produced from this simulation using a pressure-based solver for subsonic, incompressible flow (i.e., $${Ma} < 0.3$$) agree closely with the validation data from the NASA TMR Zero Pressure Gradient flat plate case, with low GCI errors, under 1.08% which occurred in the $\text{Re}_{\theta}$ in Table 4. This demonstrates that the setup can reliably produce the initial internal field for the subsonic pre-inlet section of a CD nozzle. Consequently, the simulation settings validated here will successfully capture the subsonic, high-temperature, and high-pressure conditions present at the combustion chamber exit, where the gas behaves as an ideal gas at subsonic speeds.
+The results produced from this simulation using a pressure-based solver for subsonic, incompressible flow (i.e., $${Ma} < 0.3$$) agree closely with the validation data from the NASA TMR Zero Pressure Gradient flat plate case, with low GCI errors, under 1.08% which occurred in the $$\text{Re}_{\theta}$$ in Table 4. This demonstrates that the setup can reliably produce the initial internal field for the subsonic pre-inlet section of a CD nozzle. Consequently, the simulation settings validated here will successfully capture the subsonic, high-temperature, and high-pressure conditions present at the combustion chamber exit, where the gas behaves as an ideal gas at subsonic speeds.
 
 ## Engineering Outcome
 
