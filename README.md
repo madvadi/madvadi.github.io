@@ -1,6 +1,73 @@
-# Portfolio of Cenk Tekin CFD Projects
+# Engineering Case Studies in Computational Fluid Dynamics
+# Project Summary
+## Objective
 
-Introduction: This is a presentation of a number of CFD projects that I have been using to keep my skills up to date with advancements in OpenFOAM 13 and CFD in general.
+Validate a pressure-based compressible OpenFOAM solver for a turbulent flat-plate boundary layer against the NASA Turbulence Modeling Resource (TMR) benchmark. This validation forms the basis for its application to converging-diverging nozzle simulations, where accurate prediction of wall boundary layers and stable subsonic flow solutions are required.
+
+## Engineering Problem
+
+Pressure-based solvers provide improved numerical stability for low-Mach compressible flows but must be verified before being used in larger engineering applications. The objective of this study was to demonstrate that the solver configuration accurately reproduces a well-established benchmark case while exhibiting mesh-independent behaviour and numerical convergence.
+
+## Software and Tools
+
+* OpenFOAM 13
+* ParaView
+* Python (post-processing)
+* Git (version control)
+* Markdown documentation
+
+## Physics
+
+* Compressible subsonic flow (Mach 0.2)
+* Turbulent boundary layer
+* Ideal gas
+* Zero-pressure-gradient flat plate
+* Spalart–Allmaras turbulence model
+
+## Numerical Methods
+
+* Structured blockMesh grids
+* Three-grid refinement study
+* Grid Convergence Index (GCI)
+* Residual convergence monitoring
+* Probe-based solution verification
+* Comparison against NASA TMR reference data
+
+## Key Results
+
+* Stable pressure-based solver configuration established.
+* Grid-independent solution demonstrated using GCI methodology.
+* Residuals reduced by multiple orders of magnitude with stable monitored quantities.
+* Solver behaviour shown to agree with published benchmark data.
+
+## Skills Demonstrated
+
+* CFD solver configuration
+* OpenFOAM case development
+* Turbulence modelling
+* Mesh generation and refinement
+* Verification and validation (V&V)
+* Numerical error estimation
+* Engineering judgement
+* Technical report writing
+
+## My Contribution
+
+This project was completed independently to develop and demonstrate practical CFD engineering capability using OpenFOAM 13. My responsibilities included:
+
+* Developing the OpenFOAM case structure and simulation setup.
+* Selecting and justifying appropriate physical models and numerical methods.
+* Designing structured meshes suitable for boundary-layer resolution.
+* Performing a systematic three-grid refinement study.
+* Implementing Grid Convergence Index (GCI) calculations to quantify numerical uncertainty.
+* Defining and validating appropriate inlet, outlet, wall, and freestream boundary conditions.
+* Monitoring residuals and internal solution probes to verify convergence.
+* Post-processing simulation results and producing engineering figures.
+* Comparing numerical predictions against NASA Turbulence Modeling Resource benchmark data.
+* Documenting the methodology, assumptions, and engineering conclusions in a professional technical report.
+
+The objective of this work was not simply to produce CFD results, but to demonstrate a complete engineering workflow including verification, validation, and technical communication.
+
 
 ### Error Calculation Methodology
 
@@ -22,7 +89,7 @@ In the following projects, using the methodology from (Roache, 2009), the calcul
    $$\epsilon_{21} = \left| \frac{f_2 - f_1}{f_1} \right| \quad \text{and} \quad \epsilon_{32} = \left| \frac{f_3 - f_2}{f_2} \right|$$
 
 6. **Compute the GCI Error:** Finally, calculate the fine- and medium-grid GCI error by applying a safety factor ($Fs$), which is typically set to 1.25 for a rigorous three-grid study: 
-   $$\text{GCI}_{\text{fine}} = \frac{F_s \cdot \epsilon_{21}}{r_{21}^p - 1}$$
+   $$GCI_{fine} = \frac{F_s \cdot \epsilon_{21}}{r_{21}^p - 1}$$.
 
 > **Note:** The resulting percentage represents your numerical uncertainty band. It quantifies how close your fine-grid solution is to the theoretical, asymptotic "grid-independent" solution.
 
