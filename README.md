@@ -250,6 +250,22 @@ As stated in the verification section, the log-law region and viscous sublayer a
 ### Conclusion
 The results produced from this simulation using a pressure-based solver for subsonic, incompressible flow (i.e., $\text{Ma} < 0.3$) agree closely with the validation data from the NASA TMR Zero Pressure Gradient flat plate case, with low GCI errors, under 1.08% which occurred in the $\text{Re}_{\theta}$ in Table 4. This demonstrates that the setup can reliably produce the initial internal field for the subsonic pre-inlet section of a CD nozzle. Consequently, the simulation settings validated here will successfully capture the subsonic, high-temperature, and high-pressure conditions present at the combustion chamber exit, where the gas behaves as an ideal gas at subsonic speeds.
 
+## Engineering Outcome
+
+The validated solver configuration provides confidence that the numerical methodology is suitable for more complex internal flow applications, including converging-diverging nozzle simulations where accurate prediction of near-wall flow behaviour is essential. This project strengthened my practical understanding of:
+
+* CFD verification and validation methodologies.
+* Mesh independence and numerical uncertainty estimation.
+* Appropriate selection of turbulence models.
+* Boundary-condition specification for compressible flows.
+* Interpretation of convergence behaviour beyond residual monitoring.
+* Technical communication of engineering analyses.
+
+## Future Work
+
+Future developments will extend this validated solver setup to axisymmetric converging-diverging nozzle simulations incorporating heat transfer, variable geometry, and more complex flow physics while maintaining the same verification and validation methodology.
+
+
 ## References 
 
 Ghia, U., Ghia, K.N. and Shin, C.T., 1982. High-Re solutions for incompressible flow using the Navier-Stokes equations and a multigrid method. *Journal of Computational Physics*, 48(3), pp. 387–411.
