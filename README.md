@@ -1,6 +1,6 @@
 # Portfolio of Cenk Tekin CFD Projects
 
-Introduction: This is a presentation of a number of CFD projects that I have been using to keep my skills up to date with advancements in OpenFOAM 13 and CFD in general.
+Introduction: This document presents selected CFD studies completed to demonstrate competence, verification and validation methodology, turbulence modelling, and engineering analysis. OpenFOAM 13 is used in this project.
 
 ### Error Calculation Methodology
 
