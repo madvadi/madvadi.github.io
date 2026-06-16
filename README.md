@@ -176,6 +176,7 @@ In Figures 6 and 7, the residuals have dropped to 1e-10 for Ux, 1e-08 for Uy, an
 To understand the contribution of viscosity to the drag, the skin friction coefficient profile is calculated across the plate, as seen in Figure 11. In Table 2, at several key points on the plate, the relative and GCI errors are calculated using $\text{Re}_{\theta}$ at that point. The solutions are found to have converged at those points, meaning the GCI and relative errors decrease as the meshes are refined.
 
 ![SA Skin Friction Coefficient](plots/SA/SkinCoefficient.png)
+
 *Figure 11: Local skin friction coefficient distribution along the surface calculated with the SA model.*
 
 | $\text{Re}_{\theta}$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) | $\text{GCI}_{\text{medium}}$ (%) | $\text{GCI}_{\text{fine}}$ (%) |
