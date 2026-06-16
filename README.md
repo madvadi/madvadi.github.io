@@ -102,6 +102,7 @@ To validate the internal field produced by the pressure solver, a unit case stud
 ### Mesh and Boundary Conditions
 
 ![Flat Plate Mesh](plots/Mesh_N_BCs.png)
+
 *Figure 1: Mesh with a 175 x 90 resolution and its corresponding boundary conditions.*
 
 The baseline mesh features a 175 by 90 grid size, with the boundary conditions shown in Figure 1. For these turbulence models, it is crucial that the mesh spacing near the wall remains under $y^+ = 1$ to fully resolve the viscous sublayer. Using the calculated $y$-coordinate value for $y^+ = 1$, I applied a simple expansion ratio to cluster the nodes closely along the $y$-axis. For the baseline mesh, the closest cell center to the wall was $1.4343 \times 10^{-5}$ meters.
@@ -131,36 +132,45 @@ For verification, the residuals for velocity, pressure, and temperature were rec
 Probes 1 and 2 are positioned at the leading edge of the plate. This is where the wake forms as the flow hits the plate—a point of potential unsteady behavior—and is therefore worth monitoring to ensure that the values at those points stabilize. Probes 1, 3, and 5 are set 0.025 m from the wall. This ensures that the quantities are stable at two points within the log-law portion of the boundary layer (in the case of probes 3 and 5), and just above the leading edge to measure how the quantities are affected by the wake (in the case of probe 1). Probes 2, 4, and 6 are located in the freestream above the boundary layer to ensure that no unsteady behavior is occurring there and that the freestream values are maintained.
 
 ![SA Coarse Velocity Residuals](plots/SA/coarse/ResidualsOfVelocity.png)
+
 *Figure 2: Convergence history of velocity residuals for the SA model on the coarse mesh.*
 
 ![SA Coarse Pressure Residuals](plots/SA/coarse/ResidualsOfPressure.png)
+
 *Figure 3: Convergence history of pressure residuals for the SA model on the coarse mesh.*
 
 In Figures 2 and 3, it can be seen that the residuals have dropped and flatlined at 1e-05 for Ux, 1e-06 for Uy, and 1e-04 for pressure; hence, this meets the criteria for convergence for the coarse mesh. 
 
 ![SA Medium Velocity Residuals](plots/SA/medium/ResidualsOfVelocity.png)
+
 *Figure 4: Convergence history of velocity residuals for the SA model on the medium mesh.*
 
 ![SA Medium Pressure Residuals](plots/SA/medium/ResidualsOfPressure.png)
+
 *Figure 5: Convergence history of pressure residuals for the SA model on the medium mesh.*
 
 In Figures 4 and 5, it is visible that the residuals have dropped and averaged out at 1e-11 for Ux, 1e-09 for Uy, and 1e-07 for pressure; hence, this meets the criteria for convergence for the medium mesh. 
 
 ![SA Fine Velocity Residuals](plots/SA/fine/ResidualsOfVelocity.png)
+
 *Figure 6: Convergence history of velocity residuals for the SA model on the fine mesh.*
 
 ![SA Fine Pressure Residuals](plots/SA/fine/ResidualsOfPressure.png)
+
 *Figure 7: Convergence history of pressure residuals for the SA model on the fine mesh.*
 
 In Figures 6 and 7, the residuals have dropped to 1e-10 for Ux, 1e-08 for Uy, and 1e-07 for pressure, which have averaged out; hence, this meets the criteria for convergence for the fine mesh. However, as the order of magnitude did not perfectly flatline, it is important to show that the actual values stay consistent over the iterations. Figures 8–10 display the final values that each of the probes converged on by the end of the simulation, plotted against the number of cells used in the simulation. For all three variables, no significant change was found as the mesh was refined. 
 
 ![SA Fine Velocity Probes](plots/SA/AllLevelsVelocityProbes.png)
+
 *Figure 8: Velocity Probes.*
 
 ![SA Fine Pressure Probes](plots/SA/AllLevelsPressureProbes.png)
+
 *Figure 9: Pressure Probes.*
 
 ![SA Fine Temperature Probes](plots/SA/AllLevelsTemperatureProbes.png)
+
 *Figure 10: Temperature Probes.*
 
 To understand the contribution of viscosity to the drag, the skin friction coefficient profile is calculated across the plate, as seen in Figure 11. In Table 2, at several key points on the plate, the relative and GCI errors are calculated using $\text{Re}_{\theta}$ at that point. The solutions are found to have converged at those points, meaning the GCI and relative errors decrease as the meshes are refined.
@@ -181,6 +191,7 @@ To understand the contribution of viscosity to the drag, the skin friction coeff
 Because analytic profiles like Coles' Law do not cleanly describe the highly non-linear buffer zone ($5 < y^+ < 30$), validation comparison is isolated to the strictly valid algebraic limits: the linear viscous sublayer and the fully developed log-law region. Due to its complexity, this study will only validate the viscous sublayer and log-law $u^+$ velocity profiles. In Figure 12, between $5 < y^+ < 30$, $u^+ = y^+$ is used as a placeholder, while at $y^+ \le 5$, $y^+ = u^+$ is applied, and $y^+ > 30$ uses Coles' Mean Velocity profile law (AIAA TMRWG, 2026). All refinement levels show a similar profile in Figure 12. In Table 3, the relative and GCI errors measured at several key $y^+$ values systematically decrease with mesh refinement. The error notably decreases upon entering the log-law region soon after leaving the buffer zone (Apsley, 2009).
 
 ![SA Dimensionless Velocity Profile (u+ vs y+)](plots/SA/u+y+.png)
+
 *Figure 12: Dimensionless boundary layer velocity profile ($u^+$ vs $y^+$) plotted against the theoretical law of the wall using the SA model, at $\text{Re}_{\theta} = 10000.*
 
 | $y^+$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) | $\text{GCI}_{\text{medium}}$ (%) | $\text{GCI}_{\text{fine}}$ (%) |
@@ -199,6 +210,7 @@ To verify that the growth rate of the boundary layer follows the correct trend, 
 As detailed in Table 5, the maximum deviation from the NASA baseline is 4% near the leading edge, which progressively decreases downstream to 3.08% at the end of the plate. At the leading edge, the flow experiences a severe velocity gradient as it transitions from the freestream velocity to zero to satisfy the no-slip condition. In the ultimate CD nozzle configuration, the simulation inlet is located directly at the combustion chamber wall exit plane rather than introducing an upstream freestream stagnation point. Consequently, the downstream nozzle domain will entirely bypass this leading-edge singularity error. This localized stagnation effect introduces strong local pressure and velocity gradients that impact downstream eddy viscosity development, as evidenced at $\frac{x}{L_{\text{plate}}} = 0.2$ in Table 5. To mitigate this geometric singularity, the grid was refined toward the leading edge (Figure 1) to resolve these steep near-wall gradients. Because the NASA TMR data represents a model-agnostic, typical $\text{Re}_{\theta}$ progression, it is expected that specific implementations of the Spalart–Allmaras model will exhibit a minor, highly bounded variation while matching the overall spatial trend. 
 
 ![SA Momentum Thickness Reynolds Number vs X](plots/SA/ReThetaVsX.png)
+
 *Figure 13: Development of the momentum thickness Reynolds number ($\text{Re}_{\theta}$) along the streamwise direction $\frac{x}{L}$ for the SA model, at $\text{Re}_{\theta} = 10000$.*
 
 | $\frac{x}{L_{\text{plate}}}$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) | $\text{GCI}_{\text{medium}}$ (%) | $\text{GCI}_{\text{fine}}$ (%) |
@@ -209,7 +221,7 @@ As detailed in Table 5, the maximum deviation from the NASA baseline is 4% near 
 | 0.8                          | 11900     | 11600     | 11600   | 2.89            | 0.268         | 0.418                            | 0.0847                         |
 | 1.0                          | 14300     | 14000     | 13900   | 2.53            | 0.381         | 0.670                            | 0.196                          |
 
-*Table 4: Verification of mesh convergence based on the momentum-thickness Reynolds number $\text{Re}_{\theta}$ at selected streamwise locations. Percentage differences are calculated relative to the finer mesh solution.*
+*Table 4: Verification of mesh convergence based on the momentum-thickness Reynolds number* $$\text{Re}_{\theta}$$ *at selected streamwise locations. Percentage differences are calculated relative to the finer mesh solution.*
 
 | $\frac{x}{L_{\text{plate}}}$ | NASA TMR | x2 Mesh | Error (%) |
 | ---------------------------- | -------- | ------- | --------- |
