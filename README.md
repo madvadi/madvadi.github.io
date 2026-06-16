@@ -186,13 +186,13 @@ To understand the contribution of viscosity to the drag, the skin friction coeff
 | 10000                | 0.00256   | 0.00265   | 0.00266 | 3.47            | 0.29          | 0.44                             | 0.08                           |
 | 11500                | 0.00250   | 0.00258   | 0.00259 | 3.28            | 0.25          | 0.20                             | 0.07                           |
 
-*Table 2: Verification of mesh convergence using the skin-friction coefficient $C_f$ at selected momentum-thickness Reynolds numbers. Percentage differences are calculated relative to the finer mesh solution.*
+*Table 2: Verification of mesh convergence using the skin-friction coefficient* $$C_f$$ *at selected momentum-thickness Reynolds numbers. Percentage differences are calculated relative to the finer mesh solution.*
 
 Because analytic profiles like Coles' Law do not cleanly describe the highly non-linear buffer zone ($5 < y^+ < 30$), validation comparison is isolated to the strictly valid algebraic limits: the linear viscous sublayer and the fully developed log-law region. Due to its complexity, this study will only validate the viscous sublayer and log-law $u^+$ velocity profiles. In Figure 12, between $5 < y^+ < 30$, $u^+ = y^+$ is used as a placeholder, while at $y^+ \le 5$, $y^+ = u^+$ is applied, and $y^+ > 30$ uses Coles' Mean Velocity profile law (AIAA TMRWG, 2026). All refinement levels show a similar profile in Figure 12. In Table 3, the relative and GCI errors measured at several key $y^+$ values systematically decrease with mesh refinement. The error notably decreases upon entering the log-law region soon after leaving the buffer zone (Apsley, 2009).
 
 ![SA Dimensionless Velocity Profile (u+ vs y+)](plots/SA/u+y+.png)
 
-*Figure 12: Dimensionless boundary layer velocity profile ($u^+$ vs $y^+$) plotted against the theoretical law of the wall using the SA model, at $\text{Re}_{\theta} = 10000.*
+*Figure 12: Dimensionless boundary layer velocity profile (* $$u^+$$ *vs* $$y^+$$ *) plotted against the theoretical law of the wall using the SA model, at* $$\text{Re}_{\theta} = 10000$$.
 
 | $y^+$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) | $\text{GCI}_{\text{medium}}$ (%) | $\text{GCI}_{\text{fine}}$ (%) |
 | ----- | --------- | --------- | ------- | --------------- | ------------- | -------------------------------- | ------------------------------ |
@@ -203,7 +203,7 @@ Because analytic profiles like Coles' Law do not cleanly describe the highly non
 | 300   | 18.8      | 18.9      | 18.9    | 0.730           | 0.00415       | 0.0102                           | 0.909                          |
 | 1000  | 22.0      | 21.9      | 21.9    | 0.521           | 0.210         | 0.382                            | 0.258                          |
 
-*Table 3: Verification of mesh convergence based on the $u^+$ value relative to the $y^+$ values. Percentage differences are calculated relative to the finer mesh solution.*
+*Table 3: Verification of mesh convergence based on the* $$u^+$$ *value relative to the* $$y^+$$ *values. Percentage differences are calculated relative to the finer mesh solution.*
 
 To verify that the growth rate of the boundary layer follows the correct trend, the $\text{Re}_{\theta}$ profile is plotted along the plate for all mesh refinements (Figure 13). The $\text{Re}_{\theta}$ results demonstrate excellent grid convergence with one another, as supported by Table 4, where the relative and Grid Convergence Index (GCI) errors systematically decrease to well under 1%. While grid-independent, the profiles maintain a small, stable offset from the reference data provided by the NASA Turbulence Modeling Resource (NASA TMR, 2026). 
 
@@ -211,7 +211,7 @@ As detailed in Table 5, the maximum deviation from the NASA baseline is 4% near 
 
 ![SA Momentum Thickness Reynolds Number vs X](plots/SA/ReThetaVsX.png)
 
-*Figure 13: Development of the momentum thickness Reynolds number ($\text{Re}_{\theta}$) along the streamwise direction $\frac{x}{L}$ for the SA model, at $\text{Re}_{\theta} = 10000$.*
+*Figure 13: Development of the momentum thickness Reynolds number (* $$\text{Re}_{\theta}$$ *) along the streamwise direction* $$\frac{x}{L}$$ *for the SA model, at* $$\text{Re}_{\theta} = 10000$$.
 
 | $\frac{x}{L_{\text{plate}}}$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) | $\text{GCI}_{\text{medium}}$ (%) | $\text{GCI}_{\text{fine}}$ (%) |
 | ---------------------------- | --------- | --------- | ------- | --------------- | ------------- | -------------------------------- | ------------------------------ |
