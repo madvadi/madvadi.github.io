@@ -1,6 +1,6 @@
 # Portfolio of Cenk Tekin CFD Projects
 
-Introduction: This document presents selected CFD studies completed to demonstrate competence, verification and validation methodology, turbulence modelling, and engineering analysis. OpenFOAM 13 is used in this project.
+Introduction: This is a presentation of a number of CFD projects that I have been using to keep my skills up to date with advancements in OpenFOAM 13 and CFD in general.
 
 ### Error Calculation Methodology
 
@@ -22,7 +22,7 @@ In the following projects, using the methodology from (Roache, 2009), the calcul
    $$\epsilon_{21} = \left| \frac{f_2 - f_1}{f_1} \right| \quad \text{and} \quad \epsilon_{32} = \left| \frac{f_3 - f_2}{f_2} \right|$$
 
 6. **Compute the GCI Error:** Finally, calculate the fine- and medium-grid GCI error by applying a safety factor ($Fs$), which is typically set to 1.25 for a rigorous three-grid study: 
-   $$GCI_{fine} = \frac{F_s \cdot \epsilon_{21}}{r_{21}^p - 1}$$
+   $$\text{GCI}_{\text{fine}} = \frac{F_s \cdot \epsilon_{21}}{r_{21}^p - 1}$$
 
 > **Note:** The resulting percentage represents your numerical uncertainty band. It quantifies how close your fine-grid solution is to the theoretical, asymptotic "grid-independent" solution.
 
@@ -96,4 +96,105 @@ In Figures 6 and 7, the residuals have dropped to 1e-10 for Ux, 1e-08 for Uy, an
 ![SA Fine Temperature Probes](plots/SA/AllLevelsTemperatureProbes.png)
 *Figure 10: Temperature Probes.*
 
-To understand the contribution of viscosity to the drag, the skin friction coefficient
+To understand the contribution of viscosity to the drag, the skin friction coefficient profile is calculated across the plate, as seen in Figure 11. In Table 2, at several key points on the plate, the relative and GCI errors are calculated using $\text{Re}_{\theta}$ at that point. The solutions are found to have converged at those points, meaning the GCI and relative errors decrease as the meshes are refined.
+
+![SA Skin Friction Coefficient](plots/SA/SkinCoefficient.png)
+*Figure 11: Local skin friction coefficient distribution along the surface calculated with the SA model.*
+
+| $\text{Re}_{\theta}$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) | $\text{GCI}_{\text{medium}}$ (%) | $\text{GCI}_{\text{fine}}$ (%) |
+| -------------------- | --------- | --------- | ------- | --------------- | ------------- | -------------------------------- | ------------------------------ |
+| 4000                 | 0.00295   | 0.00311   | 0.00312 | 5.11            | 0.42          | 0.66                             | 0.12                           |
+| 6000                 | 0.00276   | 0.00289   | 0.00291 | 4.49            | 0.45          | 0.72                             | 0.15                           |
+| 8000                 | 0.00265   | 0.00275   | 0.00276 | 3.83            | 0.48          | 0.81                             | 0.21                           |
+| 10000                | 0.00256   | 0.00265   | 0.00266 | 3.47            | 0.29          | 0.44                             | 0.08                           |
+| 11500                | 0.00250   | 0.00258   | 0.00259 | 3.28            | 0.25          | 0.20                             | 0.07                           |
+
+*Table 2: Verification of mesh convergence using the skin-friction coefficient $C_f$ at selected momentum-thickness Reynolds numbers. Percentage differences are calculated relative to the finer mesh solution.*
+
+Because analytic profiles like Coles' Law do not cleanly describe the highly non-linear buffer zone ($5 < y^+ < 30$), validation comparison is isolated to the strictly valid algebraic limits: the linear viscous sublayer and the fully developed log-law region. Due to its complexity, this study will only validate the viscous sublayer and log-law $u^+$ velocity profiles. In Figure 12, between $5 < y^+ < 30$, $u^+ = y^+$ is used as a placeholder, while at $y^+ \le 5$, $y^+ = u^+$ is applied, and $y^+ > 30$ uses Coles' Mean Velocity profile law (AIAA TMRWG, 2026). All refinement levels show a similar profile in Figure 12. In Table 3, the relative and GCI errors measured at several key $y^+$ values systematically decrease with mesh refinement. The error notably decreases upon entering the log-law region soon after leaving the buffer zone (Apsley, 2009).
+
+![SA Dimensionless Velocity Profile (u+ vs y+)](plots/SA/u+y+.png)
+*Figure 12: Dimensionless boundary layer velocity profile ($u^+$ vs $y^+$) plotted against the theoretical law of the wall using the SA model, at $\text{Re}_{\theta} = 10000.*
+
+| $y^+$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) | $\text{GCI}_{\text{medium}}$ (%) | $\text{GCI}_{\text{fine}}$ (%) |
+| ----- | --------- | --------- | ------- | --------------- | ------------- | -------------------------------- | ------------------------------ |
+| 35    | 13.9      | 13.6      | 13.6    | 2.44            | 0.573         | 0.832                            | 0.365                          |
+| 40    | 13.9      | 13.9      | 13.9    | 0.137           | 0.0689        | 0.148                            | 0.119                          |
+| 50    | 14.4      | 14.5      | 14.6    | 1.21            | 0.472         | 1.56                             | 0.961                          |
+| 100   | 16.2      | 16.3      | 16.3    | 0.283           | 0.0259        | 0.0405                           | 8.14e-03                       |
+| 300   | 18.8      | 18.9      | 18.9    | 0.730           | 0.00415       | 0.0102                           | 0.909                          |
+| 1000  | 22.0      | 21.9      | 21.9    | 0.521           | 0.210         | 0.382                            | 0.258                          |
+
+*Table 3: Verification of mesh convergence based on the $u^+$ value relative to the $y^+$ values. Percentage differences are calculated relative to the finer mesh solution.*
+
+To verify that the growth rate of the boundary layer follows the correct trend, the $\text{Re}_{\theta}$ profile is plotted along the plate for all mesh refinements (Figure 13). The $\text{Re}_{\theta}$ results demonstrate excellent grid convergence with one another, as supported by Table 4, where the relative and Grid Convergence Index (GCI) errors systematically decrease to well under 1%. While grid-independent, the profiles maintain a small, stable offset from the reference data provided by the NASA Turbulence Modeling Resource (NASA TMR, 2026). 
+
+As detailed in Table 5, the maximum deviation from the NASA baseline is 4% near the leading edge, which progressively decreases downstream to 3.08% at the end of the plate. At the leading edge, the flow experiences a severe velocity gradient as it transitions from the freestream velocity to zero to satisfy the no-slip condition. In the ultimate CD nozzle configuration, the simulation inlet is located directly at the combustion chamber wall exit plane rather than introducing an upstream freestream stagnation point. Consequently, the downstream nozzle domain will entirely bypass this leading-edge singularity error. This localized stagnation effect introduces strong local pressure and velocity gradients that impact downstream eddy viscosity development, as evidenced at $\frac{x}{L_{\text{plate}}} = 0.2$ in Table 5. To mitigate this geometric singularity, the grid was refined toward the leading edge (Figure 1) to resolve these steep near-wall gradients. Because the NASA TMR data represents a model-agnostic, typical $\text{Re}_{\theta}$ progression, it is expected that specific implementations of the Spalart–Allmaras model will exhibit a minor, highly bounded variation while matching the overall spatial trend. 
+
+![SA Momentum Thickness Reynolds Number vs X](plots/SA/ReThetaVsX.png)
+*Figure 13: Development of the momentum thickness Reynolds number ($\text{Re}_{\theta}$) along the streamwise direction $\frac{x}{L}$ for the SA model, at $\text{Re}_{\theta} = 10000$.*
+
+| $\frac{x}{L_{\text{plate}}}$ | Base Mesh | x1.5 Mesh | x2 Mesh | Base → x1.5 (%) | x1.5 → x2 (%) | $\text{GCI}_{\text{medium}}$ (%) | $\text{GCI}_{\text{fine}}$ (%) |
+| ---------------------------- | --------- | --------- | ------- | --------------- | ------------- | -------------------------------- | ------------------------------ |
+| 0.2                          | 3780      | 3620      | 3615    | 4.54            | 0.0161        | 0.0210                           | 3.89e-04                       |
+| 0.4                          | 6620      | 6490      | 6443    | 2.10            | 0.695         | 1.87                             | 1.02                           |
+| 0.6                          | 9320      | 9130      | 9070    | 2.08            | 0.707         | 1.95                             | 1.08                           |
+| 0.8                          | 11900     | 11600     | 11600   | 2.89            | 0.268         | 0.418                            | 0.0847                         |
+| 1.0                          | 14300     | 14000     | 13900   | 2.53            | 0.381         | 0.670                            | 0.196                          |
+
+*Table 4: Verification of mesh convergence based on the momentum-thickness Reynolds number $\text{Re}_{\theta}$ at selected streamwise locations. Percentage differences are calculated relative to the finer mesh solution.*
+
+| $\frac{x}{L_{\text{plate}}}$ | NASA TMR | x2 Mesh | Error (%) |
+| ---------------------------- | -------- | ------- | --------- |
+| 0.2                          | 3766     | 3615    | 4.00      |
+| 0.4                          | 6680     | 6443    | 3.54      |
+| 0.6                          | 9428     | 9067    | 3.83      |
+| 0.8                          | 11961    | 11578   | 3.21      |
+| 1.0                          | 14384    | 13941   | 3.08      |
+
+*Table 5: Validation of the mesh-independent solution using reference data from (AIAA TMRWG, 2026). Percentage error is calculated relative to the reference values.*
+
+### Validation
+With the results verified, this section shows that the fine mesh results agree closely with the data from (AIAA TMRWG, 2026). In Table 6, the relative error between Kármán–Schoenherr (K-S) theory and the fine mesh results is under 1%, showing good agreement with the skin friction coefficient between $4000 < \text{Re}_{\theta} < 12000$.
+
+| $\text{Re}_{\theta}$ | Kármán–Schoenherr | x2 Mesh | Error (%) |
+| -------------------- | ----------------- | ------- | --------- |
+| 4000                 | 0.00314           | 0.00312 | 0.785     |
+| 6000                 | 0.00290           | 0.00291 | 0.165     |
+| 8000                 | 0.00275           | 0.00276 | 0.671     |
+| 10000                | 0.00263           | 0.00266 | 0.854     |
+| 11500                | 0.00257           | 0.00259 | 0.772     |
+
+*Table 6: Validation of the mesh-independent solution using the Kármán–Schoenherr skin-friction correlation. Percentage error is calculated relative to the reference correlation.*
+
+As stated in the verification section, the log-law region and viscous sublayer are validated for this study, while the buffer zone (i.e., $5 < y^+ < 30$) is disregarded. At $\text{Re}_{\theta} = 10000$, within the log-law region, the lowest errors occur between $30 < y^+ < 100$, as Coles' law of the wall operates most accurately here. Beyond $y^+ = 300$, where $\frac{y}{\delta} = 0.1$, the error begins to increase as the flow approaches the outer layer, leaving the inner region and log-law layer at $y^+ = 860$, where $\frac{y}{\delta} = 0.3$.
+
+| $y^+$ Location | Coles Theory $u^+$ | x2 Mesh $u^+$ | Relative Error (%) |
+| :------------- | :----------------- | :------------ | :----------------- |
+| 35             | 13.4               | 13.6          | 1.53               |
+| 40             | 13.8               | 13.9          | 0.496              |
+| 50             | 14.5               | 14.6          | 0.996              |
+| 100            | 16.2               | 16.3          | 0.304              |
+| 300            | 19.0               | 18.8          | 0.564              |
+| 1000           | 22.4               | 21.9          | 1.96               |
+
+*Table 7: Validation of the mesh-independent solution using Coles theory. Percentage error is calculated relative to the reference values.*
+
+### Conclusion
+The results produced from this simulation using a pressure-based solver for subsonic, incompressible flow (i.e., $\text{Ma} < 0.3$) agree closely with the validation data from the NASA TMR Zero Pressure Gradient flat plate case, with low GCI errors, under 1.08% which occurred in the $\text{Re}_{\theta}$ in Table 4. This demonstrates that the setup can reliably produce the initial internal field for the subsonic pre-inlet section of a CD nozzle. Consequently, the simulation settings validated here will successfully capture the subsonic, high-temperature, and high-pressure conditions present at the combustion chamber exit, where the gas behaves as an ideal gas at subsonic speeds.
+
+## References 
+
+Ghia, U., Ghia, K.N. and Shin, C.T., 1982. High-Re solutions for incompressible flow using the Navier-Stokes equations and a multigrid method. *Journal of Computational Physics*, 48(3), pp. 387–411.
+
+AIAA Turbulence Model Benchmarking Working Group (TMRWG), 2026. *Turbulence Modeling Resource: Zero Pressure Gradient Flat Plate Validation Case*. Available at: <https://tmbwg.github.io/turbmodels/flatplate_val.html> [Accessed 9 June 2026].
+
+Ansys (2026) Ansys Fluent Theory Guide. Canonsburg, PA: Ansys, Inc.
+
+Spalart, P.R. and Allmaras, S.R. (1992) 'A one-equation turbulence model for aerodynamic flows', Technical Report AIAA-92-0439. Reno, NV: American Institute of Aeronautics and Astronautics. doi: 10.2514/6.1992-439.
+
+Apsley, D., 2009. Structure of a Turbulent Boundary Layer. Lecture Notes: Turbulent Boundary Layers. University of Manchester. Available at: https://personalpages.manchester.ac.uk/staff/david.d.apsley/lectures/turbbl/regions.pdf [Accessed 15 June 2026].
+
+Roache, P.J., 2009. *Fundamentals of Verification and Validation*. Albuquerque: Hermosa Publishers.
+
+Anderson, J.D., 1995. *Computational Fluid Dynamics: The Basics with Applications*. New York: McGraw-Hill.
