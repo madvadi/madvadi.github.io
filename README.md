@@ -299,3 +299,6 @@ Roache, P.J., 2009. *Fundamentals of Verification and Validation*. Albuquerque: 
 Anderson, J.D., 1995. *Computational Fluid Dynamics: The Basics with Applications*. New York: McGraw-Hill.
 
 Anderson, J.D., 1984. *Fundamentals of Aerodynamics*. New York: McGraw-Hill.
+
+<script data-goatcounter="https://madvadi.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
